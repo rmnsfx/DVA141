@@ -1,0 +1,37 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+/ArchitectureLib/
+/.metadata/
+/Packages
+*.log
+#### visual studio
+*.obj
+*.pdb
+*.sdf
+*.suo
+*.opensdf
+*Debug
+*Release
+*obj
+### IAR
+*.out
+*.sim
+*.map
+*.o
+*.pbd
+*.browser
+*.pbi
+*.cout
+*.wspos
+*.wsdt
+*.dbgdt
+### IAR settings
+*.crun
+*.dni
+*.xcl
+*.ewt
+*.dep
+*.lst
+
+/output/
