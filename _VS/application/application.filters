@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Файлы исходного кода">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Заголовочные файлы">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Application">
+      <UniqueIdentifier>{fb767459-4f05-4996-9574-b528893b37f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Drivers">
+      <UniqueIdentifier>{db52a3d2-bf65-4c5a-9896-bbea857341e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Drivers\CMSIS">
+      <UniqueIdentifier>{ff79ae4c-4297-4354-9f5f-80cfe7eaef30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Unity">
+      <UniqueIdentifier>{25416368-6034-47a0-80fa-a1363f7e396a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Unity\src">
+      <UniqueIdentifier>{d71d8153-9ed7-48a6-b6d1-c67deff6348a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Tests">
+      <UniqueIdentifier>{9a3ee81f-3a3b-4f0f-8fa4-03d6ba838540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\include">
+      <UniqueIdentifier>{c16bb7bf-ce96-4fe9-8844-11f11fff65a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver">
+      <UniqueIdentifier>{23c2cb9c-be76-423a-9705-acb4e9c0bba2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src">
+      <UniqueIdentifier>{2b5c5c5f-ea0f-4c14-a840-516929b3f0c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc">
+      <UniqueIdentifier>{f9d86826-a392-4823-b4aa-c448ccacb1db}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Unity\src\unity.cpp">
+      <Filter>Файлы исходного кода\Unity\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\misc.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cec.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dsi.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash_ramfunc.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmpi2c.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_lptim.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_qspi.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spdifrx.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\_IAR\board_testing\SDRAM\main.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Unity\src\unity.h">
+      <Filter>Файлы исходного кода\Unity\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Unity\src\unity_internals.h">
+      <Filter>Файлы исходного кода\Unity\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\com_module_SDRAM.h">
+      <Filter>Файлы исходного кода\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\stm32f4xx_conf.h">
+      <Filter>Файлы исходного кода\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\misc.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_cec.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_cryp.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dac.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dcmi.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma2d.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dsi.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_exti.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_flash.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_flash_ramfunc.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmpi2c.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fsmc.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_gpio.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_hash.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_i2c.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_iwdg.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_lptim.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_pwr.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_qspi.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rcc.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rng.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rtc.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sdio.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spdifrx.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spi.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_syscfg.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_tim.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h">
+      <Filter>Файлы исходного кода\Drivers\STM32F4xx_StdPeriph_Driver\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\_IAR\board_testing\Tests\sdram_test.h">
+      <Filter>Файлы исходного кода\Tests</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\iar\startup_stm32f429_439xx.s">
+      <Filter>Файлы исходного кода\Application</Filter>
+    </None>
+  </ItemGroup>
+</Project>
