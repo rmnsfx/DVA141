@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7a00ff-fdbc-41e2-b17e-41f4da0bc803" name="UMLClassDiagram1" linkedPackageId="7e08a497-de30-448b-84b1-53778f9f9c71" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="934aed92-c302-4de4-b364-ed760dcfa1ed">
+      <profileInstance Id="3ba8817e-bae8-45ee-b546-7783157f85e5" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="0a9ad39e-1d47-4c32-8e64-bc2e16986ac4">
+      <profileInstance Id="d6043c02-e1d9-4f47-8e0d-f74662af80fc" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="95a3be8b-a272-402b-a5fe-e7ed1d20bf25" name="modbus" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="98a62649-a331-42b6-b2be-d49695f2b187" />
+        <generalsInternal>
+          <generalization Id="459ee7f1-17c2-41df-a372-0d6786bb06cb" isSubstitutable="false">
+            <classMoniker Id="9ffb24e3-ae0a-473c-b48d-fb2c34e29fc9" LastKnownName="Settings" />
+            <elementDefinition Id="710e3b2d-7dc7-488b-a985-3f32a1136feb" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2d99fce4-6c91-4ea0-8b16-67b836dce224" name="Out_4_20" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="031d947f-4cef-49ae-8799-e351a1a0da40" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a3df6d4f-dd9b-4dbb-8d2b-b65d1c482791" name="Axelerometr" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a05c1887-f19c-4178-886b-07df0a0c77c8" />
+        <targetEnds>
+          <association Id="6873a292-ecaf-4e75-9c06-846e237ac3c2" isDerived="false" sourceEndRoleName="Axelerometr" targetEndRoleName="Signal_processing" isLeaf="false" isAbstract="false">
+            <classMoniker Id="0f7b7187-212a-40c6-8876-96a57fb6617d" LastKnownName="Axis_signal" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6a524ae6-5d2b-4f31-8c8c-7a5570667a06" name="Axelerometr" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a868f16f-afea-455c-be5e-70747e92148b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9c07a3cf-95dd-4e08-bbcd-1138747ba6b6" name="Signal_processing" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="12e676e1-85c6-422c-819b-8a1c69667903" name="Lower" value="3">
+                      <elementDefinition Id="4e059e72-575e-4559-8585-e5be5f0dd1b7" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="2e40f33b-f820-41f6-88fc-e4a1d5a35e59" name="Upper" value="3">
+                      <elementDefinition Id="7f665668-ea26-4341-8120-5a5015319fa6" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="aabc3eb9-d34b-424a-a74d-ac87d574b687" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d7fa93c0-8270-4293-9e1a-4f013e54e4d4" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0f7b7187-212a-40c6-8876-96a57fb6617d" name="Axis_signal" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="53153019-b593-4892-8b61-e3c0bf9f84f8" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e15885c8-9ed9-4530-b94f-8a2eaa59380f" name="Generator_output_signals" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <description>имеет методы для выбора алгоритма формирования выходного сигнала, 
+сигнал может формироваться как из данных по одной оси, 
+так и из данных по нескольким осям(вектор)</description>
+        <elementDefinition Id="f226abb2-23d8-4e54-962e-cb4ca303d291" />
+        <suppliersInternal>
+          <dependency Id="c78ff5e8-5ec1-48c3-b386-99f2fa5f3297">
+            <classMoniker Id="0f7b7187-212a-40c6-8876-96a57fb6617d" LastKnownName="Axis_signal" />
+            <elementDefinition Id="99274c11-329e-471d-944f-36ad8b9dd733" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="20179fb3-fd9f-40aa-afc4-160580a7485b" isDerived="false" sourceEndRoleName="Generator_output_signals" targetEndRoleName="Out_4_20" isLeaf="false" isAbstract="false">
+            <classMoniker Id="2d99fce4-6c91-4ea0-8b16-67b836dce224" LastKnownName="Out_4_20" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3337213e-5f22-436a-bbe5-9c64f4608f97" name="Generator_output_signals" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="67d0ef86-99a5-488a-817e-b4214c34a936" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9d79e55c-6c1f-4afa-8cd6-6b1aeaf94b8d" name="Out_4_20" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="bc209c72-9a76-4d83-b890-19532355fd40" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="180c255a-67b9-4a01-ad34-d27042323e87" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2d5c5267-ea75-4198-ae45-fd56d7d9a74e" name="Hart" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f1138489-2cbb-49af-8091-f7299403fbc0" />
+        <generalsInternal>
+          <generalization Id="7dfb9848-f480-4d13-a9d6-e15457f0fd33" isSubstitutable="false">
+            <classMoniker Id="9ffb24e3-ae0a-473c-b48d-fb2c34e29fc9" LastKnownName="Settings" />
+            <elementDefinition Id="8eb6c92a-b468-4229-860d-ed2bed83a3d1" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9ffb24e3-ae0a-473c-b48d-fb2c34e29fc9" name="Settings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="69db2740-af37-4308-93d2-61d8cd906257" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="80cad7b9-d59b-489f-8193-bf16c274856d" name="Signals" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="439b23c6-a54a-4d17-a105-28b10efc2377" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="7e08a497-de30-448b-84b1-53778f9f9c71" name="architecture">
+    <elementDefinition Id="1f9149f4-aa07-4e2f-b33b-5b496330a735" />
+  </package>
+</logicalClassDesignerModel>
