@@ -5,6 +5,7 @@
 /.metadata/
 /Packages
 *.log
+*.tmp
 #### visual studio
 *.obj
 *.pdb
