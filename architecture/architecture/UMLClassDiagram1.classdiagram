@@ -1,27 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7a00ff-fdbc-41e2-b17e-41f4da0bc803" name="UMLClassDiagram1" linkedPackageId="7e08a497-de30-448b-84b1-53778f9f9c71" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="934aed92-c302-4de4-b364-ed760dcfa1ed">
-      <profileInstance Id="3ba8817e-bae8-45ee-b546-7783157f85e5" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="0a9ad39e-1d47-4c32-8e64-bc2e16986ac4">
-      <profileInstance Id="d6043c02-e1d9-4f47-8e0d-f74662af80fc" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="95a3be8b-a272-402b-a5fe-e7ed1d20bf25" name="modbus" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="98a62649-a331-42b6-b2be-d49695f2b187" />
         <generalsInternal>
-          <generalization Id="459ee7f1-17c2-41df-a372-0d6786bb06cb" isSubstitutable="false">
-            <classMoniker Id="9ffb24e3-ae0a-473c-b48d-fb2c34e29fc9" LastKnownName="Settings" />
-            <elementDefinition Id="710e3b2d-7dc7-488b-a985-3f32a1136feb" />
+          <generalization Id="50ff90ce-701d-4588-9e55-e400248ad026" isSubstitutable="false">
+            <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="iSettings" />
+            <elementDefinition Id="ea48fd25-caf4-490b-8b2b-86bd40ad4378" />
           </generalization>
         </generalsInternal>
       </class>
@@ -105,25 +91,78 @@
       <class Id="2d5c5267-ea75-4198-ae45-fd56d7d9a74e" name="Hart" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="f1138489-2cbb-49af-8091-f7299403fbc0" />
         <generalsInternal>
-          <generalization Id="7dfb9848-f480-4d13-a9d6-e15457f0fd33" isSubstitutable="false">
-            <classMoniker Id="9ffb24e3-ae0a-473c-b48d-fb2c34e29fc9" LastKnownName="Settings" />
-            <elementDefinition Id="8eb6c92a-b468-4229-860d-ed2bed83a3d1" />
+          <generalization Id="2b770f78-4a38-4ab0-8fa1-58d9f3c87ed3" isSubstitutable="false">
+            <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="iSettings" />
+            <elementDefinition Id="382ba825-9fd3-49b9-9526-e2d5301970df" />
           </generalization>
         </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="9ffb24e3-ae0a-473c-b48d-fb2c34e29fc9" name="Settings" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="69db2740-af37-4308-93d2-61d8cd906257" />
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="80cad7b9-d59b-489f-8193-bf16c274856d" name="Signals" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="439b23c6-a54a-4d17-a105-28b10efc2377" />
+      <class Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" name="iSettings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b" />
+        <targetEnds>
+          <association Id="084e0c36-3144-4bf4-babb-05a6380d1ee6" isDerived="false" sourceEndRoleName="iSettings" targetEndRoleName="Generator_output_signals" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e15885c8-9ed9-4530-b94f-8a2eaa59380f" LastKnownName="Generator_output_signals" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6e76a651-4c89-4e29-bd87-2c6ee045accd" name="iSettings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="7fe31c25-9600-4939-946f-9d87f4f8bf51" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4bd545f3-2967-47a8-a567-21a64e1a6dbd" name="Generator_output_signals" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f87bc9a2-29a8-48c3-98be-dfdf26e040d8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4da774c4-fbcc-4f34-99ad-92dd4ee2b7e4" />
+          </association>
+          <association Id="8125c4cd-a9aa-46ab-8546-c72ca8b5bdbb" isDerived="false" sourceEndRoleName="iSettings" targetEndRoleName="Axis_signal" isLeaf="false" isAbstract="false">
+            <classMoniker Id="0f7b7187-212a-40c6-8876-96a57fb6617d" LastKnownName="Axis_signal" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="30c0d06c-a86b-4a80-94f9-1054180c7d45" name="iSettings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3d949dea-77c1-4d5e-9c86-72adc2ce5f22" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="58dc9342-6589-4cb7-b745-87b53993091b" name="Axis_signal" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="d857a75a-bfc2-4eaf-9b9c-26eb8e9b2f3e" name="Lower" value="3">
+                      <elementDefinition Id="be8e2de4-1758-401f-a89f-e92d4fa03b52" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="d5743584-7aa3-4b30-b5ae-fe623b9b6ea1" name="Upper" value="3">
+                      <elementDefinition Id="fcb85950-10a9-40ba-b2d4-d5278ff8c154" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="2c6cc509-d0cc-48fb-93ef-0cf28d0eea68" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0161a9e5-8d99-4479-8e6d-3bcb3d469528" />
+          </association>
+        </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="7e08a497-de30-448b-84b1-53778f9f9c71" name="architecture">
     <elementDefinition Id="1f9149f4-aa07-4e2f-b33b-5b496330a735" />
+    <profileInstances>
+      <packageHasProfileInstances Id="934aed92-c302-4de4-b364-ed760dcfa1ed">
+        <profileInstance Id="3ba8817e-bae8-45ee-b546-7783157f85e5" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="0a9ad39e-1d47-4c32-8e64-bc2e16986ac4">
+        <profileInstance Id="d6043c02-e1d9-4f47-8e0d-f74662af80fc" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

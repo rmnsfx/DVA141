@@ -34,6 +34,14 @@
               LastKnownName="Settings"
               LastKnownLocation="architecture.uml" />
           </generalization>
+          <generalization
+            Id="ea48fd25-caf4-490b-8b2b-86bd40ad4378"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b"
+              LastKnownName="iSettings"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
         </generalsInternal>
       </class>
     </packageHasNamedElement>
@@ -194,6 +202,14 @@
               LastKnownName="Settings"
               LastKnownLocation="architecture.uml" />
           </generalization>
+          <generalization
+            Id="382ba825-9fd3-49b9-9526-e2d5301970df"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b"
+              LastKnownName="iSettings"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
         </generalsInternal>
       </class>
     </packageHasNamedElement>
@@ -212,6 +228,108 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b"
+        name="iSettings"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="4da774c4-fbcc-4f34-99ad-92dd4ee2b7e4"
+            isDerived="false"
+            sourceEndRoleName="iSettings"
+            targetEndRoleName="Generator_output_signals"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f226abb2-23d8-4e54-962e-cb4ca303d291"
+              LastKnownName="Generator_output_signals"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7fe31c25-9600-4939-946f-9d87f4f8bf51"
+                  name="iSettings"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f87bc9a2-29a8-48c3-98be-dfdf26e040d8"
+                  name="Generator_output_signals"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="0161a9e5-8d99-4479-8e6d-3bcb3d469528"
+            isDerived="false"
+            sourceEndRoleName="iSettings"
+            targetEndRoleName="Axis_signal"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="53153019-b593-4892-8b61-e3c0bf9f84f8"
+              LastKnownName="Axis_signal"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3d949dea-77c1-4d5e-9c86-72adc2ce5f22"
+                  name="iSettings"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2c6cc509-d0cc-48fb-93ef-0cf28d0eea68"
+                  name="Axis_signal"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="be8e2de4-1758-401f-a89f-e92d4fa03b52"
+                      name="Lower"
+                      value="3" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="fcb85950-10a9-40ba-b2d4-d5278ff8c154"
+                      name="Upper"
+                      value="3" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
