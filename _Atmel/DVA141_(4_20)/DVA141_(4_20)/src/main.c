@@ -31,6 +31,9 @@
 #include <asf.h>
 #include <AD5421/ad5421.h>
 #include <ADXL/ADXL346.h>
+#include <task1.h>
+
+#define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
 
 //AD5421
@@ -151,9 +154,9 @@ static void init_gpio(void)
 	//pin.input_pull = PORT_PIN_PULL_NONE;
 	//port_pin_set_config(PIN_PA19, &pin);	
 	
-	pin.direction = PORT_PIN_DIR_OUTPUT;
-	port_pin_set_config(PIN_PA22, &pin);
-	port_pin_set_output_level(PIN_PA22, 0);
+	//pin.direction = PORT_PIN_DIR_OUTPUT;
+	//port_pin_set_config(PIN_PA22, &pin);
+	//port_pin_set_output_level(PIN_PA22, 0);
 	
 	pin.direction = PORT_PIN_DIR_OUTPUT;
 	port_pin_set_config(PIN_PA24, &pin);
@@ -454,15 +457,7 @@ static void transfer_rx_done(struct dma_resource* const resource )
 	transfer_rx_is_done = true;
 }
 
-#define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
-static void Testtask(void *pvParameters)
-{
-	for (;;)
-	{
-		vTaskDelay(100);
-	}
-}
 
 int main (void)
 {
@@ -475,10 +470,9 @@ int main (void)
 	
 	init_gpio();
 
-	//clock_output();
+	clock_output();
 	
-	delay_init();
-	
+	delay_init();	
 		
 	configure_spi_master_AD5421();
 	configure_spi_master_ADXL();
@@ -486,106 +480,20 @@ int main (void)
 	AD5421_Init();	
 	ADXL345_Init();
 	
-	configure_extint_channel();		
-	configure_extint_callbacks();	
-	system_interrupt_enable_global();
-	
-	
-	//xTaskCreate(Testtask, "Testtask", configMINIMAL_STACK_SIZE, (void *)100, mainQUEUE_SEND_TASK_PRIORITY, NULL);
-	//vTaskStartScheduler();
-	
-		//configure_dma_resource_tx(&dma_resource_tx);
-		//configure_dma_resource_rx(&dma_resource_rx);
-		//
-		//setup_transfer_descriptor_tx(&dma_descriptor_tx);
-		//setup_transfer_descriptor_rx(&dma_descriptor_rx);
-		//
-		//dma_add_descriptor(&dma_resource_tx, &dma_descriptor_tx);
-		//dma_add_descriptor(&dma_resource_rx, &dma_descriptor_rx);
-		//
-		//dma_register_callback(&dma_resource_tx, transfer_tx_done, DMA_CALLBACK_TRANSFER_DONE);
-		//dma_register_callback(&dma_resource_rx, transfer_rx_done, DMA_CALLBACK_TRANSFER_DONE);
-		//
-		//dma_enable_callback(&dma_resource_tx, DMA_CALLBACK_TRANSFER_DONE);
-		//dma_enable_callback(&dma_resource_rx, DMA_CALLBACK_TRANSFER_DONE);
+	//configure_extint_channel();		
+	//configure_extint_callbacks();	
+	//system_interrupt_enable_global();
 	
 
-	volatile int C = 0;	
+	
+	xTaskCreate(Testtask, "Testtask", configMINIMAL_STACK_SIZE, (void *)100, mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	vTaskStartScheduler();
 	
 
 	
 	
-
-		
-	
-	
-	while(1)
-	{		
-		
-		
-		
-		////œËÎ‡ 4-20 Ï¿		
-		//for( int i = 0; i < 65000; i += 5000 )		
-		//{
-			//
-			//AD5421_SetRegisterValue(AD5421_REG_DAC_DATA, i);
-			//
-			//temp = ADXL345_GetRegisterValue(0x00);
-			//
-			//temp1 = AD5421_GetTemperature();
-									//
-			//delay_ms(100);	
-			//
-		//} 
-		
-
-		//temp1 = AD5421_GetTemperature();
-		//delay_ms(500);
-
-		
-		//state = port_pin_get_output_level(PIN_PA27);
-	
-	X = ADXL345_GetX();
- 	Y = ADXL345_GetY();
- 	Z = ADXL345_GetZ();
-	
-	//X = ADXL345_GetRegisterValue(ADXL345_FIFO_CTL);
-	//Y = ADXL345_GetRegisterValue(ADXL345_FIFO_STATUS);
-	
-	
-	
-	
-			//port_pin_set_output_level(PIN_PA06, 0);
-			////dma_start_transfer_job(&dma_resource_tx);
-			//dma_start_transfer_job(&dma_resource_rx);
-			//
-			//while (!transfer_rx_is_done)
-			//
-			//{
-				//
-				//buffer_x[C] = ADXL345_GetX();
-				//buffer_y[C] = ADXL345_GetY();
-				//buffer_z[C] = ADXL345_GetZ();
-				//
-				//C++;
-				//
-				//
-			//}
-			//port_pin_set_output_level(PIN_PA06, 1);
-			//
-			//transfer_rx_is_done = false;
-			
-
-	//X = ADXL345_GetRegisterValue(0x2C);
-	//Y = ADXL345_GetRegisterValue(0x39);
-	
-	//port_pin_set_output_level(PIN_PA27, 0);
-	 
-	 
-	 //buffer_x;
-	 
-	 //delay_ms(100);
-		
-	}	
+	//X = ADXL345_GetX();
+ 	//Y = ADXL345_GetY();
+ 	//Z = ADXL345_GetZ();
 	
 }

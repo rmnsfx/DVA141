@@ -43,7 +43,7 @@
         </options>
         <configurations>
           <configuration key="config.thirdparty.os.freertos-7_4_2.memory_manager" value="1_static_allocation" default="1_static_allocation" content-id="Atmel.ASF" />
-          <configuration key="config.thirdparty.os.freertos-8_0_1.memory_manager" value="4_first_fit_coallesce" default="1_static_allocation" content-id="Atmel.ASF" />
+          <configuration key="config.thirdparty.os.freertos-8_0_1.memory_manager" value="1_static_allocation" default="1_static_allocation" content-id="Atmel.ASF" />
         </configurations>
         <files>
           <file path="src/main.c" framework="" version="" source="common2/applications/user_application/main.c" changed="False" content-id="Atmel.ASF" />
@@ -278,7 +278,7 @@
           <file path="src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/readme.txt" framework="" version="3.30.1" source="thirdparty\freertos\freertos-8.0.1\Source\portable\readme.txt" changed="False" content-id="Atmel.ASF" />
           <file path="src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.c" framework="" version="3.30.1" source="thirdparty\freertos\freertos-8.0.1\Source\portable\GCC\ARM_CM0\port.c" changed="False" content-id="Atmel.ASF" />
           <file path="src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/portmacro.h" framework="" version="3.30.1" source="thirdparty\freertos\freertos-8.0.1\Source\portable\GCC\ARM_CM0\portmacro.h" changed="False" content-id="Atmel.ASF" />
-          <file path="src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_4.c" framework="" version="3.30.1" source="thirdparty\freertos\freertos-8.0.1\Source\portable\MemMang\heap_4.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.c" framework="" version="3.30.1" source="thirdparty\freertos\freertos-8.0.1\Source\portable\MemMang\heap_1.c" changed="False" content-id="Atmel.ASF" />
         </files>
         <documentation help="http://asf.atmel.com/docs/3.30.1/common.applications.user_application.sam0_system.user_board.atsaml21e18b/html/index.html" />
         <offline-documentation help="" />
@@ -290,7 +290,7 @@
       </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.samice</avrtool>
-    <avrtoolserialnumber>281100008</avrtoolserialnumber>
+    <avrtoolserialnumber>28013640</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x10810219</avrdeviceexpectedsignature>
     <avrtoolinterface>SWD</avrtoolinterface>
     <com_atmel_avrdbg_tool_samice>
@@ -299,11 +299,11 @@
           <SwdClock>4000000</SwdClock>
         </InterfaceProperties>
         <InterfaceName>SWD</InterfaceName>
-        <JlinkConfigFile>E:\__projects__\DVA-141\_Atmel\DVA141_(4_20)\DVA141_(4_20)\jlink.config</JlinkConfigFile>
+        <JlinkConfigFile>C:\Users\SavchenkoRS\Desktop\DVA141\SVN\DVA141_(4_20)\DVA141_(4_20)\jlink.config</JlinkConfigFile>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.samice</ToolType>
-      <ToolNumber>281100008</ToolNumber>
-      <ToolName>J-Link Ultra</ToolName>
+      <ToolNumber>28013640</ToolNumber>
+      <ToolName>SAM-ICE</ToolName>
     </com_atmel_avrdbg_tool_samice>
     <avrtoolinterfaceclock>4000000</avrtoolinterfaceclock>
   </PropertyGroup>
@@ -376,13 +376,16 @@
   <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
   <armgcc.linker.libraries.Libraries>
     <ListValues>
-      <Value>libarm_cortexM0l_math</Value>
       <Value>libm</Value>
+      <Value>libnosys</Value>
+      <Value>libarm_cortexM0l_math.a</Value>
     </ListValues>
   </armgcc.linker.libraries.Libraries>
   <armgcc.linker.libraries.LibrarySearchPaths>
     <ListValues>
       <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>C:\Users\SavchenkoRS\Desktop\DVA141\Other\DVA141 (Серега)\EFM32\CMISIS\CMSIS\Lib\ARM</Value>
+      <Value>C:\Users\SavchenkoRS\Desktop\DVA141\SVN\DVA141_(4_20)\DVA141_(4_20)\src\ASF\thirdparty\CMSIS\Lib\GCC</Value>
     </ListValues>
   </armgcc.linker.libraries.LibrarySearchPaths>
   <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
@@ -532,6 +535,7 @@
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
   <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
   <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
@@ -540,17 +544,19 @@
   <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
   <armgcc.linker.libraries.Libraries>
     <ListValues>
-      <Value>libarm_cortexM0l_math</Value>
       <Value>libm</Value>
+      <Value>libnosys</Value>
+      <Value>libarm_cortexM0l_math.a</Value>
     </ListValues>
   </armgcc.linker.libraries.Libraries>
   <armgcc.linker.libraries.LibrarySearchPaths>
     <ListValues>
       <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>C:\Users\SavchenkoRS\Desktop\DVA141\Other\DVA141 (Серега)\EFM32\CMISIS\CMSIS\Lib\ARM</Value>
+      <Value>C:\Users\SavchenkoRS\Desktop\DVA141\SVN\DVA141_(4_20)\DVA141_(4_20)\src\ASF\thirdparty\CMSIS\Lib\GCC</Value>
     </ListValues>
   </armgcc.linker.libraries.LibrarySearchPaths>
   <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
-  <armgcc.linker.memorysettings.ExternalRAM />
   <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam0/utils/linker_scripts/saml21/gcc/saml21e18b_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
   <armgcc.assembler.general.IncludePaths>
     <ListValues>
@@ -734,6 +740,12 @@
     <Compile Include="src\ADXL\ADXL346.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\task1.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\task1.h">
+      <SubType>compile</SubType>
+    </Compile>
     <None Include="src\ASF\sam0\drivers\extint\extint.h">
       <SubType>compile</SubType>
     </None>
@@ -875,7 +887,7 @@
     <None Include="src\ASF\thirdparty\freertos\freertos-8.0.1\Source\portable\GCC\ARM_CM0\portmacro.h">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="src\ASF\thirdparty\freertos\freertos-8.0.1\Source\portable\MemMang\heap_4.c">
+    <Compile Include="src\ASF\thirdparty\freertos\freertos-8.0.1\Source\portable\MemMang\heap_1.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\ASF\thirdparty\freertos\freertos-8.0.1\Source\queue.c">
