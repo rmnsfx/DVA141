@@ -49,8 +49,8 @@
 /**
  * Value used to calculate ms delay. Default to be used with a 8MHz clock;
  */
-static uint32_t cycles_per_ms = 8000000UL / 1000;
-static uint32_t cycles_per_us = 8000000UL / 1000000;
+static uint32_t cycles_per_ms = 14745600UL / 1000;
+static uint32_t cycles_per_us = 14745600UL / 1000000;
 
 /**
  * \brief Initialize the delay driver.
