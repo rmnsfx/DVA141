@@ -4,9 +4,15 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="95a3be8b-a272-402b-a5fe-e7ed1d20bf25" name="modbus" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="98a62649-a331-42b6-b2be-d49695f2b187" />
+        <suppliersInternal>
+          <dependency Id="4082b7e3-92db-47bc-8720-e6a85ec1127e">
+            <classMoniker Id="02423201-1328-480f-afc4-3419c0273a96" LastKnownName="UART driver" />
+            <elementDefinition Id="7cf43960-0d20-4ab6-b899-fd99d49a82c8" />
+          </dependency>
+        </suppliersInternal>
         <generalsInternal>
           <generalization Id="50ff90ce-701d-4588-9e55-e400248ad026" isSubstitutable="false">
-            <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="iSettings" />
+            <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="Settings" />
             <elementDefinition Id="ea48fd25-caf4-490b-8b2b-86bd40ad4378" />
           </generalization>
         </generalsInternal>
@@ -15,11 +21,28 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="2d99fce4-6c91-4ea0-8b16-67b836dce224" name="Out_4_20" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="031d947f-4cef-49ae-8799-e351a1a0da40" />
+        <suppliersInternal>
+          <dependency Id="5a87172f-b3bb-41a3-bcf6-4956e670afe1">
+            <classMoniker Id="02c7acf5-2698-4e34-9edc-4f70298d605c" LastKnownName="SPI driver DAC" />
+            <elementDefinition Id="8f67b42f-f309-4bc6-8e3d-57db38600ab1" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="af3b885c-5456-4434-8261-5c483677ee02" name="Operation1" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1c9c279f-9eed-4898-bc15-6529a916afd8" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="a3df6d4f-dd9b-4dbb-8d2b-b65d1c482791" name="Axelerometr" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="a05c1887-f19c-4178-886b-07df0a0c77c8" />
+        <suppliersInternal>
+          <dependency Id="c50bac73-090f-48fc-a239-fa2d2d7b8c5c">
+            <classMoniker Id="955c168c-bf08-46c0-8c45-732e03b85eaf" LastKnownName="SPI driver ADXL" />
+            <elementDefinition Id="296f2e45-ecfd-42c3-a88a-19e7c72ded4c" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
           <association Id="6873a292-ecaf-4e75-9c06-846e237ac3c2" isDerived="false" sourceEndRoleName="Axelerometr" targetEndRoleName="Signal_processing" isLeaf="false" isAbstract="false">
             <classMoniker Id="0f7b7187-212a-40c6-8876-96a57fb6617d" LastKnownName="Axis_signal" />
@@ -53,6 +76,12 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="0f7b7187-212a-40c6-8876-96a57fb6617d" name="Axis_signal" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="53153019-b593-4892-8b61-e3c0bf9f84f8" />
+        <suppliersInternal>
+          <dependency Id="34c00d0c-0081-4d1c-b4e6-66653fbcf048">
+            <classMoniker Id="9c047805-b691-41b6-ba2d-bc936f010899" LastKnownName="DSP lib" />
+            <elementDefinition Id="9a75c83c-1850-47fb-8b53-e5fed4fae576" />
+          </dependency>
+        </suppliersInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -65,6 +94,10 @@
           <dependency Id="c78ff5e8-5ec1-48c3-b386-99f2fa5f3297">
             <classMoniker Id="0f7b7187-212a-40c6-8876-96a57fb6617d" LastKnownName="Axis_signal" />
             <elementDefinition Id="99274c11-329e-471d-944f-36ad8b9dd733" />
+          </dependency>
+          <dependency Id="830b75f0-f5b1-4e00-9a36-14dfc736f55e">
+            <classMoniker Id="9c047805-b691-41b6-ba2d-bc936f010899" LastKnownName="DSP lib" />
+            <elementDefinition Id="df11e095-736c-4fce-9895-4401b1c851e2" />
           </dependency>
         </suppliersInternal>
         <targetEnds>
@@ -90,16 +123,22 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="2d5c5267-ea75-4198-ae45-fd56d7d9a74e" name="Hart" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="f1138489-2cbb-49af-8091-f7299403fbc0" />
+        <suppliersInternal>
+          <dependency Id="157a5a9e-4785-4e98-8f63-11e6a35418f8">
+            <classMoniker Id="02423201-1328-480f-afc4-3419c0273a96" LastKnownName="UART driver" />
+            <elementDefinition Id="eb727ce6-0d0b-41a2-801e-f137935f9163" />
+          </dependency>
+        </suppliersInternal>
         <generalsInternal>
           <generalization Id="2b770f78-4a38-4ab0-8fa1-58d9f3c87ed3" isSubstitutable="false">
-            <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="iSettings" />
+            <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="Settings" />
             <elementDefinition Id="382ba825-9fd3-49b9-9526-e2d5301970df" />
           </generalization>
         </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" name="iSettings" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" name="Settings" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b" />
         <targetEnds>
           <association Id="084e0c36-3144-4bf4-babb-05a6380d1ee6" isDerived="false" sourceEndRoleName="iSettings" targetEndRoleName="Generator_output_signals" isLeaf="false" isAbstract="false">
@@ -145,6 +184,26 @@
             <elementDefinition Id="0161a9e5-8d99-4479-8e6d-3bcb3d469528" />
           </association>
         </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="02c7acf5-2698-4e34-9edc-4f70298d605c" name="SPI driver DAC" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b8985f71-3506-4686-b5a7-ecbcbd011b0e" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="955c168c-bf08-46c0-8c45-732e03b85eaf" name="SPI driver ADXL" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4c0164fd-ab54-4dd0-8864-e1c6b365a585" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="02423201-1328-480f-afc4-3419c0273a96" name="UART driver" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b29ba77b-add5-42b7-8ad6-740ea26e78ef" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9c047805-b691-41b6-ba2d-bc936f010899" name="DSP lib" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4f2e2cc2-fd52-4cbe-b179-c8ac97765098" />
       </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>

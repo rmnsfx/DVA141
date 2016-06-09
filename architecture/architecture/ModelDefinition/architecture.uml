@@ -25,6 +25,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="7cf43960-0d20-4ab6-b899-fd99d49a82c8">
+            <classMoniker
+              Id="b29ba77b-add5-42b7-8ad6-740ea26e78ef"
+              LastKnownName="UART driver"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="710e3b2d-7dc7-488b-a985-3f32a1136feb"
@@ -39,7 +48,7 @@
             isSubstitutable="false">
             <classMoniker
               Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b"
-              LastKnownName="iSettings"
+              LastKnownName="Settings"
               LastKnownLocation="architecture.uml" />
           </generalization>
         </generalsInternal>
@@ -51,7 +60,27 @@
         name="Out_4_20"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="8f67b42f-f309-4bc6-8e3d-57db38600ab1">
+            <classMoniker
+              Id="b8985f71-3506-4686-b5a7-ecbcbd011b0e"
+              LastKnownName="SPI driver DAC"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1c9c279f-9eed-4898-bc15-6529a916afd8"
+            name="Operation1"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -60,6 +89,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="296f2e45-ecfd-42c3-a88a-19e7c72ded4c">
+            <classMoniker
+              Id="4c0164fd-ab54-4dd0-8864-e1c6b365a585"
+              LastKnownName="SPI driver ADXL"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
           <association
             Id="d7fa93c0-8270-4293-9e1a-4f013e54e4d4"
@@ -122,7 +160,17 @@
         name="Axis_signal"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="9a75c83c-1850-47fb-8b53-e5fed4fae576">
+            <classMoniker
+              Id="4f2e2cc2-fd52-4cbe-b179-c8ac97765098"
+              LastKnownName="DSP lib"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -140,6 +188,13 @@
             <classMoniker
               Id="53153019-b593-4892-8b61-e3c0bf9f84f8"
               LastKnownName="Axis_signal"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+          <dependency
+            Id="df11e095-736c-4fce-9895-4401b1c851e2">
+            <classMoniker
+              Id="4f2e2cc2-fd52-4cbe-b179-c8ac97765098"
+              LastKnownName="DSP lib"
               LastKnownLocation="architecture.uml" />
           </dependency>
         </suppliersInternal>
@@ -193,6 +248,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="eb727ce6-0d0b-41a2-801e-f137935f9163">
+            <classMoniker
+              Id="b29ba77b-add5-42b7-8ad6-740ea26e78ef"
+              LastKnownName="UART driver"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="8eb6c92a-b468-4229-860d-ed2bed83a3d1"
@@ -207,7 +271,7 @@
             isSubstitutable="false">
             <classMoniker
               Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b"
-              LastKnownName="iSettings"
+              LastKnownName="Settings"
               LastKnownLocation="architecture.uml" />
           </generalization>
         </generalsInternal>
@@ -232,7 +296,7 @@
     <packageHasNamedElement>
       <class
         Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b"
-        name="iSettings"
+        name="Settings"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -330,6 +394,38 @@
           </association>
         </targetEnds>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b8985f71-3506-4686-b5a7-ecbcbd011b0e"
+        name="SPI driver DAC"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4c0164fd-ab54-4dd0-8864-e1c6b365a585"
+        name="SPI driver ADXL"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b29ba77b-add5-42b7-8ad6-740ea26e78ef"
+        name="UART driver"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4f2e2cc2-fd52-4cbe-b179-c8ac97765098"
+        name="DSP lib"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
