@@ -12,4 +12,7 @@ void Generator_output_signals::RMS_signals(void *pvParameters)
 
 }
 
-Generator_output_signals
+ Generator_output_signals::Generator_output_signals(void)
+{
+
+}
