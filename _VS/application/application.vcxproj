@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugNoBoot|Win32">
+      <Configuration>DebugNoBoot</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Inc\Device.h" />
+    <ClInclude Include="..\..\Inc\FreeRTOSConfig.h" />
+    <ClInclude Include="..\..\Inc\Systems_headers.h" />
+    <ClInclude Include="..\..\_IAR\application\main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Src\Device.cpp" />
+    <ClCompile Include="..\..\_IAR\application\main.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B3DE1695-7FC0-462F-A599-6EEDF3E907D9}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectName>bootloader</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoBoot|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoBoot|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>"c:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\IarBuild.exe" $(ProjectDir)\..\..\_IAR\$(ProjectName)\$(ProjectName).ewp -make $(Configuration) -log all -parallel 4</NMakeBuildCommandLine>
+    <NMakeOutput>
+    </NMakeOutput>
+    <NMakePreprocessorDefinitions>__ICCARM__; $(NMakePreprocessorDefinitions);__INT8_T_TYPE__;__INT16_T_TYPE__;__INT32_T_TYPE__;USE_HAL_DRIVER</NMakePreprocessorDefinitions>
+    <NMakeCleanCommandLine>"c:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\IarBuild.exe" $(ProjectDir)\..\..\_IAR\$(ProjectName)\$(ProjectName).ewp -clean $(Configuration) -log all -parallel 4</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"c:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\IarBuild.exe" $(ProjectDir)\..\..\_IAR\$(ProjectName)\$(ProjectName).ewp -build $(Configuration) -log all -parallel 4</NMakeReBuildCommandLine>
+    <NMakeIncludeSearchPath>$(ProjectDir)\..\..\Unity\src;$(ProjectDir)\..\..\device;$(ProjectDir)\..\..\Inc;$(ProjectDir)\..\..\Src;$(ProjectDir)\..\..\tests;$(IAR);$(ProjectDir)\..\..\board;$(ProjectDir)\..\..\_IAR\application\startup;$(ProjectDir)\..\..\_IAR\application\;$(ProjectDir)\..\..\FreeRTOS\Source\include;$(ProjectDir)\..\..\FreeRTOS\Source\portable\IAR\ARM_CM0\;$(ProjectDir)\..\..\FreeRTOS\Source\portable\MemMang\;$(ProjectDir)\..\..\FreeRTOS\Source;$(ProjectDir)\..\..\FreeRTOS\</NMakeIncludeSearchPath>
+    <IncludePath>$(ProjectDir)\..\..\Unity\src;$(ProjectDir)\..\..\device;$(ProjectDir)\..\..\Inc;$(ProjectDir)\..\..\Src;$(ProjectDir)\..\..\tests;$(IAR);$(ProjectDir)\..\..\board;$(ProjectDir)\..\..\_IAR\application\startup;$(ProjectDir)\..\..\_IAR\application\;$(ProjectDir)\..\..\FreeRTOS\Source\include;$(ProjectDir)\..\..\FreeRTOS\Source\portable\IAR\ARM_CM0\;$(ProjectDir)\..\..\FreeRTOS\Source\portable\MemMang\;$(ProjectDir)\..\..\FreeRTOS\Source;$(ProjectDir)\..\..\FreeRTOS\</IncludePath>
+    <NMakeForcedIncludes>$(ProjectDir)\..\..\Unity\src;$(ProjectDir)\..\..\device;$(ProjectDir)\..\..\Inc;$(ProjectDir)\..\..\Src;$(ProjectDir)\..\..\tests;$(IAR);$(ProjectDir)\..\..\board;$(ProjectDir)\..\..\_IAR\application\startup;$(ProjectDir)\..\..\_IAR\application\;$(ProjectDir)\..\..\FreeRTOS\Source\include;$(ProjectDir)\..\..\FreeRTOS\Source\portable\IAR\ARM_CM0\;$(ProjectDir)\..\..\FreeRTOS\Source\portable\MemMang\;$(ProjectDir)\..\..\FreeRTOS\Source;$(ProjectDir)\..\..\FreeRTOS\</NMakeForcedIncludes>
+    <ExcludePath>$(WindowsSDK_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x86);</ExcludePath>
+    <NMakeAssemblySearchPath>
+    </NMakeAssemblySearchPath>
+    <SourcePath>$(ProjectDir)\..\..\Unity\src;$(ProjectDir)\..\..\device;$(ProjectDir)\..\..\Inc;$(ProjectDir)\..\..\Src;$(ProjectDir)\..\..\tests;$(IAR);$(ProjectDir)\..\..\board;$(ProjectDir)\..\..\_IAR\application\startup;$(ProjectDir)\..\..\_IAR\application\;$(ProjectDir)\..\..\FreeRTOS\Source\include;$(ProjectDir)\..\..\FreeRTOS\Source\portable\IAR\ARM_CM0\;$(ProjectDir)\..\..\FreeRTOS\Source\portable\MemMang\;$(ProjectDir)\..\..\FreeRTOS\Source;$(ProjectDir)\..\..\FreeRTOS\</SourcePath>
+    <ExecutablePath>$(ProjectDir)\..\..\Unity\src;$(ProjectDir)\..\..\device;$(ProjectDir)\..\..\Inc;$(ProjectDir)\..\..\Src;$(ProjectDir)\..\..\tests;$(IAR);$(ProjectDir)\..\..\board;$(ProjectDir)\..\..\_IAR\application\startup;$(ProjectDir)\..\..\_IAR\application\;$(ProjectDir)\..\..\FreeRTOS\Source\include;$(ProjectDir)\..\..\FreeRTOS\Source\portable\IAR\ARM_CM0\;$(ProjectDir)\..\..\FreeRTOS\Source\portable\MemMang\;$(ProjectDir)\..\..\FreeRTOS\Source;$(ProjectDir)\..\..\FreeRTOS\</ExecutablePath>
+    <ReferencePath />
+    <LibraryPath />
+    <LibraryWPath />
+    <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoBoot|Win32'">
+    <NMakeBuildCommandLine>"c:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\IarBuild.exe" $(ProjectDir)\..\..\_IAR\$(ProjectName)\$(ProjectName).ewp -make $(Configuration) -log all -parallel 4</NMakeBuildCommandLine>
+    <NMakeOutput />
+    <NMakePreprocessorDefinitions>__ICCARM__;STM32F429_439xx;$(NMakePreprocessorDefinitions);__INT8_T_TYPE__;__INT16_T_TYPE__;__INT32_T_TYPE__;STM32F4XX;STM32F407xx</NMakePreprocessorDefinitions>
+    <NMakeCleanCommandLine>"c:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\IarBuild.exe" $(ProjectDir)\..\..\_IAR\$(ProjectName)\$(ProjectName).ewp -clean $(Configuration) -log all -parallel 4</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"c:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\IarBuild.exe" $(ProjectDir)\..\..\_IAR\$(ProjectName)\$(ProjectName).ewp -build $(Configuration) -log all -parallel 4</NMakeReBuildCommandLine>
+    <NMakeIncludeSearchPath>$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\Device\ST\STM32F4xx\Include\;$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\Include\;$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\RTOS\;$(ProjectDir)\..\..\STM32F4xx_drivers\STM32F4xx_HAL_Driver\Inc\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\include\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\BufferManagement\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\Compiler\IAR\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\NetworkInterface\STM32Fxx\;$(ProjectDir)\..\..\systems\freertos\include\;$(ProjectDir)\..\..\systems\freertos\Source\include\;$(ProjectDir)\..\..\systems\freertos\Source\portable\IAR\ARM_CM4F\;$(ProjectDir)\..\..\systems\interfaces;$(ProjectDir)\..\..\systems\patterns;$(ProjectDir)\..\..\Unity\src;$(ProjectDir)\..\..\common\ICMP;$(ProjectDir)\..\..\common;$(ProjectDir)\..\..\include;$(ProjectDir)\..\..\source;$(IAR);$(ProjectDir)\..\..\board;$(ProjectDir)\..\..\STM32F4xx_drivers\STM32F4x7_ETH_Driver\inc;$(ProjectDir)\..\..\_IAR\application\startup;$(ProjectDir)\..\..\_IAR\application\</NMakeIncludeSearchPath>
+    <IncludePath>$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\Device\ST\STM32F4xx\Include\;$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\Include\;$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\RTOS\;$(ProjectDir)\..\..\STM32F4xx_drivers\STM32F4xx_HAL_Driver\Inc\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\include\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\BufferManagement\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\Compiler\IAR\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\NetworkInterface\STM32Fxx\;$(ProjectDir)\..\..\systems\freertos\include\;$(ProjectDir)\..\..\systems\freertos\Source\include\;$(ProjectDir)\..\..\systems\freertos\Source\portable\IAR\ARM_CM4F\;$(ProjectDir)\..\..\systems\interfaces;$(ProjectDir)\..\..\systems\patterns;$(ProjectDir)\..\..\Unity\src;$(ProjectDir)\..\..\common\ICMP;$(ProjectDir)\..\..\common;$(ProjectDir)\..\..\include;$(ProjectDir)\..\..\source;$(IAR);$(ProjectDir)\..\..\board;$(ProjectDir)\..\..\STM32F4xx_drivers\STM32F4x7_ETH_Driver\inc;$(ProjectDir)\..\..\_IAR\application\startup;$(ProjectDir)\..\..\_IAR\application\</IncludePath>
+    <NMakeForcedIncludes>$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\Device\ST\STM32F4xx\Include\;$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\Include\;$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\RTOS\;$(ProjectDir)\..\..\STM32F4xx_drivers\STM32F4xx_HAL_Driver\Inc\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\include\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\BufferManagement\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\Compiler\IAR\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\NetworkInterface\STM32Fxx\;$(ProjectDir)\..\..\systems\freertos\include\;$(ProjectDir)\..\..\systems\freertos\Source\include\;$(ProjectDir)\..\..\systems\freertos\Source\portable\IAR\ARM_CM4F\;$(ProjectDir)\..\..\systems\interfaces;$(ProjectDir)\..\..\systems\patterns;$(ProjectDir)\..\..\Unity\src;$(ProjectDir)\..\..\common\ICMP;$(ProjectDir)\..\..\common;$(ProjectDir)\..\..\include;$(ProjectDir)\..\..\source;$(IAR);$(ProjectDir)\..\..\board;$(ProjectDir)\..\..\STM32F4xx_drivers\STM32F4x7_ETH_Driver\inc;$(ProjectDir)\..\..\_IAR\application\startup;$(ProjectDir)\..\..\_IAR\application\</NMakeForcedIncludes>
+    <ExcludePath>$(WindowsSDK_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x86);</ExcludePath>
+    <NMakeAssemblySearchPath />
+    <SourcePath>$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\Device\ST\STM32F4xx\Include\;$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\Include\;$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\RTOS\;$(ProjectDir)\..\..\STM32F4xx_drivers\STM32F4xx_HAL_Driver\Inc\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\include\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\BufferManagement\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\Compiler\IAR\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\NetworkInterface\STM32Fxx\;$(ProjectDir)\..\..\systems\freertos\include\;$(ProjectDir)\..\..\systems\freertos\Source\include\;$(ProjectDir)\..\..\systems\freertos\Source\portable\IAR\ARM_CM4F\;$(ProjectDir)\..\..\systems\interfaces;$(ProjectDir)\..\..\systems\patterns;$(ProjectDir)\..\..\Unity\src;$(ProjectDir)\..\..\common\ICMP;$(ProjectDir)\..\..\common;$(ProjectDir)\..\..\include;$(ProjectDir)\..\..\source;$(IAR);$(ProjectDir)\..\..\board;$(ProjectDir)\..\..\STM32F4xx_drivers\STM32F4x7_ETH_Driver\inc;$(ProjectDir)\..\..\_IAR\application\startup;$(ProjectDir)\..\..\_IAR\application\</SourcePath>
+    <ExecutablePath>$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\Device\ST\STM32F4xx\Include\;$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\Include\;$(ProjectDir)\..\..\STM32F4xx_drivers\CMSIS\RTOS\;$(ProjectDir)\..\..\STM32F4xx_drivers\STM32F4xx_HAL_Driver\Inc\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\include\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\BufferManagement\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\Compiler\IAR\;$(ProjectDir)\..\..\systems\freertos\Source\FreeRTOS-Plus-TCP\portable\NetworkInterface\STM32Fxx\;$(ProjectDir)\..\..\systems\freertos\include\;$(ProjectDir)\..\..\systems\freertos\Source\include\;$(ProjectDir)\..\..\systems\freertos\Source\portable\IAR\ARM_CM4F\;$(ProjectDir)\..\..\systems\interfaces;$(ProjectDir)\..\..\systems\patterns;$(ProjectDir)\..\..\Unity\src;$(ProjectDir)\..\..\common\ICMP;$(ProjectDir)\..\..\common;$(ProjectDir)\..\..\include;$(ProjectDir)\..\..\source;$(IAR);$(ProjectDir)\..\..\board;$(ProjectDir)\..\..\STM32F4xx_drivers\STM32F4x7_ETH_Driver\inc;$(ProjectDir)\..\..\_IAR\application\startup;$(ProjectDir)\..\..\_IAR\application\</ExecutablePath>
+    <ReferencePath />
+    <LibraryPath />
+    <LibraryWPath />
+    <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>"c:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\IarBuild.exe" $(ProjectDir)\..\$(ProjectName).ewp -make Release -log all -parallel 4</NMakeBuildCommandLine>
+    <NMakeOutput>
+    </NMakeOutput>
+    <NMakePreprocessorDefinitions>__ICCARM__;STM32F429_439xx;$(NMakePreprocessorDefinitions);USE_STDPERIPH_DRIVER;__INT8_T_TYPE__;__INT16_T_TYPE__;__INT32_T_TYPE__</NMakePreprocessorDefinitions>
+    <IncludePath>$(ProjectDir)\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;$(ProjectDir)\..\..\..\Drivers\CMSIS\Include;$(ProjectDir)\..\..\..\Drivers\Drivers\STM32F4xx_StdPeriph_Driver\inc\;$(ProjectDir)\..\Tests;$(ProjectDir)\..\..\..\Unity\src;$(ProjectDir)\..\;$(ProjectDir)\..\..\..\include;$(IAR)</IncludePath>
+    <ExecutablePath />
+    <ReferencePath />
+    <LibraryPath />
+    <LibraryWPath />
+    <SourcePath>$(ProjectDir)\..\..\inc;$(ProjectDir)\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;$(ProjectDir)\..\..\..\..\Drivers\CMSIS\Include;$(ProjectDir)\..\..\..\..\Drivers\Drivers\STM32F4xx_StdPeriph_Driver\inc\;$(ProjectDir)\..\;$(ProjectDir)\..\..\Tests;$(ProjectDir)\..\..\..\..\Unity\src;$(ProjectDir)\..\..\..\..\include;$(IAR)</SourcePath>
+    <ExcludePath>$(WindowsSDK_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x86);</ExcludePath>
+    <NMakeIncludeSearchPath>$(ProjectDir)\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;$(ProjectDir)\..\..\..\Drivers\CMSIS\Include;$(ProjectDir)\..\..\..\Drivers\STM32F4xx_StdPeriph_Driver\inc\;$(ProjectDir)\..\..\Tests;$(ProjectDir)\..\..\..\Unity\src;$(ProjectDir)\..\..\..\include;$(IAR)</NMakeIncludeSearchPath>
+    <NMakeReBuildCommandLine>"c:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\IarBuild.exe" $(ProjectDir)\..\$(ProjectName).ewp -build Release -log all -parallel 4</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>"c:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\IarBuild.exe" $(ProjectDir)\..\$(ProjectName).ewp -clean Release -log all -parallel 4</NMakeCleanCommandLine>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

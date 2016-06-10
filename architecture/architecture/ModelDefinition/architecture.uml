@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="1f9149f4-aa07-4e2f-b33b-5b496330a735"
+  name="architecture" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="98a62649-a331-42b6-b2be-d49695f2b187"
+        name="modbus"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="7cf43960-0d20-4ab6-b899-fd99d49a82c8">
+            <classMoniker
+              Id="b29ba77b-add5-42b7-8ad6-740ea26e78ef"
+              LastKnownName="UART driver"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="710e3b2d-7dc7-488b-a985-3f32a1136feb"
+            isSubstitutable="false">
+            <classMoniker
+              Id="69db2740-af37-4308-93d2-61d8cd906257"
+              LastKnownName="Settings"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
+          <generalization
+            Id="ea48fd25-caf4-490b-8b2b-86bd40ad4378"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b"
+              LastKnownName="Settings"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="031d947f-4cef-49ae-8799-e351a1a0da40"
+        name="Out_4_20"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="8f67b42f-f309-4bc6-8e3d-57db38600ab1">
+            <classMoniker
+              Id="b8985f71-3506-4686-b5a7-ecbcbd011b0e"
+              LastKnownName="SPI driver DAC"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1c9c279f-9eed-4898-bc15-6529a916afd8"
+            name="Operation1"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a05c1887-f19c-4178-886b-07df0a0c77c8"
+        name="Axelerometr"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="296f2e45-ecfd-42c3-a88a-19e7c72ded4c">
+            <classMoniker
+              Id="4c0164fd-ab54-4dd0-8864-e1c6b365a585"
+              LastKnownName="SPI driver ADXL"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="d7fa93c0-8270-4293-9e1a-4f013e54e4d4"
+            isDerived="false"
+            sourceEndRoleName="Axelerometr"
+            targetEndRoleName="Signal_processing"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="53153019-b593-4892-8b61-e3c0bf9f84f8"
+              LastKnownName="Axis_signal"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a868f16f-afea-455c-be5e-70747e92148b"
+                  name="Axelerometr"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aabc3eb9-d34b-424a-a74d-ac87d574b687"
+                  name="Signal_processing"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4e059e72-575e-4559-8585-e5be5f0dd1b7"
+                      name="Lower"
+                      value="3" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7f665668-ea26-4341-8120-5a5015319fa6"
+                      name="Upper"
+                      value="3" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="53153019-b593-4892-8b61-e3c0bf9f84f8"
+        name="Axis_signal"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="9a75c83c-1850-47fb-8b53-e5fed4fae576">
+            <classMoniker
+              Id="4f2e2cc2-fd52-4cbe-b179-c8ac97765098"
+              LastKnownName="DSP lib"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f226abb2-23d8-4e54-962e-cb4ca303d291"
+        name="Generator_output_signals"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <description>имеет методы для выбора алгоритма формирования выходного сигнала, 
+сигнал может формироваться как из данных по одной оси, 
+так и из данных по нескольким осям(вектор)</description>
+        <suppliersInternal>
+          <dependency
+            Id="99274c11-329e-471d-944f-36ad8b9dd733">
+            <classMoniker
+              Id="53153019-b593-4892-8b61-e3c0bf9f84f8"
+              LastKnownName="Axis_signal"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+          <dependency
+            Id="df11e095-736c-4fce-9895-4401b1c851e2">
+            <classMoniker
+              Id="4f2e2cc2-fd52-4cbe-b179-c8ac97765098"
+              LastKnownName="DSP lib"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="180c255a-67b9-4a01-ad34-d27042323e87"
+            isDerived="false"
+            sourceEndRoleName="Generator_output_signals"
+            targetEndRoleName="Out_4_20"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="031d947f-4cef-49ae-8799-e351a1a0da40"
+              LastKnownName="Out_4_20"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="67d0ef86-99a5-488a-817e-b4214c34a936"
+                  name="Generator_output_signals"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bc209c72-9a76-4d83-b890-19532355fd40"
+                  name="Out_4_20"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f1138489-2cbb-49af-8091-f7299403fbc0"
+        name="Hart"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="eb727ce6-0d0b-41a2-801e-f137935f9163">
+            <classMoniker
+              Id="b29ba77b-add5-42b7-8ad6-740ea26e78ef"
+              LastKnownName="UART driver"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="8eb6c92a-b468-4229-860d-ed2bed83a3d1"
+            isSubstitutable="false">
+            <classMoniker
+              Id="69db2740-af37-4308-93d2-61d8cd906257"
+              LastKnownName="Settings"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
+          <generalization
+            Id="382ba825-9fd3-49b9-9526-e2d5301970df"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b"
+              LastKnownName="Settings"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="69db2740-af37-4308-93d2-61d8cd906257"
+        name="Settings"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="439b23c6-a54a-4d17-a105-28b10efc2377"
+        name="Signals"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b"
+        name="Settings"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="4da774c4-fbcc-4f34-99ad-92dd4ee2b7e4"
+            isDerived="false"
+            sourceEndRoleName="iSettings"
+            targetEndRoleName="Generator_output_signals"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f226abb2-23d8-4e54-962e-cb4ca303d291"
+              LastKnownName="Generator_output_signals"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7fe31c25-9600-4939-946f-9d87f4f8bf51"
+                  name="iSettings"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f87bc9a2-29a8-48c3-98be-dfdf26e040d8"
+                  name="Generator_output_signals"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="0161a9e5-8d99-4479-8e6d-3bcb3d469528"
+            isDerived="false"
+            sourceEndRoleName="iSettings"
+            targetEndRoleName="Axis_signal"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="53153019-b593-4892-8b61-e3c0bf9f84f8"
+              LastKnownName="Axis_signal"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3d949dea-77c1-4d5e-9c86-72adc2ce5f22"
+                  name="iSettings"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2c6cc509-d0cc-48fb-93ef-0cf28d0eea68"
+                  name="Axis_signal"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="be8e2de4-1758-401f-a89f-e92d4fa03b52"
+                      name="Lower"
+                      value="3" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="fcb85950-10a9-40ba-b2d4-d5278ff8c154"
+                      name="Upper"
+                      value="3" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b8985f71-3506-4686-b5a7-ecbcbd011b0e"
+        name="SPI driver DAC"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4c0164fd-ab54-4dd0-8864-e1c6b365a585"
+        name="SPI driver ADXL"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b29ba77b-add5-42b7-8ad6-740ea26e78ef"
+        name="UART driver"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4f2e2cc2-fd52-4cbe-b179-c8ac97765098"
+        name="DSP lib"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f04fce85-849b-4655-8f48-c1c5e87e6046"
+        name="Dout"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
