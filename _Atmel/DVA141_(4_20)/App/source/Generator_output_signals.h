@@ -11,9 +11,11 @@
 
 
 class Generator_output_signals
-{	
+{		
+	static void RMS_signals(void *pvParameters);
 	public:
-	static void task(void);
+	Generator_output_signals(void);
+	virtual ~Generator_output_signals(void);
 	};
 
 

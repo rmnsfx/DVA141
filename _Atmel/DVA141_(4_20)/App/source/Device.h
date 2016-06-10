@@ -13,6 +13,8 @@
 
 class Device
 {	
+	protected:
+	static void DeviceTask(void *pvParameters);
 	public:
 	static void Run(void);
 

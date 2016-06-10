@@ -5,7 +5,11 @@
  *  Author: drachevam
  */ 
 #include "Generator_output_signals.h"
-void Generator_output_signals::task(void)
+ 
+
+void Generator_output_signals::RMS_signals(void *pvParameters)
 {
 
 }
+
+Generator_output_signals
