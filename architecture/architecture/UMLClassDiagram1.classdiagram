@@ -206,6 +206,11 @@
         <elementDefinition Id="4f2e2cc2-fd52-4cbe-b179-c8ac97765098" />
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c4eb504c-33b7-4f0f-9977-2f1d9a0346f3" name="Dout" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f04fce85-849b-4655-8f48-c1c5e87e6046" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="7e08a497-de30-448b-84b1-53778f9f9c71" name="architecture">
     <elementDefinition Id="1f9149f4-aa07-4e2f-b33b-5b496330a735" />
