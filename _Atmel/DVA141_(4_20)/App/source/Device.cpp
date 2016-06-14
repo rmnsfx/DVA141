@@ -6,6 +6,7 @@
 */
 
 #include "Device.h"
+#include "Sinusoid.h"
 #define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
 #ifdef __cplusplus
@@ -145,5 +146,6 @@ void Device::Run(void)
 {
 	system_init();
 	xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)100, mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	xTaskCreate(Sinusoid::Sinus, "SinusTask", 2*configMINIMAL_STACK_SIZE, (void *)100, mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	vTaskStartScheduler();
 }
