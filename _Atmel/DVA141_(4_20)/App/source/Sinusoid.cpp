@@ -12,60 +12,59 @@
 
 #define PI 3.14159265
 
-
+float32_t pCoeffs [30] = {
+	
+	
+	1383013126,           0,           0
+	,
+	
+	2147483647,           0,           0
+	,
+	
+	2147483647,           0, -2147483648
+	,
+	
+	2147483647, -2147483648,  2117875272
+	,
+	
+	1383013126,           0,           0
+	,
+	
+	2147483647,           0,           0
+	,
+	
+	2147483647,           0, -2147483648
+	,
+	
+	2147483647,   987699619,   452480572
+	,
+	
+	2147483647,           0,           0
+	,
+	
+	2147483647,           0,           0
+	
+	
+};
 
 void Sinusoid::Sinus(void *pvParameters)
 {
-	float32_t param = 30;
-	float32_t pSrc[100];
-	float32_t pDst[100];
+	float32_t param = 80;
+	float32_t pSrc[50];
+	float32_t pDst[50];
 	
 	arm_biquad_casd_df1_inst_f32 *S;
-	uint8_t numStages = 4;
-	//float32_t *pCoeffs;
+	uint8_t numStages = 4;	
 	float32_t *pStates;
-	uint32_t blockSize = 100;
+	uint32_t blockSize = 50;
 	
 		
-	float32_t pCoeffs [30] = {
-		
-			
-				1383013126,           0,           0
-			,
-			
-				2147483647,           0,           0
-			,
-			
-				2147483647,           0, -2147483648
-			,
-			
-				2147483647, -2147483648,  2117875272
-			,
-			
-				1383013126,           0,           0
-			,
-			
-				2147483647,           0,           0
-			,
-			
-				2147483647,           0, -2147483648
-			,
-			
-				2147483647,   987699619,   452480572
-			,
-			
-				2147483647,           0,           0
-			,
-			
-				2147483647,           0,           0
-			
-		
-	};
+	
 	
 	for (;;)
 	{
 		
-		for (int i=0; i<100; i++) pSrc[i] = arm_sin_f32(param*2*PI*i/100);	
+		for (int i=0; i<50; i++) pSrc[i] = arm_sin_f32(param*2*PI*i/50);	
 		
 		arm_biquad_cascade_df1_init_f32(S, numStages, pCoeffs, pStates);
 		arm_biquad_cascade_df1_f32(S, pSrc, pDst, blockSize);		
