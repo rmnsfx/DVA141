@@ -33,7 +33,7 @@ void assert_triggered( const char * file, uint32_t line );
 #define configUSE_MALLOC_FAILED_HOOK            0
 #define configUSE_COUNTING_SEMAPHORES           1
 #define configUSE_QUEUE_SETS                    1
-#define configGENERATE_RUN_TIME_STATS           0
+#define configGENERATE_RUN_TIME_STATS           1
 #define configENABLE_BACKWARD_COMPATIBILITY     0
 #define configSUPPORT_STATIC_ALLOCATION			1
 
@@ -64,6 +64,8 @@ to exclude the API function. */
 #define INCLUDE_pcTaskGetTaskName               0
 #define INCLUDE_eTaskGetState                   0
 
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() 
+#define portGET_RUN_TIME_COUNTER_VALUE()	1
 
 /* Normal assert() semantics without relying on the provision of an assert.h
 header file. */
