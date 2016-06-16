@@ -145,7 +145,10 @@ void Device::DeviceTask(void *pvParameters)
 void Device::Run(void)
 {
 	system_init();
-	xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)100, mainQUEUE_SEND_TASK_PRIORITY, NULL);
-	xTaskCreate(Sinusoid::Sinus, "SinusTask", 30*configMINIMAL_STACK_SIZE, (void *)100, mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)100, mainQUEUE_SEND_TASK_PRIORITY, NULL);	
+	
+	//xTaskCreate(Sinusoid::Sinus, "SinusTask", 30*configMINIMAL_STACK_SIZE, (void *)100, 2, NULL);	
+	xTaskCreate(Sinusoid::Sinus_double, "SinusTask2", 30*configMINIMAL_STACK_SIZE, (void *)100, 2, NULL);
+	
 	vTaskStartScheduler();
 }
