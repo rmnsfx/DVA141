@@ -44,9 +44,6 @@
 #ifndef ASF_H
 #define ASF_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 /*
  * This file includes all API header files for the selected drivers from ASF.
  * Note: There might be duplicate includes required by more than one driver.
@@ -54,8 +51,6 @@ extern "C" {
  * The file is automatically generated and will be re-written when
  * running the ASF driver selector tool. Any changes will be discarded.
  */
-
-#define TEST_DEFINE (10)
 
 // From module: Common SAM0 compiler driver
 #include <compiler.h>
@@ -124,16 +119,11 @@ extern "C" {
 // From module: SYSTEM - Reset Management for SAM L21
 #include <reset.h>
 
-// From module: TC - Timer Counter (Callback APIs)
+// From module: TC - Timer Counter (Polled APIs)
 #include <tc.h>
-#include <tc_interrupt.h>
 
 // From module: TCC - Timer Counter for Control Applications (Callback APIs)
 #include <tcc.h>
 #include <tcc_callback.h>
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif // ASF_H
