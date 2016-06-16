@@ -19,6 +19,9 @@ class Sinusoid
 	virtual ~Sinusoid(void);
 	
 	static void Sinus(void *pvParameters);
+
+	static void Sinus_double (void *pvParameters);	
+
 };
 
 
