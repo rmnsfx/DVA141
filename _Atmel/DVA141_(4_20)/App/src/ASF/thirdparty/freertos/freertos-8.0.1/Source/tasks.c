@@ -4133,7 +4133,7 @@ TCB_t *pxTCB;
 						{
 							/* sizeof( int ) == sizeof( long ) so a smaller
 							printf() library can be used. */
-							sprintf( pcWriteBuffer, "\t%u\t\t<1%%\r\n", ( unsigned int ) pxTaskStatusArray[ x ].ulRunTimeCounter );
+							sprintf( pcWriteBuffer, "\t%u\t\t<1%%\t->%u\r\n", ( unsigned int ) pxTaskStatusArray[ x ].ulRunTimeCounter, pxTaskStatusArray[x].usStackHighWaterMark);
 						}
 						#endif
 					}

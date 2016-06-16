@@ -6,6 +6,9 @@
 */
 
 #include "Device.h"
+#include "stdio.h"
+#include "Task_manager.h"
+
 #define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
 #ifdef __cplusplus
@@ -24,7 +27,7 @@ extern "C"
 		function then they must be declared static - otherwise they will be allocated on
 		the stack and so not exists after this function exits. */
 		static StaticTask_t xIdleTaskTCB;
-		static StackType_t uxIdleTaskStack[ configMINIMAL_STACK_SIZE ];
+		static StackType_t uxIdleTaskStack[ 2*configMINIMAL_STACK_SIZE ];
 
 		/* Pass out a pointer to the StaticTask_t structure in which the Idle task's
 		state will be stored. */
@@ -36,7 +39,7 @@ extern "C"
 		/* Pass out the size of the array pointed to by *ppxIdleTaskStackBuffer.
 		Note that, as the array is necessarily of type StackType_t,
 		configMINIMAL_STACK_SIZE is specified in words, not bytes. */
-		*pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+		*pulIdleTaskStackSize = 2*configMINIMAL_STACK_SIZE;
 	}
 	/*-----------------------------------------------------------*/
 
@@ -63,7 +66,7 @@ extern "C"
 		/* Pass out the size of the array pointed to by *ppxTimerTaskStackBuffer.
 		Note that, as the array is necessarily of type StackType_t,
 		configMINIMAL_STACK_SIZE is specified in words, not bytes. */
-		*pulTimerTaskStackSize = configMINIMAL_STACK_SIZE;
+		*pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
 	}
 
 	#ifdef __cplusplus
@@ -131,19 +134,34 @@ void operator delete[](void *p)
 	vPortFree(p);
 }
 
-
-
 void Device::DeviceTask(void *pvParameters)
 {
+	const char* name = (const char*)pvParameters;
+	uint32_t tick;
 	for (;;)
 	{
-		vTaskDelay(100);
+		tick=Task_manager::GetValue();
+		vTaskDelay(10);
+	}
+}
+
+
+void Device::RunTimeStatsTask(void *pvParameters)
+{
+ char* stat = new char[1024];
+	for (;;)
+	{
+		vTaskGetRunTimeStats(stat);
+		vTaskDelay(1000);
 	}
 }
 
 void Device::Run(void)
 {
 	system_init();
-	xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)100, mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	
+	xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"Task1", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	xTaskCreate(DeviceTask, "DeviceTask2", 2*configMINIMAL_STACK_SIZE, (void *)"Task2", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 6*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	vTaskStartScheduler();
 }
