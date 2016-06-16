@@ -8,6 +8,11 @@
 #include "Out_4_20.h"
 
 
+void Out_4_20::Current(uint32_t value)
+{
+
+}
+
 Out_4_20::Out_4_20()
 {
 	if( xSemaphore == NULL)

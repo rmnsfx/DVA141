@@ -21,9 +21,9 @@ void assert_triggered( const char * file, uint32_t line );
 #define configMAX_PRIORITIES                    ( ( uint32_t ) 5 )
 #define configMINIMAL_STACK_SIZE                ( ( uint16_t ) 100 )
 /* configTOTAL_HEAP_SIZE is not used when heap_3.c is used. */
-#define configTOTAL_HEAP_SIZE                   ( ( size_t ) ( 15000 ) )
-#define configMAX_TASK_NAME_LEN                 ( 8 )
-#define configUSE_TRACE_FACILITY                0
+#define configTOTAL_HEAP_SIZE                   ( ( size_t ) ( 20000 ) )
+#define configMAX_TASK_NAME_LEN                 ( 30 )
+#define configUSE_TRACE_FACILITY                1
 #define configUSE_16_BIT_TICKS                  0
 #define configIDLE_SHOULD_YIELD                 1
 #define configUSE_MUTEXES                       1
@@ -33,7 +33,8 @@ void assert_triggered( const char * file, uint32_t line );
 #define configUSE_MALLOC_FAILED_HOOK            0
 #define configUSE_COUNTING_SEMAPHORES           1
 #define configUSE_QUEUE_SETS                    1
-#define configGENERATE_RUN_TIME_STATS           0
+#define configGENERATE_RUN_TIME_STATS           1
+#define configUSE_STATS_FORMATTING_FUNCTIONS	1
 #define configENABLE_BACKWARD_COMPATIBILITY     0
 #define configSUPPORT_STATIC_ALLOCATION			1
 
@@ -42,10 +43,10 @@ void assert_triggered( const char * file, uint32_t line );
 #define configMAX_CO_ROUTINE_PRIORITIES         ( 2 )
 
 /* Software timer definitions. */
-#define configUSE_TIMERS                        1
+#define configUSE_TIMERS                        0
 #define configTIMER_TASK_PRIORITY               ( 2 )
 #define configTIMER_QUEUE_LENGTH                2
-#define configTIMER_TASK_STACK_DEPTH            ( 80 )
+#define configTIMER_TASK_STACK_DEPTH            ( 180 )
 
 /* Set the following definitions to 1 to include the API function, or zero
 to exclude the API function. */
@@ -64,6 +65,10 @@ to exclude the API function. */
 #define INCLUDE_pcTaskGetTaskName               0
 #define INCLUDE_eTaskGetState                   0
 
+extern void TaskManagerTimerInit();
+extern uint32_t TaskManagerGetValue();
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()  TaskManagerTimerInit()
+#define portGET_RUN_TIME_COUNTER_VALUE()	TaskManagerGetValue()
 
 /* Normal assert() semantics without relying on the provision of an assert.h
 header file. */
