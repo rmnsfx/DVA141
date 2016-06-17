@@ -93,6 +93,9 @@ void Sinusoid::Sinus_double(void *pvParameters)
 		TickType_t xTimeNow2;
 		TickType_t xTimeDiff;
 		
+		float32_t temp = 0.707;
+		q31_t temp_q31 = 0;
+		
 				
 		for (;;)
 		{
@@ -107,30 +110,32 @@ void Sinusoid::Sinus_double(void *pvParameters)
 			//Конвертируем сигнал и коэф. в q31
 			arm_float_to_q31(pSrc, pSrc_q31, blockSize);			
 			arm_float_to_q31(pCoeffs2, pCoeffs2_q31, 10);	
+				
 			
 			//Масштабируем
 			arm_scale_q31(pSrc_q31, 0x7FFFFFFF, -3, pSrc_q31, blockSize);			
 			
-			//arm_rms_q31(pSrc_q31, blockSize, (q31_t *)&rmsResult_q31);											
-			//arm_q31_to_float((q31_t *)rmsResult_q31, (float32_t *)&rmsResult, 1);						
+			//arm_rms_q31(pSrc_q31, 80, &rmsResult_q31);		
+			//arm_scale_q31((q31_t*)&rmsResult_q31, 0x7FFFFFFF, 3, &rmsResult_q31, 1);										
+			//arm_q31_to_float(&rmsResult_q31, &rmsResult2, 1);						
 			
 			//Иниц. фильтра и первый проход
 			arm_biquad_cas_df1_32x64_init_q31(&S1, numStages, (q31_t *) &pCoeffs2_q31, pStates, 1);
-			arm_biquad_cas_df1_32x64_q31(&S1, pSrc_q31, pDst_q31, blockSize);		
+			arm_biquad_cas_df1_32x64_q31(&S1, pSrc_q31, pDst_q31, blockSize);							
 						
 			xTimeNow1 = xTaskGetTickCount();	
 			
 			//Фильтруем
-			arm_biquad_cas_df1_32x64_q31(&S1, pSrc_q31, pDst_q31, blockSize);					
+			arm_biquad_cas_df1_32x64_q31(&S1, pSrc_q31, pDst_q31, blockSize);													
 			
 			xTimeNow2 = xTaskGetTickCount();
 			xTimeDiff = (xTimeNow2 - xTimeNow1);
 			
+			//Масштабируем обратно
+			arm_scale_q31(pDst_q31, 0x7FFFFFFF, 3, pDst_q31, blockSize);			
+			
 			//Конвертируем обратно в float
 			arm_q31_to_float(pDst_q31, pDst, blockSize);
-			
-			//Масштабируем
-			arm_scale_f32(pDst, 8.0f, pDst, blockSize);
 									
 			//СКЗ отфильтрованного сигнала									
 			arm_rms_f32 (pDst, blockSize, (float32_t *) &rmsResult2);			

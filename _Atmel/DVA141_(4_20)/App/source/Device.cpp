@@ -165,6 +165,6 @@ void Device::Run(void)
 	//xTaskCreate(DeviceTask, "DeviceTask2", 2*configMINIMAL_STACK_SIZE, (void *)"Task2", mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	//xTaskCreate(Sinusoid::Sinus, "SinusTask", 30*configMINIMAL_STACK_SIZE, (void *)100, 2, NULL);	
 	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 3*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
-	xTaskCreate(Sinusoid::Sinus_double, "SinusTask2", 33*configMINIMAL_STACK_SIZE, (void *)100, 2, NULL);
+	xTaskCreate(Sinusoid::Sinus_double, "SinusTask2", 30*configMINIMAL_STACK_SIZE, (void *)100, 2, NULL);
 	vTaskStartScheduler();
 }
