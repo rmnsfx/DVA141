@@ -16,8 +16,11 @@ class Device
 	protected:
 	static void DeviceTask(void *pvParameters);
 	static void RunTimeStatsTask(void *pvParameters);
+	
 	public:
 	static void Run(void);
+	static TaskHandle_t xTask1, xTask2;
+	
 
 };
 

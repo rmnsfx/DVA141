@@ -21,7 +21,11 @@ class Sinusoid
 	static void Sinus(void *pvParameters);
 
 	static void Sinus_double (void *pvParameters);	
-
+	
+	static void Sinus_make32points(void *pvParameters);
+	
+	static void Sinus_filter32points(void *pvParameters);
+	
 };
 
 

@@ -9,6 +9,15 @@
 #include "Sinusoid.h"
 #include "arm_math.h"
 
+#define sampleSize 64
+
+ 
+float32_t fArrSrc[sampleSize];
+float32_t fArrDst[sampleSize];
+q31_t qArrSrc[sampleSize];
+q31_t qArrDst[sampleSize];
+
+
 
 //в знаменателе необходимо инвертировать знаки
 const float32_t pCoeffs [10] = {	
@@ -20,8 +29,6 @@ const float32_t pCoeffs [10] = {
 					-0.4569532855558,	-0.2117293533411,
 	
 };
-
-
 
 void Sinusoid::Sinus(void *pvParameters)
 {
@@ -93,9 +100,7 @@ void Sinusoid::Sinus_double(void *pvParameters)
 		TickType_t xTimeNow2;
 		TickType_t xTimeDiff;
 		
-		float32_t temp = 0.707;
-		q31_t temp_q31 = 0;
-		
+	
 				
 		for (;;)
 		{
@@ -142,5 +147,76 @@ void Sinusoid::Sinus_double(void *pvParameters)
 			
 			vTaskDelay(100);
 		}
+	
+}
+
+void Sinusoid::Sinus_make32points(void *pvParameters)
+{
+	float32_t param = 20;
+	float32_t rmsResult = 0;
+	
+	for (int i=0; i<sampleSize; i++) fArrSrc[i] = arm_sin_f32(param*2*PI*i/3200);
+		
+	arm_rms_f32 (fArrSrc, sampleSize, &rmsResult);	
+	
+	//Конвертируем сигнал и коэф. в q31
+	arm_float_to_q31(fArrSrc, qArrSrc, sampleSize);
+		
+	
+	for (;;)
+	{
+	
+		
+	
+		//Посылает уведомление
+		xTaskNotifyGive( Device::xTask2 );
+		
+		//Принимает
+		//ulTaskNotifyTake(pdTRUE, portMAX_DELAY);	
+		
+		vTaskDelay(20);
+	}
+	
+}
+
+void Sinusoid::Sinus_filter32points(void *pvParameters)
+{
+	//arm_biquad_cas_df1_32x64_ins_q31 S;		
+	arm_biquad_casd_df1_inst_q31 S;
+	q31_t coef_q31[10];
+	float32_t coef_float[10];
+	q63_t pStates[8];
+	q31_t pStates_q31[8];
+	q31_t rms_q31 = 0;
+	float32_t rms_float = 0;
+	
+	for (int i=0; i<10; i++) coef_float[i] = pCoeffs[i] / 2;
+	arm_float_to_q31(coef_float, coef_q31, 10);		
+	//arm_biquad_cas_df1_32x64_init_q31(&S, 2, (q31_t*)&coef_q31, pStates, 1);
+	arm_biquad_cascade_df1_init_q31(&S, 2, (q31_t*)&coef_q31, pStates_q31, 1);
+	
+	for( ;; )
+    {        
+      			
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		
+		//xTaskNotifyGive( Device::xTask1 );				  
+		
+		
+		//Масштабируем
+		arm_scale_q31(qArrSrc, 0x7FFFFFFF, -3, qArrSrc, sampleSize);	
+		
+		//Иниц. фильтра		
+		arm_biquad_cascade_df1_fast_q31(&S, qArrSrc, qArrSrc, sampleSize);
+		//arm_biquad_cas_df1_32x64_q31(&S, qArrSrc, qArrSrc, sampleSize);
+		//arm_biquad_cas_df1_32x64_q31(&S, qArrSrc, qArrSrc, sampleSize);
+		
+		//arm_rms_q31(qArrSrc, sampleSize/5, &rms_q31);
+		//arm_q31_to_float(&rms_q31, &rms_float, 1);
+		
+		//Масштабируем обратно
+		arm_scale_q31(qArrSrc, 0x7FFFFFFF, 3, qArrSrc, sampleSize);
+				
+	}
 	
 }
