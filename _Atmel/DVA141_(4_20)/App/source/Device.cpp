@@ -8,6 +8,9 @@
 #include "Device.h"
 #include "stdio.h"
 #include "Task_manager.h"
+#include "Axelerometr.h"
+#include "Axis.h"
+#include "os_wrapper.h"
 
 #define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
@@ -15,6 +18,18 @@
 extern "C"
 {
 	#endif
+	/*функции для работы вывода printf*/
+	int _write(int file, char *ptr, int len)
+	{
+		return len;
+	}
+	
+	/*функции для работы ввода scanf*/
+	int _read(int file, char *ptr, int len)
+	{
+		return 0;
+	}
+	
 
 	/* configUSE_STATIC_ALLOCATION is set to 1, so the application must provide an
 	implementation of vApplicationGetIdleTaskMemory() to provide the memory that is
@@ -159,9 +174,11 @@ void Device::RunTimeStatsTask(void *pvParameters)
 void Device::Run(void)
 {
 	system_init();
-	
-	xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"Task1", mainQUEUE_SEND_TASK_PRIORITY, NULL);
-	xTaskCreate(DeviceTask, "DeviceTask2", 2*configMINIMAL_STACK_SIZE, (void *)"Task2", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	os_wrapper& os = *os_wrapper::getInstance();
+	Axelerometr& axl = *Axelerometr::getInstance();
+	os.threadCreate(&axl.X());
+	os.threadCreate(&axl.Y());
+	os.threadCreate(&axl.Z());
 	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 6*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	vTaskStartScheduler();
 }
