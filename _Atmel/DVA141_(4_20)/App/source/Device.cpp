@@ -9,10 +9,13 @@
 #include "stdio.h"
 #include "Task_manager.h"
 #include "Sinusoid.h"
+#include "AD5421.h"
+
 
 #define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
 TaskHandle_t Device::xTask1 = NULL, Device::xTask2 = NULL;
+
 
 #ifdef __cplusplus
 extern "C"
@@ -164,12 +167,12 @@ void Device::RunTimeStatsTask(void *pvParameters)
 void Device::Run(void)
 {
 	system_init();
+	
+	uint16_t result = AD5421::AD5421_Init();	
 			
-	//xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"Task1", mainQUEUE_SEND_TASK_PRIORITY, NULL);	
-	//xTaskCreate(DeviceTask, "DeviceTask2", 2*configMINIMAL_STACK_SIZE, (void *)"Task2", mainQUEUE_SEND_TASK_PRIORITY, NULL);
-	//xTaskCreate(Sinusoid::Sinus, "SinusTask", 30*configMINIMAL_STACK_SIZE, (void *)100, 2, NULL);	
+	
+	
 	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 2*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
-	//xTaskCreate(Sinusoid::Sinus_double, "SinusTask2", 30*configMINIMAL_STACK_SIZE, (void *)100, 2, NULL);
 	
 	xTaskCreate(Sinusoid::Sinus_make32points, "SinusMake", 3*configMINIMAL_STACK_SIZE, (void *)100, 2, &xTask1);
 	xTaskCreate(Sinusoid::Sinus_filter32points, "SinusFilter", 3*configMINIMAL_STACK_SIZE, (void *)100, 2, &xTask2);

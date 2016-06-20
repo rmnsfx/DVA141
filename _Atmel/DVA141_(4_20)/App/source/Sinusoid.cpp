@@ -8,6 +8,7 @@
 #include "Device.h"
 #include "Sinusoid.h"
 #include "arm_math.h"
+#include "AD5421.h"
 
 #define sampleSize 64
 
@@ -189,6 +190,8 @@ void Sinusoid::Sinus_filter32points(void *pvParameters)
 	float32_t rms_float = 0;
 	q31_t maxValue_q31 = 0;
 	q31_t minValue_q31 = 0;
+	float32_t maxValue_float = 0;
+	float32_t minValue_float = 0;	
 	uint32_t maxValueIndex = 0;
 	uint32_t minValueIndex = 0;
 	
@@ -219,10 +222,13 @@ void Sinusoid::Sinus_filter32points(void *pvParameters)
 		
 		//Считаем ПИК
 		arm_max_q31(qArrSrc, sampleSize, &maxValue_q31, &maxValueIndex);
+		//arm_q31_to_float(&maxValue_q31, &maxValue_float, 1);
 		arm_min_q31(qArrSrc, sampleSize, &minValue_q31, &minValueIndex);
+		//arm_q31_to_float(&minValue_q31, &minValue_float, 1);
 		
 		//Масштабируем обратно
 		arm_scale_q31(qArrSrc, 0x7FFFFFFF, 3, qArrSrc, sampleSize);
+		
 				
 	}
 	

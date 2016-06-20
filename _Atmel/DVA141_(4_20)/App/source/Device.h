@@ -6,6 +6,7 @@
 */
 #include <asf.h>
 
+
 #ifndef DEVICE_H_
 #define DEVICE_H_
 
@@ -20,7 +21,6 @@ class Device
 	public:
 	static void Run(void);
 	static TaskHandle_t xTask1, xTask2;
-	
 
 };
 
