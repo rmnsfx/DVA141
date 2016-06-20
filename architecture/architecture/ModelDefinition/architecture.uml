@@ -98,6 +98,16 @@
               LastKnownLocation="architecture.uml" />
           </dependency>
         </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="0c2a4ee0-8c71-497e-b584-fd0ff4330256"
+            isSubstitutable="false">
+            <classMoniker
+              Id="004e1735-46f4-42e1-bb50-b54007894255"
+              LastKnownName="singleton"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
+        </generalsInternal>
         <targetEnds>
           <association
             Id="d7fa93c0-8270-4293-9e1a-4f013e54e4d4"
@@ -320,6 +330,13 @@
               LastKnownName="DSP lib"
               LastKnownLocation="architecture.uml" />
           </dependency>
+          <dependency
+            Id="2a7e5891-5058-4b71-a6f7-69a7dcffb4e0">
+            <classMoniker
+              Id="b8985f71-3506-4686-b5a7-ecbcbd011b0e"
+              LastKnownName="SPI driver DAC"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
         </suppliersInternal>
         <targetEnds>
           <association
@@ -358,6 +375,46 @@
                   isDerivedUnion="false"
                   aggregation="None"
                   isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7e2244b6-ca99-4167-9547-4afbd40fcefa"
+            isDerived="false"
+            sourceEndRoleName="Generator_output_signals"
+            targetEndRoleName="iSignal"
+            isLeaf="false"
+            name="установлен"
+            isAbstract="false">
+            <classMoniker
+              Id="57fe728e-11d3-4477-a6c1-55fffe2dfe86"
+              LastKnownName="iSignal"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3bc8e336-5799-4206-a1d1-594ce5f94ebc"
+                  name="Generator_output_signals"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="295aa57b-eef3-4e73-995c-28d1efcdbdfa"
+                  name="iSignal"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -612,7 +669,7 @@
     <packageHasNamedElement>
       <class
         Id="16886ff6-e380-481c-97dc-0745478852e8"
-        name="vibro_movement"
+        name="Vibro_movement"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -622,7 +679,7 @@
             isSubstitutable="false">
             <classMoniker
               Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3"
-              LastKnownName="vibro_speed"
+              LastKnownName="Vibro_speed"
               LastKnownLocation="architecture.uml" />
           </generalization>
         </generalsInternal>
@@ -644,20 +701,28 @@
                   <type_NamedElement>
                     <classMoniker
                       Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3"
-                      LastKnownName="vibro_speed"
+                      LastKnownName="Vibro_speed"
                       LastKnownLocation="architecture.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="3a00dcf3-6b3f-4ed1-aa6f-dc35593a8cf6"
+            name="WaitReady"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
         Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3"
-        name="vibro_speed"
+        name="Vibro_speed"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -667,7 +732,7 @@
             isSubstitutable="false">
             <classMoniker
               Id="b922e86a-9e34-4607-85e5-4485fc89516e"
-              LastKnownName="vibro_acceleration"
+              LastKnownName="Vibro_acceleration"
               LastKnownLocation="architecture.uml" />
           </generalization>
         </generalsInternal>
@@ -689,20 +754,28 @@
                   <type_NamedElement>
                     <classMoniker
                       Id="b922e86a-9e34-4607-85e5-4485fc89516e"
-                      LastKnownName="vibro_acceleration"
+                      LastKnownName="Vibro_acceleration"
                       LastKnownLocation="architecture.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="181e1c31-cccb-4401-983e-b7a9432a35b4"
+            name="WaitReady"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
         Id="b922e86a-9e34-4607-85e5-4485fc89516e"
-        name="vibro_acceleration"
+        name="Vibro_acceleration"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -716,6 +789,16 @@
               LastKnownLocation="architecture.uml" />
           </generalization>
         </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="6432510a-1fb7-45aa-afef-38441321f470"
+            name="WaitReady"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -732,10 +815,23 @@
             isSubstitutable="false">
             <classMoniker
               Id="a45eecea-47a5-4beb-8c36-43e520f53afc"
-              LastKnownName="Task"
+              LastKnownName="ios_thread"
               LastKnownLocation="architecture.uml" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="44d4abe2-4918-4b85-957a-b1897d854e87"
+            name="events"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="58489c01-32c5-43bd-b932-d3ad7f388b6b"
@@ -756,6 +852,14 @@
           <operation
             Id="c217021b-dbbb-460e-b419-993d030cba12"
             name="PeakToPeak"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="954fb04c-b52f-4815-80ca-4343274f5286"
+            name="WaitReady"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -783,6 +887,16 @@
               LastKnownLocation="architecture.uml" />
           </generalization>
         </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="2504300b-c465-40cf-8bbf-950c0f16402c"
+            name="WaitReady"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -802,7 +916,7 @@
             isAbstract="false">
             <classMoniker
               Id="b922e86a-9e34-4607-85e5-4485fc89516e"
-              LastKnownName="vibro_acceleration"
+              LastKnownName="Vibro_acceleration"
               LastKnownLocation="architecture.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -832,11 +946,89 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="6f5ec00e-24a3-4dea-bf2c-f50cac3ec1c6"
+            isDerived="false"
+            sourceEndRoleName="Axis"
+            targetEndRoleName="vibro_speed"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3"
+              LastKnownName="Vibro_speed"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ada61d55-83b5-43ac-af44-6d1a89d36c3f"
+                  name="Axis"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bb2f782b-f848-493f-8301-0794a9a8e18b"
+                  name="vibro_speed"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7752ad58-d438-4a75-b7a7-6345c5378775"
+            isDerived="false"
+            sourceEndRoleName="Axis"
+            targetEndRoleName="vibro_movement"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="16886ff6-e380-481c-97dc-0745478852e8"
+              LastKnownName="Vibro_movement"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="16e8faea-81f0-4e0d-94ec-5e119284951d"
+                  name="Axis"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3e7837e8-705c-44ee-aff7-9be116bbb051"
+                  name="vibro_movement"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedOperationsInternal>
           <operation
             Id="309bd4e1-f2d1-4b9e-9ba5-c8b0d036511a"
-            name="Acceleration"
+            name="A"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -850,7 +1042,53 @@
                   <type_NamedElement>
                     <classMoniker
                       Id="b922e86a-9e34-4607-85e5-4485fc89516e"
-                      LastKnownName="vibro_acceleration"
+                      LastKnownName="Vibro_acceleration"
+                      LastKnownLocation="architecture.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="525bcd08-ed27-4bff-99c0-54fd235e09f6"
+            name="V"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2ef48b7b-e5ed-462e-bdeb-7751107ed6c7"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3"
+                      LastKnownName="Vibro_speed"
+                      LastKnownLocation="architecture.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="856b8f55-0001-462a-b495-5e1a08fa774a"
+            name="S"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fc0cca82-6046-4ca0-a34f-621cb7aa36fd"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="16886ff6-e380-481c-97dc-0745478852e8"
+                      LastKnownName="Vibro_movement"
                       LastKnownLocation="architecture.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -863,7 +1101,23 @@
     <packageHasNamedElement>
       <class
         Id="a45eecea-47a5-4beb-8c36-43e520f53afc"
-        name="Task"
+        name="ios_thread"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="aaf3a058-5405-4aa8-8134-ba2cc9bfaf8e"
+        name="work_manager"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="004e1735-46f4-42e1-bb50-b54007894255"
+        name="singleton"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
