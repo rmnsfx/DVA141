@@ -229,6 +229,9 @@ void Sinusoid::Sinus_filter32points(void *pvParameters)
 		//Масштабируем обратно
 		arm_scale_q31(qArrSrc, 0x7FFFFFFF, 3, qArrSrc, sampleSize);
 		
+		
+		//maxValueIndex = AD5421::AD5421_GetTemperature();
+		AD5421::AD5421_SetRegisterValue(AD5421_REG_DAC_DATA, 0);
 				
 	}
 	

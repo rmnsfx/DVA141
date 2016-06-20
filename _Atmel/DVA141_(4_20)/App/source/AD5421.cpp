@@ -117,8 +117,6 @@ uint16_t AD5421::AD5421_GetRegisterValue(uint8_t regAddress)
 	
 	AD5421::SPI_Write_AD5421(data);
 	
-	//delay_us(30);
-	
 	AD5421::SPI_Read_AD5421(data);
 	
 	receivedData += (data[1] << 8);
@@ -135,12 +133,17 @@ uint16_t AD5421::AD5421_Init(void)
 	
 	port_pin_set_output_level(PIN_PA18, 1);
 
+	AD5421_SetRegisterValue(AD5421_REG_RESET, 0x0000);
+
 	AD5421_SetRegisterValue(AD5421_REG_CTRL,
 	AD5421_CTRL_WATCHDOG_DISABLE |
 	//AD5421_CTRL_MIN_CURRENT	|
 	AD5421_CTRL_ADC_SOURCE_TEMP	|
 	AD5421_CTRL_ADC_ENABLE
 	);
+	
+	AD5421_SetRegisterValue(AD5421_REG_OFFSET, 0);
+	AD5421_SetRegisterValue(AD5421_REG_GAIN, 0);
 	
 	if(AD5421_GetRegisterValue(AD5421_REG_CTRL) == 0x1280)
 	{
