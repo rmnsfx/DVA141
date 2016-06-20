@@ -92,14 +92,14 @@
         <classShapeMoniker Id="4b55e64a-76e3-48ef-b838-ff2027528cea" />
       </nodes>
     </associationConnector>
-    <classShape Id="761f3d78-37f7-489f-acc1-4754759e3d0f" absoluteBounds="13.875, 7.125, 1.5, 0.90234373509883881" hideQualifiedName="false" increaseHeight="0" customColor="128, 128, 255">
+    <classShape Id="761f3d78-37f7-489f-acc1-4754759e3d0f" absoluteBounds="10.5, 7, 1.5, 0.90234373509883881" hideQualifiedName="false" increaseHeight="0" customColor="128, 128, 255">
       <classMoniker Id="02c7acf5-2698-4e34-9edc-4f70298d605c" LastKnownName="SPI driver DAC" />
       <nestedChildShapes>
-        <AttributeElementListCompartment Id="bd5d32c1-b315-403a-8a5a-ff910fe1a211" absoluteBounds="13.89, 7.515, 1.4700000000000002, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
-        <OperationElementListCompartment Id="825e7fc2-64b2-4da3-a7ec-99ba5496579d" absoluteBounds="13.89, 7.72617186754942, 1.4700000000000002, 0.2011718675494194" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <AttributeElementListCompartment Id="bd5d32c1-b315-403a-8a5a-ff910fe1a211" absoluteBounds="10.515, 7.39, 1.4700000000000002, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="825e7fc2-64b2-4da3-a7ec-99ba5496579d" absoluteBounds="10.515, 7.60117186754942, 1.4700000000000002, 0.2011718675494194" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <dependencyConnector edgePoints="[(9.125 : 7.51367186754942); (13.875 : 7.51367186754942)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+    <dependencyConnector edgePoints="[(9.125 : 7.45117186754942); (10.5 : 7.45117186754942)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
       <dependencyMoniker Id="5a2b70b6-d567-46e7-84af-3d8f7c865878" />
       <relativeChildShapes />
       <nodes>
