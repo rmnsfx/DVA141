@@ -59,11 +59,11 @@ void AD5421::configure_spi_master_AD5421(void)
 	
 	config_spi_master.mode             = SPI_MODE_MASTER;
 	config_spi_master.data_order       = SPI_DATA_ORDER_MSB;
-	config_spi_master.transfer_mode    = SPI_TRANSFER_MODE_2;
+	config_spi_master.transfer_mode    = SPI_TRANSFER_MODE_1;
 	config_spi_master.character_size   = SPI_CHARACTER_SIZE_8BIT;
 	config_spi_master.run_in_standby   = false;
 	config_spi_master.receiver_enable  = true;
-	config_spi_master.generator_source = GCLK_GENERATOR_2;
+	config_spi_master.generator_source = GCLK_GENERATOR_1;
 	config_spi_master.mode_specific.master.baudrate = 1000000;
 	config_spi_master.master_slave_select_enable = true;
 	config_spi_master.select_slave_low_detect_enable = false;
@@ -133,17 +133,28 @@ uint16_t AD5421::AD5421_Init(void)
 	
 	port_pin_set_output_level(PIN_PA18, 1);
 
-	AD5421_SetRegisterValue(AD5421_REG_RESET, 0x0000);
+	AD5421_SetRegisterValue(AD5421_REG_RESET, 0);	
+	
+	for(int i=0; i<2500; i++){};
+	
+	AD5421_SetRegisterValue(AD5421_REG_OFFSET, 32768);
+	
+	AD5421_SetRegisterValue(AD5421_REG_GAIN, 65535);
+
+	for(int i=0; i<2500; i++){};
+		
+	AD5421_SetRegisterValue(AD5421_REG_FORCE_ALARM_CURRENT, 0x1);
+	
+	AD5421_SetRegisterValue(AD5421_REG_START_CONVERSION, 0x1);
 
 	AD5421_SetRegisterValue(AD5421_REG_CTRL,
-	AD5421_CTRL_WATCHDOG_DISABLE |
+	AD5421_CTRL_WATCHDOG_DISABLE |	 
 	//AD5421_CTRL_MIN_CURRENT	|
-	AD5421_CTRL_ADC_SOURCE_TEMP	|
+	//AD5421_CTRL_ADC_SOURCE_TEMP	|	
 	AD5421_CTRL_ADC_ENABLE
 	);
 	
-	AD5421_SetRegisterValue(AD5421_REG_OFFSET, 0);
-	AD5421_SetRegisterValue(AD5421_REG_GAIN, 0);
+
 	
 	if(AD5421_GetRegisterValue(AD5421_REG_CTRL) == 0x1280)
 	{

@@ -194,6 +194,7 @@ void Sinusoid::Sinus_filter32points(void *pvParameters)
 	float32_t minValue_float = 0;	
 	uint32_t maxValueIndex = 0;
 	uint32_t minValueIndex = 0;
+	uint32_t fault_reg = 0;
 	
 	for (int i=0; i<10; i++) coef_float[i] = pCoeffs[i] / 2;
 	arm_float_to_q31(coef_float, coef_q31, 10);		
@@ -227,11 +228,18 @@ void Sinusoid::Sinus_filter32points(void *pvParameters)
 		//arm_q31_to_float(&minValue_q31, &minValue_float, 1);
 		
 		//Масштабируем обратно
-		arm_scale_q31(qArrSrc, 0x7FFFFFFF, 3, qArrSrc, sampleSize);
+		arm_scale_q31(qArrSrc, 0x7FFFFFFF, 3, qArrSrc, sampleSize);		
 		
-		
-		//maxValueIndex = AD5421::AD5421_GetTemperature();
+		maxValueIndex = AD5421::AD5421_GetTemperature();
 		AD5421::AD5421_SetRegisterValue(AD5421_REG_DAC_DATA, 0);
+		
+		fault_reg = AD5421::AD5421_GetRegisterValue(AD5421_REG_FAULT);
+		//fault_reg = AD5421::AD5421_GetRegisterValue(AD5421_REG_CTRL);
+		
+		
+		
+		//AD5421::AD5421_SetRegisterValue(AD5421_REG_LOAD_DAC, 0x1);
+		
 				
 	}
 	
