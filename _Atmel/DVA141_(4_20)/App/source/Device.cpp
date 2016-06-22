@@ -8,9 +8,11 @@
 #include "Device.h"
 #include "stdio.h"
 #include "Task_manager.h"
+#include "Axelerometr.h"
 #include "Sinusoid.h"
 #include "AD5421.h"
-
+#include "Axis.h"
+#include "os_wrapper.h"
 
 #define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
@@ -21,6 +23,18 @@ TaskHandle_t Device::xTask1 = NULL, Device::xTask2 = NULL;
 extern "C"
 {
 	#endif
+	/*функции для работы вывода printf*/
+	int _write(int file, char *ptr, int len)
+	{
+		return len;
+	}
+	
+	/*функции для работы ввода scanf*/
+	int _read(int file, char *ptr, int len)
+	{
+		return 0;
+	}
+	
 
 	/* configUSE_STATIC_ALLOCATION is set to 1, so the application must provide an
 	implementation of vApplicationGetIdleTaskMemory() to provide the memory that is
@@ -167,16 +181,14 @@ void Device::RunTimeStatsTask(void *pvParameters)
 void Device::Run(void)
 {
 	system_init();
-	
 	uint16_t result = AD5421::AD5421_Init();	
-			
-	
-	
-	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 2*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
-	
+	os_wrapper& os = *os_wrapper::getInstance();
+	Axelerometr& axl = *Axelerometr::getInstance();
+	os.threadCreate(&axl.X());
+	os.threadCreate(&axl.Y());
+	os.threadCreate(&axl.Z());
+	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 6*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	xTaskCreate(Sinusoid::Sinus_make32points, "SinusMake", 3*configMINIMAL_STACK_SIZE, (void *)100, 2, &xTask1);
 	xTaskCreate(Sinusoid::Sinus_filter32points, "SinusFilter", 3*configMINIMAL_STACK_SIZE, (void *)100, 2, &xTask2);
-	
-	
 	vTaskStartScheduler();
 }
