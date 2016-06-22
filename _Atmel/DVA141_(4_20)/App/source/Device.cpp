@@ -13,6 +13,7 @@
 #include "AD5421.h"
 #include "Axis.h"
 #include "os_wrapper.h"
+#include "Generator_output_signals.h"
 
 #define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
@@ -181,12 +182,16 @@ void Device::RunTimeStatsTask(void *pvParameters)
 void Device::Run(void)
 {
 	system_init();
-	uint16_t result = AD5421::AD5421_Init();	
+	
 	os_wrapper& os = *os_wrapper::getInstance();
 	Axelerometr& axl = *Axelerometr::getInstance();
 	os.threadCreate(&axl.X());
 	os.threadCreate(&axl.Y());
 	os.threadCreate(&axl.Z());
+	
+	
+	
+		
 	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 6*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	xTaskCreate(Sinusoid::Sinus_make32points, "SinusMake", 3*configMINIMAL_STACK_SIZE, (void *)100, 2, &xTask1);
 	xTaskCreate(Sinusoid::Sinus_filter32points, "SinusFilter", 3*configMINIMAL_STACK_SIZE, (void *)100, 2, &xTask2);

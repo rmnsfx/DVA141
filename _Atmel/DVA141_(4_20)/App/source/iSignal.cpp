@@ -22,3 +22,16 @@ void iSignal::main(void)
 {
 
 }
+
+//q31_t iSignal::Amplitude(void)
+//{
+	//
+//}
+//q31_t iSignal::PeakToPeak(void)
+//{
+	//
+//}
+//q31_t iSignal::RMS(void)
+//{
+	//
+//}
