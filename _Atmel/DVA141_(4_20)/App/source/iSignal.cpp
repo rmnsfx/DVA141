@@ -13,6 +13,10 @@
  *  Author: drachevam
  */ 
 
+q31_t * Amplitude;
+q31_t * RMS;
+q31_t * PeakToPeak;
+
 void iSignal::main(void)
 {
 
@@ -23,15 +27,15 @@ void iSignal::main(void)
 
 }
 
-//q31_t iSignal::Amplitude(void)
-//{
-	//
-//}
-//q31_t iSignal::PeakToPeak(void)
-//{
-	//
-//}
-//q31_t iSignal::RMS(void)
-//{
-	//
-//}
+void getAmplitude(q31_t * inn)
+{
+	Amplitude = inn;
+}
+void getPeakToPeak(q31_t * inn)
+{
+	PeakToPeak = inn;
+}
+void getRMS(q31_t * inn)
+{
+	RMS = inn;
+}

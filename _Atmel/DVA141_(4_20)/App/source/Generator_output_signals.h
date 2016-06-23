@@ -10,20 +10,23 @@
 #define GENERATOR_OUTPUT_SIGNALS_H_
 
 
-class Generator_output_signals:public Singleton<Generator_output_signals>
+class Generator_output_signals:public iSignal
 {		
 	private:
 	
-	static void dacConverter(float32_t *src, uint16_t *dst);
+	
 	
 	public:
-		
-	static void Output_Amplitude(void *pvParameters);
-	static void Output_RMS(void *pvParameters);
-	static void Output_PeakToPeak(void *pvParameters);
-	
+
+	static void dacConverter(q31_t * src, uint32_t * dst);
+
 	Generator_output_signals(void);
 	virtual ~Generator_output_signals(void);
+	
+	static void Output_Amplitude(iSignal * signal);
+	static void Output_RMS(iSignal * signal);
+	static void Output_PeakToPeak(iSignal * signal);
+		
 	};
 
 

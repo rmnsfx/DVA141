@@ -10,6 +10,9 @@
 #include "arm_math.h"
 #include "AD5421.h"
 
+#include "iSignal.h"
+#include "Generator_output_signals.h"
+
 #define sampleSize 64
 
  
@@ -178,6 +181,8 @@ void Sinusoid::Sinus_make32points(void *pvParameters)
 	
 }
 
+
+
 void Sinusoid::Sinus_filter32points(void *pvParameters)
 {
 	//arm_biquad_cas_df1_32x64_ins_q31 S;		
@@ -241,6 +246,19 @@ void Sinusoid::Sinus_filter32points(void *pvParameters)
 		//fault_reg = AD5421::AD5421_GetRegisterValue(AD5421_REG_CTRL);		
 		//AD5421::AD5421_SetRegisterValue(AD5421_REG_LOAD_DAC, 0x1);
 		
+		rms_q31 = 2147483648;
+		
+		iSignal isig;
+		
+		//isig->getAmplitude(rms_q31);
+		
+		uint32_t temp = 0;
+		
+		//maxValue_q31 = iSignal::Amplitude;
+		
+		//Generator_output_signals::Output_Amplitude(&isig);
+		
+		Generator_output_signals::dacConverter(&rms_q31, &temp);
 				
 	}
 	
