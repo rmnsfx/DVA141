@@ -17,6 +17,18 @@
 #ifdef __cplusplus
 extern "C"
 {
+    
+    void SERCOM0_Handler(void)
+    {
+	while (1) {
+	} 
+    }
+    
+    void HardFault_Handler(void)
+    {
+	while (1) {
+	}
+    }
 	#endif
 	/*функции для работы вывода printf*/
 	int _write(int file, char *ptr, int len)
@@ -153,20 +165,22 @@ void Device::DeviceTask(void *pvParameters)
 {
 	const char* name = (const char*)pvParameters;
 	uint32_t tick;
+	Axelerometr& axl = *Axelerometr::getInstance();
 	for (;;)
 	{
-		tick=Task_manager::GetValue();
-		vTaskDelay(10);
+		vTaskDelay(5);
+		tick = Task_manager::GetValue();
+		axl.StartReadDMA();
 	}
 }
 
 
 void Device::RunTimeStatsTask(void *pvParameters)
 {
- char* stat = new char[1024];
+//	char* stat = new char[3024];
 	for (;;)
 	{
-		vTaskGetRunTimeStats(stat);
+//		vTaskGetRunTimeStats(stat);
 		vTaskDelay(1000);
 	}
 }
@@ -175,10 +189,39 @@ void Device::Run(void)
 {
 	system_init();
 	os_wrapper& os = *os_wrapper::getInstance();
-	Axelerometr& axl = *Axelerometr::getInstance();
-	os.threadCreate(&axl.X());
-	os.threadCreate(&axl.Y());
-	os.threadCreate(&axl.Z());
-	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 6*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//Axelerometr& axl = *Axelerometr::getInstance();
+	//os.threadCreate(&axl.X());
+	//os.threadCreate(&axl.Y());
+	//os.threadCreate(&axl.Z());
+	xTaskCreate(DeviceTask, "DeviceTask", 4*configMINIMAL_STACK_SIZE, (void *)"1", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"2", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"3", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"4", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"5", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"6", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"7", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"8", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"9", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"10", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"11", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"12", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"13", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"14", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"15", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"16", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"17", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"18", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"19", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"20", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"21", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"22", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"23", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"24", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"25", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"26", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"27", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"28", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"29", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 4*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	vTaskStartScheduler();
 }

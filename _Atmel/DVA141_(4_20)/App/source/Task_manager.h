@@ -17,7 +17,7 @@ class Task_manager
 	static struct tc_module tc_instance_stat;
 	public:
 	static inline void Init();
-	static inline uint32_t GetValue();
+	static uint32_t GetValue();
 };
 
 

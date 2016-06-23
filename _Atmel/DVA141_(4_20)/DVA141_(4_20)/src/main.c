@@ -401,29 +401,22 @@ static void configure_dma_resource_tx(struct dma_resource *tx_resource)
 static void configure_dma_resource_rx(struct dma_resource *rx_resource)
 {
 	struct dma_resource_config rx_config;
-
 	dma_get_config_defaults(&rx_config);
-
 	rx_config.peripheral_trigger = CONF_PERIPHERAL_TRIGGER_RX;
 	rx_config.trigger_action = DMA_TRIGGER_ACTION_BEAT;
-
 	dma_allocate(rx_resource, &rx_config);
 }
 
 
 static void setup_transfer_descriptor_tx(DmacDescriptor *tx_descriptor)
 {
-
-	struct dma_descriptor_config tx_descriptor_config;
-	
-	dma_descriptor_get_config_defaults(&tx_descriptor_config);
-	
+	struct dma_descriptor_config tx_descriptor_config;	
+	dma_descriptor_get_config_defaults(&tx_descriptor_config);	
 	tx_descriptor_config.beat_size = DMA_BEAT_SIZE_BYTE;
 	tx_descriptor_config.dst_increment_enable = false;
 	tx_descriptor_config.block_transfer_count = sizeof(buffer_tx)/sizeof(uint8_t);
 	tx_descriptor_config.source_address = (uint32_t)buffer_tx + sizeof(buffer_tx);
-	tx_descriptor_config.destination_address = (uint32_t)(&spi_master_instance_ADXL.hw->SPI.DATA.reg);
-	
+	tx_descriptor_config.destination_address = (uint32_t)(&spi_master_instance_ADXL.hw->SPI.DATA.reg);	
 	dma_descriptor_create(tx_descriptor, &tx_descriptor_config);	
 }
 

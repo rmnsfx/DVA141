@@ -260,12 +260,16 @@ void Reset_Handler(void)
         /* Infinite loop */
         while (1);
 }
+#include "SystemsHeaders.h"
 
 /**
  * \brief Default interrupt handler for unused IRQs.
  */
 void Dummy_Handler(void)
 {
+	char stat[2024];
+	char* data = stat;
+		vTaskGetRunTimeStats(stat);
         while (1) {
         }
 }
