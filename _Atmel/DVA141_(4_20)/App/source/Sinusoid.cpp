@@ -208,6 +208,8 @@ void Sinusoid::Sinus_filter32points(void *pvParameters)
 	
 	
 	
+
+	
 	for( ;; )
     {        
       			
@@ -246,19 +248,19 @@ void Sinusoid::Sinus_filter32points(void *pvParameters)
 		//fault_reg = AD5421::AD5421_GetRegisterValue(AD5421_REG_CTRL);		
 		//AD5421::AD5421_SetRegisterValue(AD5421_REG_LOAD_DAC, 0x1);
 		
-		rms_q31 = 2147483648;
 		
-		iSignal isig;
 		
-		//isig->getAmplitude(rms_q31);
 		
-		uint32_t temp = 0;
 		
-		//maxValue_q31 = iSignal::Amplitude;
+		float32_t tempp = (float32_t) 0.02;		
+		arm_float_to_q31(&tempp, &rms_q31, 1);		
+		//rms_float = Generator_output_signals::dacConverter(rms_q31);
 		
-		//Generator_output_signals::Output_Amplitude(&isig);
+		iSignal sig;
 		
-		Generator_output_signals::dacConverter(&rms_q31, &temp);
+		sig.getAmplitude(rms_q31);
+		
+		Generator_output_signals::Output_Amplitude(sig);
 				
 	}
 	

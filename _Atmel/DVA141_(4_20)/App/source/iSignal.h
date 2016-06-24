@@ -14,17 +14,19 @@
 
 class iSignal:public ios_thread
 {
-	public:	
+	
+	protected:
 	
 	static q31_t Amplitude;
 	static q31_t RMS;
-	static q31_t PeakToPeak;	
-		
+	static q31_t PeakToPeak;
+	
+	public:
+			
 	iSignal(const char* const ThreadName = "iSignal", osPriority_t priority =
 	osThreadPriorityNormal, uint32_t stack = 0);
 	void main(void);
-	~iSignal();
-	
+	~iSignal();	
 	
 	static void getAmplitude(q31_t inn);
 	static void getPeakToPeak(q31_t inn);

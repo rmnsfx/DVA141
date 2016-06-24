@@ -1,11 +1,3 @@
-#include "iSignal.h"
-
-
- iSignal::iSignal(const char* const ThreadName /*= "iSignal"*/, osPriority_t priority /*= osThreadPriorityNormal*/, uint32_t stack /*= 0*/): ios_thread(ThreadName,priority,stack)
-{
-
-}
-
 /*
  * iSignal.cpp
  *
@@ -13,9 +5,17 @@
  *  Author: drachevam
  */ 
 
-q31_t * Amplitude;
-q31_t * RMS;
-q31_t * PeakToPeak;
+#include "iSignal.h"
+
+q31_t iSignal::Amplitude;
+q31_t iSignal::RMS;
+q31_t iSignal::PeakToPeak;
+
+
+ iSignal::iSignal(const char* const ThreadName /*= "iSignal"*/, osPriority_t priority /*= osThreadPriorityNormal*/, uint32_t stack /*= 0*/): ios_thread(ThreadName,priority,stack)
+{
+
+}
 
 void iSignal::main(void)
 {
@@ -27,15 +27,15 @@ void iSignal::main(void)
 
 }
 
-void getAmplitude(q31_t * inn)
+void iSignal::getAmplitude(q31_t inn)
 {
-	Amplitude = inn;
+	iSignal::Amplitude = inn;
 }
-void getPeakToPeak(q31_t * inn)
+void iSignal::getPeakToPeak(q31_t inn)
 {
-	PeakToPeak = inn;
+	iSignal::PeakToPeak = inn;
 }
-void getRMS(q31_t * inn)
+void iSignal::getRMS(q31_t inn)
 {
-	RMS = inn;
+	iSignal::RMS = inn;
 }
