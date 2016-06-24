@@ -13,7 +13,7 @@
 #include "iSignal.h"
 #include "Generator_output_signals.h"
 
-#define sampleSize 64
+//#define sampleSize 64
 
  
 float32_t fArrSrc[sampleSize];
@@ -252,15 +252,21 @@ void Sinusoid::Sinus_filter32points(void *pvParameters)
 		
 		
 		
-		float32_t tempp = (float32_t) 0.02;		
-		arm_float_to_q31(&tempp, &rms_q31, 1);		
-		//rms_float = Generator_output_signals::dacConverter(rms_q31);
-		
-		iSignal sig;
-		
-		sig.getAmplitude(rms_q31);
-		
-		Generator_output_signals::Output_Amplitude(sig);
+		//float32_t tempp[64];
+		//q31_t tempp2[64];
+		//for(int i=0; i<64; i++) tempp[i] = 0 / (float32_t) sampleScale;	
+		//
+		//
+		//arm_float_to_q31(tempp, tempp2, 64);				
+		//
+		//iSignal sig;				
+		//sig.getAmplitude(tempp2);
+		//sig.getPeakToPeak(tempp2);
+		//sig.getRMS(tempp2);
+									//
+		//Generator_output_signals::outputAmplitude(sig);		
+		//Generator_output_signals::outputPeakToPeak(sig);		
+		//Generator_output_signals::outputRMS(sig);		
 				
 	}
 	

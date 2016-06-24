@@ -12,6 +12,9 @@
 #include "os_wrapper.h"
 #include "arm_math.h"
 
+#define sampleSize 64 //кол-во отсчетов в выборке
+#define sampleScale 20 //диапазон для масштабирования в q31 и расчета коэф. преобр. в ЦАП
+
 class iSignal:public ios_thread
 {
 	
@@ -28,9 +31,9 @@ class iSignal:public ios_thread
 	void main(void);
 	~iSignal();	
 	
-	static void getAmplitude(q31_t inn);
-	static void getPeakToPeak(q31_t inn);
-	static void getRMS(q31_t inn);
+	static void getAmplitude(q31_t *inn);
+	static void getPeakToPeak(q31_t *inn);
+	static void getRMS(q31_t *inn);
 	
 };
 

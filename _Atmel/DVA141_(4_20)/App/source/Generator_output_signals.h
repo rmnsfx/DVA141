@@ -21,10 +21,11 @@ class Generator_output_signals:public iSignal
 	Generator_output_signals(void);
 	virtual ~Generator_output_signals(void);
 	
-	static uint32_t dacConverter(q31_t src);	
-	static void Output_Amplitude(iSignal signal);
-	static void Output_RMS(iSignal signal);
-	static void Output_PeakToPeak(iSignal signal);
+	static uint32_t dacConverter(q31_t &src);	
+	static void outputAmplitude(iSignal &signal);
+	static void outputRMS(iSignal &signal);
+	static void outputPeakToPeak(iSignal &signal);
+	static void loadDAC(void);
 		
 	};
 

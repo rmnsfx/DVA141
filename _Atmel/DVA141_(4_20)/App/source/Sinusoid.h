@@ -10,6 +10,7 @@
 #define SINUSOID_H_
 
 
+
 class Sinusoid
 {
 	

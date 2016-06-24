@@ -130,8 +130,10 @@ uint16_t AD5421::AD5421_Init(void)
 	uint16_t status = -1;
 	
 	configure_spi_master_AD5421();
-	
+	//CS
 	port_pin_set_output_level(PIN_PA18, 1);
+	//LDAC
+	port_pin_set_output_level(PIN_PA24, 1);
 
 	AD5421_SetRegisterValue(AD5421_REG_RESET, 0);	
 	
@@ -143,14 +145,14 @@ uint16_t AD5421::AD5421_Init(void)
 
 	for(int i=0; i<2500; i++){};
 		
-	AD5421_SetRegisterValue(AD5421_REG_FORCE_ALARM_CURRENT, 0x1);
+	//AD5421_SetRegisterValue(AD5421_REG_FORCE_ALARM_CURRENT, 0x1);
 	
-	AD5421_SetRegisterValue(AD5421_REG_START_CONVERSION, 0x1);
+	//AD5421_SetRegisterValue(AD5421_REG_START_CONVERSION, 0x1);
 
 	AD5421_SetRegisterValue(AD5421_REG_CTRL,
 	AD5421_CTRL_WATCHDOG_DISABLE |	 
 	//AD5421_CTRL_MIN_CURRENT	|
-	//AD5421_CTRL_ADC_SOURCE_TEMP	|	
+	AD5421_CTRL_ADC_SOURCE_TEMP	|	
 	AD5421_CTRL_ADC_ENABLE
 	);
 	

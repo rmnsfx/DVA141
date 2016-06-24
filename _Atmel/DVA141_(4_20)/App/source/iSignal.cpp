@@ -27,15 +27,24 @@ void iSignal::main(void)
 
 }
 
-void iSignal::getAmplitude(q31_t inn)
+void iSignal::getAmplitude(q31_t *inn)
 {
-	iSignal::Amplitude = inn;
+	uint32_t pIndex = 0;	
+	
+	arm_max_q31(inn, sampleSize, &Amplitude, &pIndex);	
 }
-void iSignal::getPeakToPeak(q31_t inn)
+void iSignal::getPeakToPeak(q31_t *inn)
 {
-	iSignal::PeakToPeak = inn;
+	uint32_t pIndex;	
+	q31_t max = 0;
+	q31_t min = 0;
+	
+	arm_max_q31(inn, sampleSize, &max, &pIndex);
+	arm_min_q31(inn, sampleSize, &min, &pIndex);	
+	
+	iSignal::PeakToPeak = max - min;	
 }
-void iSignal::getRMS(q31_t inn)
+void iSignal::getRMS(q31_t *inn)
 {
-	iSignal::RMS = inn;
+	arm_rms_q31(inn, sampleSize, &RMS);	
 }
