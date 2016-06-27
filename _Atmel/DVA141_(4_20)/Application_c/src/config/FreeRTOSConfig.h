@@ -16,14 +16,14 @@ void assert_triggered( const char * file, uint32_t line );
 #define configUSE_IDLE_HOOK                     0
 #define configUSE_TICK_HOOK                     0
 #define configPRIO_BITS                         2
-#define configCPU_CLOCK_HZ                      ( 8000000 )
+#define configCPU_CLOCK_HZ                      ( 48000000 )
 #define configTICK_RATE_HZ                      ( ( TickType_t ) 1000 )
 #define configMAX_PRIORITIES                    ( ( uint32_t ) 5 )
 #define configMINIMAL_STACK_SIZE                ( ( uint16_t ) 100 )
 /* configTOTAL_HEAP_SIZE is not used when heap_3.c is used. */
 #define configTOTAL_HEAP_SIZE                   ( ( size_t ) ( 15000 ) )
-#define configMAX_TASK_NAME_LEN                 ( 8 )
-#define configUSE_TRACE_FACILITY                0
+#define configMAX_TASK_NAME_LEN                 ( 30 )
+#define configUSE_TRACE_FACILITY                1
 #define configUSE_16_BIT_TICKS                  0
 #define configIDLE_SHOULD_YIELD                 1
 #define configUSE_MUTEXES                       1
@@ -33,8 +33,10 @@ void assert_triggered( const char * file, uint32_t line );
 #define configUSE_MALLOC_FAILED_HOOK            0
 #define configUSE_COUNTING_SEMAPHORES           1
 #define configUSE_QUEUE_SETS                    1
-#define configGENERATE_RUN_TIME_STATS           0
+#define configGENERATE_RUN_TIME_STATS           1
+#define configUSE_STATS_FORMATTING_FUNCTIONS	1
 #define configENABLE_BACKWARD_COMPATIBILITY     0
+#define configSUPPORT_STATIC_ALLOCATION			0
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES                   0
@@ -63,6 +65,10 @@ to exclude the API function. */
 #define INCLUDE_pcTaskGetTaskName               0
 #define INCLUDE_eTaskGetState                   0
 
+extern void TaskManagerTimerInit();
+extern uint32_t TaskManagerGetValue();
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()  TaskManagerTimerInit()
+#define portGET_RUN_TIME_COUNTER_VALUE()	TaskManagerGetValue()
 
 /* Normal assert() semantics without relying on the provision of an assert.h
 header file. */

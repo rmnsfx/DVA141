@@ -116,4 +116,7 @@
 // From module: SYSTEM - Reset Management for SAM L21
 #include <reset.h>
 
+// From module: TC - Timer Counter (Polled APIs)
+#include <tc.h>
+
 #endif // ASF_H

@@ -5,6 +5,7 @@
  *  Author: drachevam
  */ 
 
+#include "TaskManager.h"
 #include "Axelerometer.h"
 #include "Device.h"
 
@@ -33,6 +34,7 @@ void RunDevice(void )
 
 void RunDeviceTask(void *pvParameters)
 {
+	TaskManager_Init();
 	Axelerometer_Init();
 	for (;;)
 	{

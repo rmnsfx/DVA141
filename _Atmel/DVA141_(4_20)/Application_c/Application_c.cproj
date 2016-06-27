@@ -30,10 +30,11 @@
       <framework-data>
   <options>
     <option id="common.boards" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="sam0.drivers.dma" value="Add" config="" content-id="Atmel.ASF" />
     <option id="sam0.drivers.sercom.spi" value="Add" config="callback" content-id="Atmel.ASF" />
     <option id="sam0.drivers.system" value="Add" config="" content-id="Atmel.ASF" />
     <option id="thirdparty.os.freertos.version" value="Add" config="8.0.1" content-id="Atmel.ASF" />
-    <option id="sam0.drivers.dma" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="sam0.drivers.tc" value="Add" config="polled" content-id="Atmel.ASF" />
     <option id="sam0.utils.linker_scripts" value="Add" config="" content-id="Atmel.ASF" />
   </options>
   <configurations>
@@ -228,6 +229,8 @@
     <file path="src/ASF/sam0/drivers/dma/quick_start/qs_dma_basic.h" framework="" version="3.31.0" source="sam0\drivers\dma\quick_start\qs_dma_basic.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/sam0/drivers/dma/dma.h" framework="" version="3.31.0" source="sam0\drivers\dma\dma.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/Config/conf_dma.h" framework="" version="3.31.0" source="sam0\drivers\dma\module_config\conf_dma.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/sam0/drivers/tc/tc.h" framework="" version="3.31.0" source="sam0\drivers\tc\tc.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/sam0/drivers/tc/tc_sam_l_c/tc.c" framework="" version="3.31.0" source="sam0\drivers\tc\tc_sam_l_c\tc.c" changed="False" content-id="Atmel.ASF" />
   </files>
   <documentation help="http://asf.atmel.com/docs/3.31.0/common.applications.user_application.sam0_system.user_board.atsaml21e18b/html/index.html" />
   <offline-documentation help="" />
@@ -270,6 +273,7 @@
       <Value>ARM_MATH_CM0PLUS=true</Value>
       <Value>__FREERTOS__</Value>
       <Value>SPI_CALLBACK_MODE=true</Value>
+      <Value>TC_ASYNC=false</Value>
     </ListValues>
   </armgcc.compiler.symbols.DefSymbols>
   <armgcc.compiler.directories.IncludePaths>
@@ -302,6 +306,8 @@
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/dma</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/sam0/drivers/tc/tc_sam_l_c</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -353,9 +359,11 @@
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/dma</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/sam0/drivers/tc/tc_sam_l_c</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
-  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DBOARD=USER_BOARD -D__FREERTOS__ -DSPI_CALLBACK_MODE=true</armgcc.preprocessingassembler.general.AssemblerFlags>
+  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DBOARD=USER_BOARD -D__FREERTOS__ -DSPI_CALLBACK_MODE=true -DTC_ASYNC=false</armgcc.preprocessingassembler.general.AssemblerFlags>
   <armgcc.preprocessingassembler.general.IncludePaths>
     <ListValues>
       <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_saml21</Value>
@@ -386,6 +394,8 @@
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/dma</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/sam0/drivers/tc/tc_sam_l_c</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>
@@ -406,6 +416,7 @@
       <Value>ARM_MATH_CM0PLUS=true</Value>
       <Value>__FREERTOS__</Value>
       <Value>SPI_CALLBACK_MODE=true</Value>
+      <Value>TC_ASYNC=false</Value>
     </ListValues>
   </armgcc.compiler.symbols.DefSymbols>
   <armgcc.compiler.directories.IncludePaths>
@@ -440,6 +451,8 @@
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../ADXL</Value>
       <Value>../src/ASF/sam0/drivers/dma</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/sam0/drivers/tc/tc_sam_l_c</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
@@ -492,10 +505,12 @@
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/dma</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/sam0/drivers/tc/tc_sam_l_c</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
-  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DBOARD=USER_BOARD -D__FREERTOS__ -DSPI_CALLBACK_MODE=true</armgcc.preprocessingassembler.general.AssemblerFlags>
+  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DBOARD=USER_BOARD -D__FREERTOS__ -DSPI_CALLBACK_MODE=true -DTC_ASYNC=false</armgcc.preprocessingassembler.general.AssemblerFlags>
   <armgcc.preprocessingassembler.general.IncludePaths>
     <ListValues>
       <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_saml21</Value>
@@ -526,6 +541,8 @@
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/dma</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/sam0/drivers/tc/tc_sam_l_c</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -568,6 +585,8 @@
     <Folder Include="src\ASF\sam0\drivers\system\power\power_sam_l\" />
     <Folder Include="src\ASF\sam0\drivers\system\reset\" />
     <Folder Include="src\ASF\sam0\drivers\system\reset\reset_sam_l\" />
+    <Folder Include="src\ASF\sam0\drivers\tc\" />
+    <Folder Include="src\ASF\sam0\drivers\tc\tc_sam_l_c\" />
     <Folder Include="src\ASF\sam0\utils\" />
     <Folder Include="src\ASF\sam0\utils\cmsis\" />
     <Folder Include="src\ASF\sam0\utils\cmsis\saml21\" />
@@ -617,6 +636,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="source\Device.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\TaskManager.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\TaskManager.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\ASF\sam0\drivers\dma\dma.c">
@@ -682,6 +707,12 @@
     <None Include="src\ASF\sam0\drivers\sercom\spi\spi_interrupt.h">
       <SubType>compile</SubType>
     </None>
+    <None Include="src\ASF\sam0\drivers\tc\tc.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\sam0\drivers\tc\tc_sam_l_c\tc.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\ASF\thirdparty\freertos\freertos-8.0.1\Source\croutine.c">
       <SubType>compile</SubType>
     </Compile>
