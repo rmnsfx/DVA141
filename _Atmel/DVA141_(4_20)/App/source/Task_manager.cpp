@@ -34,7 +34,7 @@ void Task_manager::Init()
 	tc_get_config_defaults(&config_tc);
 
 	config_tc.counter_size = TC_COUNTER_SIZE_32BIT;
-	config_tc.clock_source = GCLK_GENERATOR_0;
+	config_tc.clock_source = GCLK_GENERATOR_1;
 	config_tc.clock_prescaler = TC_CLOCK_PRESCALER_DIV1024;
 	
 	tc_init(&tc_instance_stat, TC0, &config_tc);

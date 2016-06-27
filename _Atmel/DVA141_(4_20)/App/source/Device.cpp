@@ -187,8 +187,7 @@ void Device::Run(void)
 	Axelerometr& axl = *Axelerometr::getInstance();
 	os.threadCreate(&axl.X());
 	os.threadCreate(&axl.Y());
-	os.threadCreate(&axl.Z());
-	
+	os.threadCreate(&axl.Z());	
 	
 	
 		

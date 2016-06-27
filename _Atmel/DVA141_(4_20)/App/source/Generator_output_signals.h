@@ -27,7 +27,7 @@ class Generator_output_signals:public iSignal
 	static void outputPeakToPeak(iSignal &signal);
 	static void loadDAC(void);
 		
-	};
+};
 
 
 #endif /* GENERATOR_OUTPUT_SIGNALS_H_ */

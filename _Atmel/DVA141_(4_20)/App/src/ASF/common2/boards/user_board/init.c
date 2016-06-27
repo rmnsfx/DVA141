@@ -25,21 +25,21 @@ static void init_gpio(void)
 	struct port_config pin;
 	port_get_config_defaults(&pin);
 	
-	pin.direction = PORT_PIN_DIR_INPUT;
-	pin.input_pull = PORT_PIN_PULL_DOWN;
-	port_pin_set_config(PIN_PA00, &pin);
-	
-	pin.direction = PORT_PIN_DIR_INPUT;
-	pin.input_pull = PORT_PIN_PULL_DOWN;
-	port_pin_set_config(PIN_PA01, &pin);
-	
-	pin.direction = PORT_PIN_DIR_INPUT;
-	pin.input_pull = PORT_PIN_PULL_NONE;
-	port_pin_set_config(PIN_PA02, &pin);
-	
-	pin.direction = PORT_PIN_DIR_OUTPUT;
-	port_pin_set_config(PIN_PA03, &pin);
-	port_pin_set_output_level(PIN_PA03, 0);
+	//pin.direction = PORT_PIN_DIR_INPUT;
+	//pin.input_pull = PORT_PIN_PULL_DOWN;
+	//port_pin_set_config(PIN_PA00, &pin);
+	//
+	//pin.direction = PORT_PIN_DIR_INPUT;
+	//pin.input_pull = PORT_PIN_PULL_DOWN;
+	//port_pin_set_config(PIN_PA01, &pin);
+	//
+	//pin.direction = PORT_PIN_DIR_INPUT;
+	//pin.input_pull = PORT_PIN_PULL_NONE;
+	//port_pin_set_config(PIN_PA02, &pin);
+	//
+	//pin.direction = PORT_PIN_DIR_OUTPUT;
+	//port_pin_set_config(PIN_PA03, &pin);
+	//port_pin_set_output_level(PIN_PA03, 0);
 	
 	//pin.direction = PORT_PIN_DIR_INPUT;
 	//pin.input_pull = PORT_PIN_PULL_NONE;
@@ -61,22 +61,22 @@ static void init_gpio(void)
 	//pin.input_pull = PORT_PIN_PULL_UP;
 	//port_pin_set_config(PIN_PA07, &pin);
 	
-	pin.direction = PORT_PIN_DIR_OUTPUT;
-	port_pin_set_config(PIN_PA08, &pin);
-	port_pin_set_output_level(PIN_PA08, 1);
-	
-	pin.direction = PORT_PIN_DIR_OUTPUT;
-	port_pin_set_config(PIN_PA09, &pin);
-	port_pin_set_output_level(PIN_PA09, 1);
-	
-	
-	pin.direction = PORT_PIN_DIR_OUTPUT;
-	port_pin_set_config(PIN_PA10, &pin);
-	port_pin_set_output_level(PIN_PA10, 1);
-	
-	pin.direction = PORT_PIN_DIR_INPUT;
-	pin.input_pull = PORT_PIN_PULL_NONE;
-	port_pin_set_config(PIN_PA11, &pin);
+	//pin.direction = PORT_PIN_DIR_OUTPUT;
+	//port_pin_set_config(PIN_PA08, &pin);
+	//port_pin_set_output_level(PIN_PA08, 1);
+	//
+	//pin.direction = PORT_PIN_DIR_OUTPUT;
+	//port_pin_set_config(PIN_PA09, &pin);
+	//port_pin_set_output_level(PIN_PA09, 1);
+	//
+	//
+	//pin.direction = PORT_PIN_DIR_OUTPUT;
+	//port_pin_set_config(PIN_PA10, &pin);
+	//port_pin_set_output_level(PIN_PA10, 1);
+	//
+	//pin.direction = PORT_PIN_DIR_INPUT;
+	//pin.input_pull = PORT_PIN_PULL_NONE;
+	//port_pin_set_config(PIN_PA11, &pin);
 	
 	
 	//pin.direction = PORT_PIN_DIR_OUTPUT;
@@ -87,33 +87,33 @@ static void init_gpio(void)
 	//port_pin_set_config(PIN_PA17, &pin);
 	//port_pin_set_output_level(PIN_PA17, 0);
 	//
-	//pin.direction = PORT_PIN_DIR_OUTPUT;
-	//port_pin_set_config(PIN_PA18, &pin);
-	//port_pin_set_output_level(PIN_PA18, 0);
+	pin.direction = PORT_PIN_DIR_OUTPUT;
+	port_pin_set_config(PIN_PA18, &pin);
+	port_pin_set_output_level(PIN_PA18, 0);
 	//
 	//pin.direction = PORT_PIN_DIR_INPUT;
 	//pin.input_pull = PORT_PIN_PULL_NONE;
 	//port_pin_set_config(PIN_PA19, &pin);
 	
-	pin.direction = PORT_PIN_DIR_OUTPUT;
-	port_pin_set_config(PIN_PA22, &pin);
-	port_pin_set_output_level(PIN_PA22, 0);
-	
+	//pin.direction = PORT_PIN_DIR_OUTPUT;
+	//port_pin_set_config(PIN_PA22, &pin);
+	//port_pin_set_output_level(PIN_PA22, 0);
+	//
 	pin.direction = PORT_PIN_DIR_OUTPUT;
 	port_pin_set_config(PIN_PA24, &pin);
 	port_pin_set_output_level(PIN_PA24, 0);
-	
-	pin.direction = PORT_PIN_DIR_OUTPUT;
-	port_pin_set_config(PIN_PA27, &pin);
-	port_pin_set_output_level(PIN_PA27, 0);
-	
-	pin.direction = PORT_PIN_DIR_OUTPUT;
-	port_pin_set_config(PIN_PA30, &pin);
-	port_pin_set_output_level(PIN_PA30, 0);
-	
-	pin.direction = PORT_PIN_DIR_OUTPUT;
-	port_pin_set_config(PIN_PA31, &pin);
-	port_pin_set_output_level(PIN_PA31, 0);
+	//
+	//pin.direction = PORT_PIN_DIR_OUTPUT;
+	//port_pin_set_config(PIN_PA27, &pin);
+	//port_pin_set_output_level(PIN_PA27, 0);
+	//
+	//pin.direction = PORT_PIN_DIR_OUTPUT;
+	//port_pin_set_config(PIN_PA30, &pin);
+	//port_pin_set_output_level(PIN_PA30, 0);
+	//
+	//pin.direction = PORT_PIN_DIR_OUTPUT;
+	//port_pin_set_config(PIN_PA31, &pin);
+	//port_pin_set_output_level(PIN_PA31, 0);
 	
 }
 
