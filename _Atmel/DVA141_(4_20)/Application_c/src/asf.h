@@ -59,6 +59,10 @@
 // From module: Common build items for user board support templates
 #include <user_board.h>
 
+// From module: DMAC - Direct Memory Access Controller
+#include <dma.h>
+#include <dma_crc.h>
+
 // From module: FreeRTOS - kernel 8.0.1
 #include <FreeRTOS.h>
 #include <StackMacros.h>
@@ -79,8 +83,19 @@
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
+// From module: PORT - GPIO Pin Control
+#include <port.h>
+
 // From module: Part identification macros
 #include <parts.h>
+
+// From module: SERCOM Callback API
+#include <sercom.h>
+#include <sercom_interrupt.h>
+
+// From module: SERCOM SPI - Serial Peripheral Interface (Callback APIs)
+#include <spi.h>
+#include <spi_interrupt.h>
 
 // From module: SYSTEM - Clock Management for SAML21
 #include <clock.h>

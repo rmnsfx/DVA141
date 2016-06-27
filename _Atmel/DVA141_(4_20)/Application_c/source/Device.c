@@ -5,10 +5,24 @@
  *  Author: drachevam
  */ 
 
+#include "Axelerometer.h"
 #include "Device.h"
+
 
 void RunDeviceTask(void *pvParameters);
 #define RUN_DEVICE_STACK_SIZE (2*configMINIMAL_STACK_SIZE)
+
+	/*функции для работы вывода printf*/
+	int _write(int file, char *ptr, int len)
+	{
+		return len;
+	}
+	
+	/*функции для работы ввода scanf*/
+	int _read(int file, char *ptr, int len)
+	{
+		return 0;
+	}
 
 
 void RunDevice(void )
@@ -19,6 +33,7 @@ void RunDevice(void )
 
 void RunDeviceTask(void *pvParameters)
 {
+	Axelerometer_Init();
 	for (;;)
 	{
 		vTaskDelay(100);
