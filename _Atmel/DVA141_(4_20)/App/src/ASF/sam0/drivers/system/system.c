@@ -107,5 +107,8 @@ void system_init(void)
 	
 	/* Initialize DIVAS hardware */
 	_system_divas_init();
+  
+    //select_buck_regulator_as_main_vreg (импульсный понижающий преобразователь)
+    SUPC->VREG.bit.SEL = 1;
 }
 
