@@ -34,5 +34,6 @@
 *.ewt
 *.dep
 *.lst
-
+### Atmel studio
+*.studiobackup
 /output/
