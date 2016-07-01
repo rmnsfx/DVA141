@@ -1,16 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="490fef2b-34c8-4016-8a14-94c550449888" name="Signals" linkedPackageId="67b68fd4-0cea-4d12-8214-600d867e4639" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="490fef2b-34c8-4016-8a14-94c550449888" name="ReadyNotification" linkedPackageId="67b68fd4-0cea-4d12-8214-600d867e4639" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <description>метод для расчета параметров</description>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="1f312fc9-2dce-4df9-bf89-e76878535922" name="iSignal" isAbstract="false" isLeaf="false" isActiveClass="false">
         <description>описывает сигнал</description>
         <elementDefinition Id="57fe728e-11d3-4477-a6c1-55fffe2dfe86" />
-        <generalsInternal>
-          <generalization Id="4bfe7918-5062-4d98-b700-0f9f9d0ec86d" isSubstitutable="false">
-            <classMoniker Id="e44e40ae-05f0-4a88-a2da-637a5e781d8d" LastKnownName="ios_thread" />
-            <elementDefinition Id="d858aac2-02cf-4383-ba6f-cc5e08dbf594" />
-          </generalization>
-        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="3c1c9b7e-2757-4753-a9e8-f05304bb75b4" name="events" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="44d4abe2-4918-4b85-957a-b1897d854e87" />
@@ -26,8 +21,8 @@
           <operation Id="de1128fd-bc7b-4b07-b1b8-322374538763" name="PeakToPeak" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="c217021b-dbbb-460e-b419-993d030cba12" />
           </operation>
-          <operation Id="e976aba2-f18c-41e6-963b-676e8aabf891" name="WaitReady" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="954fb04c-b52f-4815-80ca-4343274f5286" />
+          <operation Id="5bcb407d-6b82-4e18-a8bd-cd0a4953185c" name="Calculate" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8f04be08-6895-460f-a02c-dc50bef63901" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -43,11 +38,6 @@
             <elementDefinition Id="538583e1-6f32-4f94-b4db-3a6a161f3da5" />
           </generalization>
         </generalsInternal>
-        <ownedOperationsInternal>
-          <operation Id="65e0cd32-f98c-4159-8c1c-73746452fe64" name="WaitReady" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="2504300b-c465-40cf-8bbf-950c0f16402c" />
-          </operation>
-        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -60,8 +50,18 @@
           </generalization>
         </generalsInternal>
         <ownedOperationsInternal>
-          <operation Id="85147bda-c44f-4c40-9ee5-a1ada87ac351" name="WaitReady" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="6432510a-1fb7-45aa-afef-38441321f470" />
+          <operation Id="4cbed74e-5b77-4e6b-b638-156f6ef49e22" name="Calculate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c4dbe12b-b488-4264-ae00-ee43fe4fe72c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="981557a6-b7b6-464e-9d92-345c5f21860f" name="axis" direction="In">
+                  <elementDefinition Id="e63aad61-7ee7-4a36-98a0-1560d953089f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a7a6739c-3a9b-4460-87d4-b6e70207c4dc" LastKnownName="Axis" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -89,9 +89,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="26a8d30f-6a13-4252-9b2e-794c1df27103" name="WaitReady" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="181e1c31-cccb-4401-983e-b7a9432a35b4" />
-          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -118,9 +115,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="92efa74f-2dab-491b-8082-b8dc26628b91" name="WaitReady" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="3a00dcf3-6b3f-4ed1-aa6f-dc35593a8cf6" />
-          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -131,6 +125,10 @@
           <generalization Id="7bb109ee-25e3-41e1-b089-d9ca0948a1cb" isSubstitutable="false">
             <classMoniker Id="150ba064-7132-48e5-9934-2a4b6b4afd15" LastKnownName="singleton" />
             <elementDefinition Id="0c2a4ee0-8c71-497e-b584-fd0ff4330256" />
+          </generalization>
+          <generalization Id="43393252-bae6-4a6e-b064-0d6d99078c02" isSubstitutable="false">
+            <classMoniker Id="e44e40ae-05f0-4a88-a2da-637a5e781d8d" LastKnownName="ios_thread" />
+            <elementDefinition Id="02a630da-cc50-48ac-81e6-1458910b7d24" />
           </generalization>
         </generalsInternal>
         <targetEnds>
@@ -159,6 +157,32 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="808bd0f4-bc1d-4ec5-a29a-e551dc6442df" />
+          </association>
+          <association Id="0f99664c-1e77-4b11-8abe-f647f918f080" isDerived="false" sourceEndRoleName="Axelerometr" targetEndRoleName="Axl_buffer" isLeaf="false" isAbstract="false">
+            <classMoniker Id="1957ea3a-7145-48cd-afc6-cf18f2998058" LastKnownName="Axelerometr_buffer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="744f04f0-fabe-4a96-a668-745855706a81" name="Axelerometr" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e9309f79-8ed2-4f0d-bdce-cc9ff07dbf8b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f604e885-fcec-48b3-9e7a-26ca0f710433" name="Axl_buffer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="06733aa2-6181-400c-889d-39b34911f329" name="Lower" value="3">
+                      <elementDefinition Id="de6aa3f3-c5a9-4445-8b58-40846c17a5b0" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="5548e1f9-3e18-4d4c-ae3b-fd38eaf35a19" name="Upper" value="3">
+                      <elementDefinition Id="0288e6c0-fe2d-444f-96af-ecf557f8f4c9" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="a47b0330-136f-4b30-8670-823785a7f078" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e0e5b5dc-3d90-42f9-b914-26765b35078c" />
           </association>
         </targetEnds>
         <ownedOperationsInternal>
@@ -201,12 +225,21 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="45f88ca8-b262-4db5-b984-9bb8e74cea79" name="ReadData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cdd7173f-b85e-47c1-967d-3b65b5ce799e" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="74106927-9d0a-4b30-acf6-e92d4d030590" name="Axis" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="51a9cd10-37eb-440e-a68b-0b1862c060a2" />
+        <generalsInternal>
+          <generalization Id="cdf745e9-e664-47ef-a9a1-002cd0b88e8e" isSubstitutable="false">
+            <classMoniker Id="e44e40ae-05f0-4a88-a2da-637a5e781d8d" LastKnownName="ios_thread" />
+            <elementDefinition Id="ca3d60e5-01c7-4eb5-a0a5-b232d79f9594" />
+          </generalization>
+        </generalsInternal>
         <targetEnds>
           <association Id="afe751fc-d880-4db5-bb0d-02dd28984e73" isDerived="false" sourceEndRoleName="Axis" targetEndRoleName="vibro_acceleration" isLeaf="false" isAbstract="false">
             <classMoniker Id="ccf02a7c-6d95-48fc-8874-6a9baefa2364" LastKnownName="Vibro_acceleration" />
@@ -255,6 +288,22 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="7752ad58-d438-4a75-b7a7-6345c5378775" />
+          </association>
+          <association Id="b8e8328a-83a4-4e99-9ea7-364115dafd1a" isDerived="false" sourceEndRoleName="Axis" targetEndRoleName="Axl_buffer" isLeaf="false" isAbstract="false">
+            <classMoniker Id="1957ea3a-7145-48cd-afc6-cf18f2998058" LastKnownName="Axelerometr_buffer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4f11fe27-2552-4aa9-a1fc-bef028960936" name="Axis" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="444eda94-9cf7-4ef2-b8b1-7731349a413d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c343d2f8-8ded-42a6-91f0-c6d20f766ddf" name="Axl_buffer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e1aeb636-89c0-44ef-9e4a-d0e91c26a762" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="089d5461-b308-4e34-88f2-40ba8db4f523" />
           </association>
         </targetEnds>
         <ownedOperationsInternal>
@@ -336,6 +385,12 @@
 сигнал может формироваться как из данных по одной оси, 
 так и из данных по нескольким осям(вектор)</description>
         <elementDefinition Id="f226abb2-23d8-4e54-962e-cb4ca303d291" />
+        <generalsInternal>
+          <generalization Id="d529bfdf-1cc8-4f08-b907-55a354505340" isSubstitutable="false">
+            <classMoniker Id="77de2065-0271-44dc-89f4-82255e859747" LastKnownName="ios_thread" />
+            <elementDefinition Id="c1c9d19f-ff3a-4d79-992d-5f22c42d9151" />
+          </generalization>
+        </generalsInternal>
         <targetEnds>
           <association Id="647972c2-59eb-44da-ad61-d24241e43dc4" isDerived="false" sourceEndRoleName="Generator_output_signals" targetEndRoleName="iSignal" isLeaf="false" name="установлен" isAbstract="false">
             <classMoniker Id="1f312fc9-2dce-4df9-bf89-e76878535922" LastKnownName="iSignal" />
@@ -369,6 +424,16 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="150ba064-7132-48e5-9934-2a4b6b4afd15" name="singleton" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="004e1735-46f4-42e1-bb50-b54007894255" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1957ea3a-7145-48cd-afc6-cf18f2998058" name="Axelerometr_buffer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6057eb6e-46e9-4b6d-93da-ad6936bc9b8f" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="77de2065-0271-44dc-89f4-82255e859747" name="ios_thread" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a45eecea-47a5-4beb-8c36-43e520f53afc" />
       </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>

@@ -18,10 +18,10 @@ void assert_triggered( const char * file, uint32_t line );
 #define configPRIO_BITS                         2
 #define configCPU_CLOCK_HZ                      ( 48000000 )
 #define configTICK_RATE_HZ                      ( ( TickType_t ) 1000 )
-#define configMAX_PRIORITIES                    ( ( uint32_t ) 5 )
-#define configMINIMAL_STACK_SIZE                ( ( uint16_t ) 100 )
+#define configMAX_PRIORITIES                    ( ( uint32_t ) 8 )
+#define configMINIMAL_STACK_SIZE                ( ( uint16_t ) 128 )
 /* configTOTAL_HEAP_SIZE is not used when heap_3.c is used. */
-#define configTOTAL_HEAP_SIZE                   ( ( size_t ) ( 16000 ) )
+#define configTOTAL_HEAP_SIZE                   ( ( size_t ) ( 14000 ) )
 #define configMAX_TASK_NAME_LEN                 ( 30 )
 #define configUSE_TRACE_FACILITY                1
 #define configUSE_16_BIT_TICKS                  0
@@ -36,7 +36,7 @@ void assert_triggered( const char * file, uint32_t line );
 #define configGENERATE_RUN_TIME_STATS           1
 #define configUSE_STATS_FORMATTING_FUNCTIONS	1
 #define configENABLE_BACKWARD_COMPATIBILITY     0
-#define configSUPPORT_STATIC_ALLOCATION			1
+#define configSUPPORT_STATIC_ALLOCATION			0
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES                   0

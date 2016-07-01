@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="4776a902-0fcf-4db5-a539-df83ea4f16ff" name="data_from_adxl" linkedPackageId="5387fe87-51e6-4407-9586-4d2743db1dad" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="6d0e43bd-9d6d-4999-b6e3-be09e8b2c1f2">
+      <profileInstance Id="9e0bbb01-cf18-469e-b4a8-b7a2d003d014" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b3e67140-3686-4669-a14d-53781b33a690">
+      <profileInstance Id="fcfee7db-ec2c-43fe-ab4b-98a203362e48" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="71d86cf9-1a0f-46cc-9aa7-513cb149764e" name="data_from_adxl" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <elementDefinition Id="4c002be7-6bf3-4e7d-bf5c-19a6fbe9ec54" />
+        <fragments>
+          <behaviorExecutionSpecification Id="60bfcc1c-6081-44ef-85e9-21cd0ab3b5a1" name="BehaviorExecutionSpecification2">
+            <elementDefinition Id="4b82b528-c90e-4bff-a810-1dcd078f4d7a" />
+            <coveredLifelines>
+              <lifelineMoniker Id="308a951a-e8ec-4539-ab28-9b914c95766e" LastKnownName="Vibro_acceleration" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="631126cb-4775-440d-b6c5-e9abf053ef5a" LastKnownName="ExecutionOccurrenceSpecification4" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="a33ed585-8853-4477-8044-eae977904142" LastKnownName="ExecutionOccurrenceSpecification3" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="f14a9d69-2407-471e-af2c-ae9cd707010d" LastKnownName="MessageOccurrenceSpecification6" />
+              <messageOccurrenceSpecificationMoniker Id="4e81e47b-ce32-4fef-8ebf-fa5e01dd6c0a" LastKnownName="MessageOccurrenceSpecification7" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="a33ed585-8853-4477-8044-eae977904142" name="ExecutionOccurrenceSpecification3">
+            <elementDefinition Id="336c07a2-a857-438e-a881-2834f2b42c2d" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="dfb017fe-6b5e-4a2a-bfe2-8938bb5b7ca8" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="308a951a-e8ec-4539-ab28-9b914c95766e" LastKnownName="Vibro_acceleration" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a07b13cb-c2be-46d8-9c59-aad2942fd517" name="MessageOccurrenceSpecification5">
+            <elementDefinition Id="58efd40e-0570-44fb-a661-19079997cf14" />
+            <covered>
+              <lifelineMoniker Id="87b85b70-2f0e-4fea-8c8e-7def9436bdf4" LastKnownName="Axelerometr" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="f14a9d69-2407-471e-af2c-ae9cd707010d" name="MessageOccurrenceSpecification6">
+            <elementDefinition Id="fa70a852-8013-4186-b6dc-b70957f1f37f" />
+            <covered>
+              <lifelineMoniker Id="308a951a-e8ec-4539-ab28-9b914c95766e" LastKnownName="Vibro_acceleration" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="adf29606-cad9-46b9-9352-18d00895483a" name="BehaviorExecutionSpecification3">
+            <elementDefinition Id="f3f84102-0d03-46b4-b69b-e4fe7a9228c8" />
+            <coveredLifelines>
+              <lifelineMoniker Id="fa71f390-9c95-4ba4-bb8a-d4a219423ce6" LastKnownName="Vibro_speed" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="2ebfd2e9-a3d2-44be-8f2d-077052f85255" LastKnownName="ExecutionOccurrenceSpecification6" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="6c7d501f-17ca-458b-b398-cd00fa72c9de" LastKnownName="ExecutionOccurrenceSpecification5" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="17b47cbd-6176-4061-997d-40369700c03c" LastKnownName="MessageOccurrenceSpecification8" />
+              <messageOccurrenceSpecificationMoniker Id="cdf2b143-23ed-4f77-b83b-169b37eda87e" LastKnownName="MessageOccurrenceSpecification9" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="6c7d501f-17ca-458b-b398-cd00fa72c9de" name="ExecutionOccurrenceSpecification5">
+            <elementDefinition Id="8624f6b5-0001-4b9c-a1df-52015a5f0495" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="cb71b5b4-90e4-4b6d-8e20-e6b3e323b0be" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="fa71f390-9c95-4ba4-bb8a-d4a219423ce6" LastKnownName="Vibro_speed" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="4e81e47b-ce32-4fef-8ebf-fa5e01dd6c0a" name="MessageOccurrenceSpecification7">
+            <elementDefinition Id="b8b08b01-74ad-4c38-9c8d-b61216ba1370" />
+            <covered>
+              <lifelineMoniker Id="308a951a-e8ec-4539-ab28-9b914c95766e" LastKnownName="Vibro_acceleration" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="17b47cbd-6176-4061-997d-40369700c03c" name="MessageOccurrenceSpecification8">
+            <elementDefinition Id="21f3d14d-3655-4a16-afe4-903a5c070a5b" />
+            <covered>
+              <lifelineMoniker Id="fa71f390-9c95-4ba4-bb8a-d4a219423ce6" LastKnownName="Vibro_speed" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="631126cb-4775-440d-b6c5-e9abf053ef5a" name="ExecutionOccurrenceSpecification4">
+            <elementDefinition Id="e49cedd7-3ad4-48cb-a4fc-1858cab46dd4" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="1a80da4c-0898-461e-a026-014d34a8d41a" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="308a951a-e8ec-4539-ab28-9b914c95766e" LastKnownName="Vibro_acceleration" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="bae7eceb-376c-4eed-b369-e6b8f34ceb7b" name="BehaviorExecutionSpecification4">
+            <elementDefinition Id="2c3e5da0-04ef-49ec-80a7-dcdba1f86dc4" />
+            <coveredLifelines>
+              <lifelineMoniker Id="5306fa24-219b-49ed-9725-0ac9ef715406" LastKnownName="Vibro_movement" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="559b5299-55ef-4eba-89b9-481e7f5753c2" LastKnownName="ExecutionOccurrenceSpecification8" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="1bacda04-6254-440b-965b-a7ee50a149f0" LastKnownName="ExecutionOccurrenceSpecification7" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="435256ba-aef6-4a8a-b02f-431840a813f5" LastKnownName="MessageOccurrenceSpecification10" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="1bacda04-6254-440b-965b-a7ee50a149f0" name="ExecutionOccurrenceSpecification7">
+            <elementDefinition Id="8090faa8-a593-4ac7-83e9-ce37ad6f471e" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="b489ce2d-9c1e-4cf1-bee0-645542b540cd" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="5306fa24-219b-49ed-9725-0ac9ef715406" LastKnownName="Vibro_movement" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="cdf2b143-23ed-4f77-b83b-169b37eda87e" name="MessageOccurrenceSpecification9">
+            <elementDefinition Id="d388e178-6920-4617-956e-3d080403da03" />
+            <covered>
+              <lifelineMoniker Id="fa71f390-9c95-4ba4-bb8a-d4a219423ce6" LastKnownName="Vibro_speed" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="435256ba-aef6-4a8a-b02f-431840a813f5" name="MessageOccurrenceSpecification10">
+            <elementDefinition Id="ca1bb45a-ff97-41df-9313-1c846d9f6755" />
+            <covered>
+              <lifelineMoniker Id="5306fa24-219b-49ed-9725-0ac9ef715406" LastKnownName="Vibro_movement" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="2ebfd2e9-a3d2-44be-8f2d-077052f85255" name="ExecutionOccurrenceSpecification6">
+            <elementDefinition Id="e552bd97-c96e-49e2-b452-e8a5509262ab" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="78e5a210-cde2-4515-a126-1a88dc2b2120" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="fa71f390-9c95-4ba4-bb8a-d4a219423ce6" LastKnownName="Vibro_speed" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="559b5299-55ef-4eba-89b9-481e7f5753c2" name="ExecutionOccurrenceSpecification8">
+            <elementDefinition Id="c199d158-04ef-4ef2-8f31-838d70fb7314" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="7f796139-da9c-4193-ba3a-dc01dc5cc2b3" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="5306fa24-219b-49ed-9725-0ac9ef715406" LastKnownName="Vibro_movement" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="87b85b70-2f0e-4fea-8c8e-7def9436bdf4" name="Axelerometr" isActor="false" lifelineDisplayName="Axelerometr">
+            <elementDefinition Id="9e260cc2-22a3-4c21-8c3d-8d05583befea" />
+            <represents>
+              <propertyMoniker Id="add401c4-88fc-4c5d-9edf-81de65f4af79" />
+            </represents>
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="a07b13cb-c2be-46d8-9c59-aad2942fd517" LastKnownName="MessageOccurrenceSpecification5" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="308a951a-e8ec-4539-ab28-9b914c95766e" name="Vibro_acceleration" isActor="false" lifelineDisplayName="Vibro_acceleration">
+            <elementDefinition Id="e28124d5-a158-442d-88bf-6325f58e95a9" />
+            <represents>
+              <propertyMoniker Id="c8931f11-5f96-4107-9697-6214792626bd" />
+            </represents>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="a33ed585-8853-4477-8044-eae977904142" LastKnownName="ExecutionOccurrenceSpecification3" />
+              <executionOccurrenceSpecificationMoniker Id="631126cb-4775-440d-b6c5-e9abf053ef5a" LastKnownName="ExecutionOccurrenceSpecification4" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="fa71f390-9c95-4ba4-bb8a-d4a219423ce6" name="Vibro_speed" isActor="false" lifelineDisplayName="Vibro_speed">
+            <elementDefinition Id="5a6cb472-0b2a-40e3-9446-d1918b995b13" />
+            <represents>
+              <propertyMoniker Id="0df9693f-72a0-4191-b134-8845ff227c6e" />
+            </represents>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="6c7d501f-17ca-458b-b398-cd00fa72c9de" LastKnownName="ExecutionOccurrenceSpecification5" />
+              <executionOccurrenceSpecificationMoniker Id="2ebfd2e9-a3d2-44be-8f2d-077052f85255" LastKnownName="ExecutionOccurrenceSpecification6" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="5306fa24-219b-49ed-9725-0ac9ef715406" name="Vibro_movement" isActor="false" lifelineDisplayName="Vibro_movement">
+            <elementDefinition Id="49671a6a-5636-4c91-8c89-e89e923617c0" />
+            <represents>
+              <propertyMoniker Id="8decefab-0efd-481b-a908-6686c94f4abc" />
+            </represents>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="1bacda04-6254-440b-965b-a7ee50a149f0" LastKnownName="ExecutionOccurrenceSpecification7" />
+              <executionOccurrenceSpecificationMoniker Id="559b5299-55ef-4eba-89b9-481e7f5753c2" LastKnownName="ExecutionOccurrenceSpecification8" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message Id="5b152a99-cf9b-466e-b6fb-52277cc24ffe" name="Data_axis" messageKind="Complete" messageSort="AsynchCall" createSelfMessage="false">
+            <elementDefinition Id="da2ae1b7-b92f-41f0-8c8d-0c03469b4d25" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="a07b13cb-c2be-46d8-9c59-aad2942fd517" LastKnownName="MessageOccurrenceSpecification5" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="f14a9d69-2407-471e-af2c-ae9cd707010d" LastKnownName="MessageOccurrenceSpecification6" />
+            </receiveEvent>
+          </message>
+          <message Id="7861506d-ab24-498b-8b4d-7cdc8496bd36" name="acceleration" messageKind="Complete" messageSort="AsynchCall" createSelfMessage="false">
+            <elementDefinition Id="2e83990a-1104-44d2-9a03-dd5a00ccc1d0" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="4e81e47b-ce32-4fef-8ebf-fa5e01dd6c0a" LastKnownName="MessageOccurrenceSpecification7" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="17b47cbd-6176-4061-997d-40369700c03c" LastKnownName="MessageOccurrenceSpecification8" />
+            </receiveEvent>
+          </message>
+          <message Id="8069eb8f-60da-4804-8727-1b7f87b41ba1" name="speed" messageKind="Complete" messageSort="AsynchCall" createSelfMessage="false">
+            <elementDefinition Id="627f7d5f-a463-4335-879f-e3e4e74c0fb1" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="cdf2b143-23ed-4f77-b83b-169b37eda87e" LastKnownName="MessageOccurrenceSpecification9" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="435256ba-aef6-4a8a-b02f-431840a813f5" LastKnownName="MessageOccurrenceSpecification10" />
+            </receiveEvent>
+          </message>
+        </messages>
+        <ownedAttributesInternal>
+          <property Id="c8931f11-5f96-4107-9697-6214792626bd" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="40323b03-173b-407c-95bd-ec0d3c5ddd34" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d80146a5-bb87-4228-b526-951fdf8721ec" LastKnownName="Vibro_acceleration" />
+            </type_NamedElement>
+          </property>
+          <property Id="0df9693f-72a0-4191-b134-8845ff227c6e" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="abc328ef-9aa6-4702-af39-dfe96bb2294d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="51ebbf9c-984d-4d3a-8beb-9cc7c32c7bbf" LastKnownName="Vibro_speed" />
+            </type_NamedElement>
+          </property>
+          <property Id="8decefab-0efd-481b-a908-6686c94f4abc" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a4756fdd-1dda-4c29-95b6-9fff17d128d1" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9f7c3ff5-e889-481f-8c64-f7fc7cf5516f" LastKnownName="Vibro_movement" />
+            </type_NamedElement>
+          </property>
+          <property Id="add401c4-88fc-4c5d-9edf-81de65f4af79" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="339fd411-93b8-458c-94a9-249ec035b37e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3e8e8dc5-f6e0-42e5-802a-d5afee8cd385" LastKnownName="Axelerometr" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="dfb017fe-6b5e-4a2a-bfe2-8938bb5b7ca8" name="ExecutionEvent">
+        <elementDefinition Id="83087169-29d3-4009-aaa0-31410342bb4b" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="1a80da4c-0898-461e-a026-014d34a8d41a" name="ExecutionEvent">
+        <elementDefinition Id="b1decbe3-6d2a-4181-8d1c-24217d0694a5" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d80146a5-bb87-4228-b526-951fdf8721ec" name="Vibro_acceleration" isAbstract="false" isLeaf="false" cachedFullName="architecture::Vibro_acceleration">
+        <elementDefinition Id="b922e86a-9e34-4607-85e5-4485fc89516e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="51ebbf9c-984d-4d3a-8beb-9cc7c32c7bbf" name="Vibro_speed" isAbstract="false" isLeaf="false" cachedFullName="architecture::Vibro_speed">
+        <elementDefinition Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="9f7c3ff5-e889-481f-8c64-f7fc7cf5516f" name="Vibro_movement" isAbstract="false" isLeaf="false" cachedFullName="architecture::Vibro_movement">
+        <elementDefinition Id="16886ff6-e380-481c-97dc-0745478852e8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="cb71b5b4-90e4-4b6d-8e20-e6b3e323b0be" name="ExecutionEvent">
+        <elementDefinition Id="a12063f1-997a-47f1-8883-4573e9d86f78" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="78e5a210-cde2-4515-a126-1a88dc2b2120" name="ExecutionEvent">
+        <elementDefinition Id="016ee123-ff95-44cc-92c5-f91b024d8ecb" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="b489ce2d-9c1e-4cf1-bee0-645542b540cd" name="ExecutionEvent">
+        <elementDefinition Id="dc2c09de-d6a1-4ce8-95d3-410be12298b5" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="7f796139-da9c-4193-ba3a-dc01dc5cc2b3" name="ExecutionEvent">
+        <elementDefinition Id="7be6ce3f-fd05-4b4f-87bf-c03b3b01c3af" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3e8e8dc5-f6e0-42e5-802a-d5afee8cd385" name="Axelerometr" isAbstract="false" isLeaf="false" cachedFullName="architecture::Axelerometr">
+        <elementDefinition Id="a05c1887-f19c-4178-886b-07df0a0c77c8" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="5387fe87-51e6-4407-9586-4d2743db1dad" name="architecture">
+    <elementDefinition Id="1f9149f4-aa07-4e2f-b33b-5b496330a735" />
+  </package>
+</SequenceDesignerModel>
