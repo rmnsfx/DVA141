@@ -171,7 +171,7 @@ void TestTask(void *pvParameters)
 	
 	for (;;)
 		{
-			vTaskDelay(5);
+			vTaskDelay(10);
 		}
 }
 
@@ -244,6 +244,6 @@ void Device::Run(void)
 	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"27", mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"28", mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"29", mainQUEUE_SEND_TASK_PRIORITY, NULL);
-	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 4*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 2*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	vTaskStartScheduler();
 }

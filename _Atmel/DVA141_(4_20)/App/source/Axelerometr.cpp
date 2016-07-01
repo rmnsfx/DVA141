@@ -5,6 +5,7 @@
 *  Author: drachevam
 */
 #include "Axelerometr.h"
+#include "Axelerometr_buffer.h"
 #include "ADXL346.h"
 
 #define SIZE_ADXL_DMA_DATA (59)
@@ -38,6 +39,8 @@ static  uint8_t buffer_tx[SIZE_ADXL_DMA_DATA] = {
 static uint8_t buffer_rx[SIZE_ADXL_DMA_DATA];
 static __packed adxl_registers_t* Data_from_adxl =(adxl_registers_t*)&buffer_rx[1];
 
+static void transfer_rx_done(struct dma_resource* const resource );
+static void transfer_tx_done(struct dma_resource* const resource );
 
 #ifdef __cplusplus
 extern "C" {
@@ -60,6 +63,7 @@ extern "C" {
 }
 #endif
 
+
 static void transfer_tx_done(struct dma_resource* const resource )
 {
 }
@@ -72,53 +76,7 @@ axis_data_t data_axis_x[SIZE_PROTECTED_BUFFER_AXIS];
 axis_data_t data_axis_y[SIZE_PROTECTED_BUFFER_AXIS];
 axis_data_t data_axis_z[SIZE_PROTECTED_BUFFER_AXIS];
 
-static void transfer_rx_done(struct dma_resource* const resource )
-{
-	Axel->SetDMA_State(DMA_STOP);
-	common_count++;
 
-	if(Data_from_adxl->DEVID == 229)
-	{
-		data_axis_x[wr_index] = Data_from_adxl->DATAX;
-		data_axis_y[wr_index] = Data_from_adxl->DATAY;
-		data_axis_z[wr_index] = Data_from_adxl->DATAZ;
-
-		if (wr_index < SIZE_PROTECTED_BUFFER_AXIS)
-		{
-			if (wr_index == rd_index)
-			{
-				rd_index++;
-			}
-			wr_index++;
-		}
-		else
-		{
-			if (wr_index == rd_index)
-			{
-				rd_index=0;
-			}
-			wr_index = 0;
-		}
-		
-		/*всегда оставляем  в буфере 1 значение. т.к. после считывания значение уменьшается.*/
-		if (Data_from_adxl->FIFO_STATUS.Entries > 1)
-		{
-			Axel->SetDMA_State(DMA_READ_ALL_REGISTER_DATA);
-		}
-		/*ждем данных в буфере fifo*/
-		else
-		{
-			BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-			vTaskNotifyGiveFromISR(Axel->TID(), &xHigherPriorityTaskWoken);
-			portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
-		}
-	}
-	/*произошел сбой, запускаем заново считывание значений*/
-	else
-	{
-		Axel->SetDMA_State(DMA_READ_ALL_REGISTER_DATA);
-	}
-}
 
 static void setup_descriptor_tx(DmacDescriptor *tx_descriptor, uint32_t* destination_adr, uint32_t* source_adr, uint32_t block_transfer_count)
 {
@@ -170,12 +128,13 @@ static void setup_descriptor_rx(DmacDescriptor *rx_descriptor, uint32_t* destina
 
 
 
-Axelerometr::Axelerometr(): ios_thread("Axelerometer", osThreadPriorityNormal, AXELEROMETER_STACK_SIZE)
+Axelerometr::Axelerometr(): ios_thread("Axelerometer", osThreadPriorityRealtime, AXELEROMETER_STACK_SIZE)
 {
 	x_handle = X().TID();
 	y_handle = Y().TID();
 	z_handle = Z().TID();
 	configure_spi_master();
+	/*инициализируем глобальный объект для быстрого обращения к нему*/
 	Axel = this;
 	
 	//uint16_t ax,ay,az,t;
@@ -293,26 +252,44 @@ void Axelerometr::configure_dma_resource_rx()
 	//! [dma_rx_setup_4]
 }
 
-uint32_t count_task=0;
-uint32_t state_trace=0;
-uint32_t crm_count=0;
+static void transfer_rx_done(struct dma_resource* const resource )
+{
+	Axel->SetDMA_State(DMA_STOP);
+	common_count++;
+
+	if(Data_from_adxl->DEVID == 229)
+	{
+		Axel->buffer_x.Write(Data_from_adxl->DATAX);
+		Axel->buffer_y.Write(Data_from_adxl->DATAY);
+		Axel->buffer_z.Write(Data_from_adxl->DATAZ);
+				
+		/*всегда оставляем  в буфере 1 значение. т.к. после считывания значение уменьшается.*/
+		if (Data_from_adxl->FIFO_STATUS.Entries > 1)
+		{
+			Axel->SetDMA_State(DMA_READ_ALL_REGISTER_DATA);
+		}
+		/*ждем данных в буфере fifo*/
+		else
+		{
+			BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+			vTaskNotifyGiveFromISR(Axel->TID(), &xHigherPriorityTaskWoken);
+			portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+		}
+	}
+	/*произошел сбой, запускаем заново считывание значений*/
+	else
+	{
+		Axel->SetDMA_State(DMA_READ_ALL_REGISTER_DATA);
+	}
+}
+
 void Axelerometr::main()
 {
-	uint32_t number=0;
-	uint32_t tmp_count=0;
-	
-	uint32_t tmp_last_count=0;
 	for (;;)
 	{
-		state_trace=1;
 		SetDMA_State(DMA_READ_ALL_REGISTER_DATA);
 		ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
 		SetDMA_State(DMA_STOP);
-		tmp_count = common_count - tmp_last_count;
-		crm_count += tmp_count;
-		crm_count /=2;
-		tmp_last_count = common_count;
-		
 		xTaskNotifyGive(x_handle);
 		xTaskNotifyGive(y_handle);
 		xTaskNotifyGive(z_handle);
@@ -362,20 +339,20 @@ void Axelerometr::SetDMA_State(ADXL_DMA_state_t state)
 /*метод для получения объекта оси X*/
 Axis& Axelerometr::X()
 {
-	static Axis axs("Axis-X");
+	static Axis axs("Axis-X", buffer_x);
 	return axs;
 }
 
 /*метод для получения объекта оси Y*/
 Axis& Axelerometr::Y()
 {
-	static Axis axs("Axis-Y");
+	static Axis axs("Axis-Y", buffer_y);
 	return axs;
 }
 
 /*метод для получения объекта оси Z*/
 Axis& Axelerometr::Z()
 {
-	static Axis axs("Axis-Z");
+	static Axis axs("Axis-Z", buffer_z);
 	return axs;
 }
