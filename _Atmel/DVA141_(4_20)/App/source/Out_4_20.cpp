@@ -17,7 +17,8 @@ Out_4_20::Out_4_20()
 {
 	if( xSemaphore == NULL)
 	{
-		xSemaphore = xSemaphoreCreateBinaryStatic(&Out_4_20::xSemaphoreBuffer);
+//		xSemaphore = xSemaphoreCreateBinaryStatic(&Out_4_20::xSemaphoreBuffer);
+		xSemaphore = xSemaphoreCreateBinary();
 		configASSERT( xSemaphore );
 	}
 	xSemaphoreTake( xSemaphore, portMAX_DELAY );

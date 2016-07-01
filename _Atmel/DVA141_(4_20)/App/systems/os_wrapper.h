@@ -14,7 +14,6 @@ class os_wrapper: public Singleton<os_wrapper>
 	~os_wrapper(){};
 	void kernelStart(void);
 	bool threadCreate(ios_thread *piOsThread);
-	//bool threadCreate(ios_thread &piOsThread);
 	void threadTerminate(ios_thread *piOsThread);
 	void delay(const uint32_t timeIncrement) const;
 	os_tid_t threadGetCurrentTID();

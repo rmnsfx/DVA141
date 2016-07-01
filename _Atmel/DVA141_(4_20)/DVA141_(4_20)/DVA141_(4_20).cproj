@@ -30,7 +30,6 @@
       <framework-data>
         <options>
           <option id="common.boards" value="Add" config="" content-id="Atmel.ASF" />
-          <option id="common2.services.delay" value="Add" config="systick" content-id="Atmel.ASF" />
           <option id="sam0.drivers.dma" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam0.drivers.extint" value="Add" config="callback" content-id="Atmel.ASF" />
           <option id="sam0.drivers.port" value="Add" config="" content-id="Atmel.ASF" />
@@ -39,6 +38,7 @@
           <option id="sam0.drivers.tc" value="Add" config="callback" content-id="Atmel.ASF" />
           <option id="sam0.drivers.tcc" value="Add" config="callback" content-id="Atmel.ASF" />
           <option id="thirdparty.os.freertos.version" value="Add" config="8.0.1" content-id="Atmel.ASF" />
+          <option id="common2.services.delay" value="Add" config="systick" content-id="Atmel.ASF" />
           <option id="sam0.utils.linker_scripts" value="Add" config="" content-id="Atmel.ASF" />
         </options>
         <configurations>
@@ -290,7 +290,7 @@
       </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.samice</avrtool>
-    <avrtoolserialnumber>28013640</avrtoolserialnumber>
+    <avrtoolserialnumber>281100008</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x10810219</avrdeviceexpectedsignature>
     <avrtoolinterface>SWD</avrtoolinterface>
     <com_atmel_avrdbg_tool_samice>
@@ -302,8 +302,8 @@
         <JlinkConfigFile>C:\Users\SavchenkoRS\Desktop\DVA141\SVN\DVA141_(4_20)\DVA141_(4_20)\jlink.config</JlinkConfigFile>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.samice</ToolType>
-      <ToolNumber>28013640</ToolNumber>
-      <ToolName>SAM-ICE</ToolName>
+      <ToolNumber>281100008</ToolNumber>
+      <ToolName>J-Link Ultra</ToolName>
     </com_atmel_avrdbg_tool_samice>
     <avrtoolinterfaceclock>4000000</avrtoolinterfaceclock>
   </PropertyGroup>
@@ -320,12 +320,12 @@
       <Value>NDEBUG</Value>
       <Value>BOARD=USER_BOARD</Value>
       <Value>ARM_MATH_CM0PLUS=true</Value>
-      <Value>SYSTICK_MODE</Value>
       <Value>SPI_CALLBACK_MODE=true</Value>
       <Value>TC_ASYNC=true</Value>
       <Value>TCC_ASYNC=true</Value>
       <Value>EXTINT_CALLBACK_MODE=true</Value>
       <Value>__FREERTOS__</Value>
+      <Value>SYSTICK_MODE</Value>
     </ListValues>
   </armgcc.compiler.symbols.DefSymbols>
   <armgcc.compiler.directories.IncludePaths>
@@ -354,8 +354,6 @@
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam0/utils/cmsis/saml21/source</Value>
       <Value>../src/ASF/sam0/drivers/port</Value>
-      <Value>../src/ASF/common2/services/delay</Value>
-      <Value>../src/ASF/common2/services/delay/sam0</Value>
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/tc</Value>
@@ -366,6 +364,8 @@
       <Value>../src/ASF/sam0/drivers/dma</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/include</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -416,8 +416,6 @@
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam0/utils/cmsis/saml21/source</Value>
       <Value>../src/ASF/sam0/drivers/port</Value>
-      <Value>../src/ASF/common2/services/delay</Value>
-      <Value>../src/ASF/common2/services/delay/sam0</Value>
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/tc</Value>
@@ -428,9 +426,11 @@
       <Value>../src/ASF/sam0/drivers/dma</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/include</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
-  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DBOARD=USER_BOARD -DSYSTICK_MODE -DSPI_CALLBACK_MODE=true -DTC_ASYNC=true -DTCC_ASYNC=true -DEXTINT_CALLBACK_MODE=true -D__FREERTOS__</armgcc.preprocessingassembler.general.AssemblerFlags>
+  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DBOARD=USER_BOARD -DSPI_CALLBACK_MODE=true -DTC_ASYNC=true -DTCC_ASYNC=true -DEXTINT_CALLBACK_MODE=true -D__FREERTOS__ -DSYSTICK_MODE</armgcc.preprocessingassembler.general.AssemblerFlags>
   <armgcc.preprocessingassembler.general.IncludePaths>
     <ListValues>
       <Value>../common2/applications/user_application/user_board/config_saml21</Value>
@@ -457,8 +457,6 @@
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam0/utils/cmsis/saml21/source</Value>
       <Value>../src/ASF/sam0/drivers/port</Value>
-      <Value>../src/ASF/common2/services/delay</Value>
-      <Value>../src/ASF/common2/services/delay/sam0</Value>
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/tc</Value>
@@ -469,6 +467,8 @@
       <Value>../src/ASF/sam0/drivers/dma</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/include</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>
@@ -487,12 +487,12 @@
       <Value>DEBUG</Value>
       <Value>BOARD=USER_BOARD</Value>
       <Value>ARM_MATH_CM0PLUS=true</Value>
-      <Value>SYSTICK_MODE</Value>
       <Value>SPI_CALLBACK_MODE=true</Value>
       <Value>TC_ASYNC=true</Value>
       <Value>TCC_ASYNC=true</Value>
       <Value>EXTINT_CALLBACK_MODE=true</Value>
       <Value>__FREERTOS__</Value>
+      <Value>SYSTICK_MODE</Value>
     </ListValues>
   </armgcc.compiler.symbols.DefSymbols>
   <armgcc.compiler.directories.IncludePaths>
@@ -521,8 +521,6 @@
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam0/utils/cmsis/saml21/source</Value>
       <Value>../src/ASF/sam0/drivers/port</Value>
-      <Value>../src/ASF/common2/services/delay</Value>
-      <Value>../src/ASF/common2/services/delay/sam0</Value>
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/tc</Value>
@@ -533,6 +531,8 @@
       <Value>../src/ASF/sam0/drivers/dma</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/include</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -584,8 +584,6 @@
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam0/utils/cmsis/saml21/source</Value>
       <Value>../src/ASF/sam0/drivers/port</Value>
-      <Value>../src/ASF/common2/services/delay</Value>
-      <Value>../src/ASF/common2/services/delay/sam0</Value>
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/tc</Value>
@@ -596,10 +594,12 @@
       <Value>../src/ASF/sam0/drivers/dma</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/include</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
-  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DBOARD=USER_BOARD -DSYSTICK_MODE -DSPI_CALLBACK_MODE=true -DTC_ASYNC=true -DTCC_ASYNC=true -DEXTINT_CALLBACK_MODE=true -D__FREERTOS__</armgcc.preprocessingassembler.general.AssemblerFlags>
+  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DBOARD=USER_BOARD -DSPI_CALLBACK_MODE=true -DTC_ASYNC=true -DTCC_ASYNC=true -DEXTINT_CALLBACK_MODE=true -D__FREERTOS__ -DSYSTICK_MODE</armgcc.preprocessingassembler.general.AssemblerFlags>
   <armgcc.preprocessingassembler.general.IncludePaths>
     <ListValues>
       <Value>../common2/applications/user_application/user_board/config_saml21</Value>
@@ -626,8 +626,6 @@
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam0/utils/cmsis/saml21/source</Value>
       <Value>../src/ASF/sam0/drivers/port</Value>
-      <Value>../src/ASF/common2/services/delay</Value>
-      <Value>../src/ASF/common2/services/delay/sam0</Value>
       <Value>../src/ASF/sam0/drivers/sercom</Value>
       <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
       <Value>../src/ASF/sam0/drivers/tc</Value>
@@ -638,6 +636,8 @@
       <Value>../src/ASF/sam0/drivers/dma</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/include</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -738,6 +738,18 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\ADXL\ADXL346.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\common2\services\delay\delay.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\common2\services\delay\sam0\systick_counter.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\common2\services\delay\sam0\systick_counter.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\thirdparty\freertos\freertos-8.0.1\Source\portable\MemMang\heap_4.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\task1.c">
@@ -887,9 +899,6 @@
     <None Include="src\ASF\thirdparty\freertos\freertos-8.0.1\Source\portable\GCC\ARM_CM0\portmacro.h">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="src\ASF\thirdparty\freertos\freertos-8.0.1\Source\portable\MemMang\heap_1.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\ASF\thirdparty\freertos\freertos-8.0.1\Source\queue.c">
       <SubType>compile</SubType>
     </Compile>
@@ -944,15 +953,6 @@
     <None Include="src\ASF\sam0\drivers\sercom\sercom_interrupt.h">
       <SubType>compile</SubType>
     </None>
-    <None Include="src\ASF\common2\services\delay\sam0\systick_counter.h">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\common2\services\delay\delay.h">
-      <SubType>compile</SubType>
-    </None>
-    <Compile Include="src\ASF\common2\services\delay\sam0\systick_counter.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\ASF\sam0\drivers\port\port.c">
       <SubType>compile</SubType>
     </Compile>

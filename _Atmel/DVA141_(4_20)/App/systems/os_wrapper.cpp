@@ -62,7 +62,7 @@ bool os_wrapper::threadCreate(ios_thread *piOsThread)
 
 os_tid_t os_wrapper::threadGetCurrentTID()
 {
-	return 0;
+	return xTaskGetCurrentTaskHandle();
 }
 ;
 

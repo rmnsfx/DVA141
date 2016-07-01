@@ -9,21 +9,23 @@
 #include "stdio.h"
 #include "Task_manager.h"
 #include "Axelerometr.h"
-#include "Sinusoid.h"
-#include "AD5421.h"
 #include "Axis.h"
 #include "os_wrapper.h"
-#include "Generator_output_signals.h"
 
-#define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
-
-TaskHandle_t Device::xTask1 = NULL, Device::xTask2 = NULL;
-
+#define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY )
 
 #ifdef __cplusplus
 extern "C"
-{
+{	
 	#endif
+		    
+	void HardFault_Handler(void)
+	{
+
+		//char * name = pcTaskGetName( xTaskGetCurrentTaskHandle() );
+		while (1) {
+		}
+	}
 	/*функции для работы вывода printf*/
 	int _write(int file, char *ptr, int len)
 	{
@@ -37,58 +39,67 @@ extern "C"
 	}
 	
 
-	/* configUSE_STATIC_ALLOCATION is set to 1, so the application must provide an
-	implementation of vApplicationGetIdleTaskMemory() to provide the memory that is
-	used by the Idle task. */
-	void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer,
-	StackType_t **ppxIdleTaskStackBuffer,
-	uint32_t *pulIdleTaskStackSize )
+	void vApplicationStackOverflowHook( TaskHandle_t xTask, signed char *pcTaskName )
 	{
-		/* If the buffers to be provided to the Idle task are declared inside this
-		function then they must be declared static - otherwise they will be allocated on
-		the stack and so not exists after this function exits. */
-		static StaticTask_t xIdleTaskTCB;
-		static StackType_t uxIdleTaskStack[ 2*configMINIMAL_STACK_SIZE ];
-
-		/* Pass out a pointer to the StaticTask_t structure in which the Idle task's
-		state will be stored. */
-		*ppxIdleTaskTCBBuffer = &xIdleTaskTCB;
-
-		/* Pass out the array that will be used as the Idle task's stack. */
-		*ppxIdleTaskStackBuffer = uxIdleTaskStack;
-
-		/* Pass out the size of the array pointed to by *ppxIdleTaskStackBuffer.
-		Note that, as the array is necessarily of type StackType_t,
-		configMINIMAL_STACK_SIZE is specified in words, not bytes. */
-		*pulIdleTaskStackSize = 2*configMINIMAL_STACK_SIZE;
+		
+		while(1)
+		{
+			
+		}
 	}
-	/*-----------------------------------------------------------*/
 
-	/* configUSE_STATIC_ALLOCATION and configUSE_TIMERS are both set to 1, so the
-	application must provide an implementation of vApplicationGetTimerTaskMemory()
-	to provide the memory that is used by the Timer service task. */
-	void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer,
-	StackType_t **ppxTimerTaskStackBuffer,
-	uint32_t *pulTimerTaskStackSize )
-	{
-		/* If the buffers to be provided to the Timer task are declared inside this
-		function then they must be declared static - otherwise they will be allocated on
-		the stack and so not exists after this function exits. */
-		static StaticTask_t xTimerTaskTCB;
-		static StackType_t uxTimerTaskStack[ configTIMER_TASK_STACK_DEPTH ];
-
-		/* Pass out a pointer to the StaticTask_t structure in which the Timer
-		task's state will be stored. */
-		*ppxTimerTaskTCBBuffer = &xTimerTaskTCB;
-
-		/* Pass out the array that will be used as the Timer task's stack. */
-		*ppxTimerTaskStackBuffer = uxTimerTaskStack;
-
-		/* Pass out the size of the array pointed to by *ppxTimerTaskStackBuffer.
-		Note that, as the array is necessarily of type StackType_t,
-		configMINIMAL_STACK_SIZE is specified in words, not bytes. */
-		*pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
-	}
+	///* configUSE_STATIC_ALLOCATION is set to 1, so the application must provide an
+	//implementation of vApplicationGetIdleTaskMemory() to provide the memory that is
+	//used by the Idle task. */
+	//void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer,
+	//StackType_t **ppxIdleTaskStackBuffer,
+	//uint32_t *pulIdleTaskStackSize )
+	//{
+		///* If the buffers to be provided to the Idle task are declared inside this
+		//function then they must be declared static - otherwise they will be allocated on
+		//the stack and so not exists after this function exits. */
+		//static StaticTask_t xIdleTaskTCB;
+		//static StackType_t uxIdleTaskStack[ 2*configMINIMAL_STACK_SIZE ];
+//
+		///* Pass out a pointer to the StaticTask_t structure in which the Idle task's
+		//state will be stored. */
+		//*ppxIdleTaskTCBBuffer = &xIdleTaskTCB;
+//
+		///* Pass out the array that will be used as the Idle task's stack. */
+		//*ppxIdleTaskStackBuffer = uxIdleTaskStack;
+//
+		///* Pass out the size of the array pointed to by *ppxIdleTaskStackBuffer.
+		//Note that, as the array is necessarily of type StackType_t,
+		//configMINIMAL_STACK_SIZE is specified in words, not bytes. */
+		//*pulIdleTaskStackSize = 2*configMINIMAL_STACK_SIZE;
+	//}
+	///*-----------------------------------------------------------*/
+//
+	///* configUSE_STATIC_ALLOCATION and configUSE_TIMERS are both set to 1, so the
+	//application must provide an implementation of vApplicationGetTimerTaskMemory()
+	//to provide the memory that is used by the Timer service task. */
+	//void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer,
+	//StackType_t **ppxTimerTaskStackBuffer,
+	//uint32_t *pulTimerTaskStackSize )
+	//{
+		///* If the buffers to be provided to the Timer task are declared inside this
+		//function then they must be declared static - otherwise they will be allocated on
+		//the stack and so not exists after this function exits. */
+		//static StaticTask_t xTimerTaskTCB;
+		//static StackType_t uxTimerTaskStack[ configTIMER_TASK_STACK_DEPTH ];
+//
+		///* Pass out a pointer to the StaticTask_t structure in which the Timer
+		//task's state will be stored. */
+		//*ppxTimerTaskTCBBuffer = &xTimerTaskTCB;
+//
+		///* Pass out the array that will be used as the Timer task's stack. */
+		//*ppxTimerTaskStackBuffer = uxTimerTaskStack;
+//
+		///* Pass out the size of the array pointed to by *ppxTimerTaskStackBuffer.
+		//Note that, as the array is necessarily of type StackType_t,
+		//configMINIMAL_STACK_SIZE is specified in words, not bytes. */
+		//*pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
+	//}
 
 	#ifdef __cplusplus
 }
@@ -155,44 +166,84 @@ void operator delete[](void *p)
 	vPortFree(p);
 }
 
+void TestTask(void *pvParameters)
+{
+	
+	for (;;)
+		{
+			vTaskDelay(10);
+		}
+}
+
 void Device::DeviceTask(void *pvParameters)
 {
 	const char* name = (const char*)pvParameters;
 	uint32_t tick;
+	//Axelerometr& axl = *Axelerometr::getInstance();
 	for (;;)
 	{
-		tick=Task_manager::GetValue();
 		vTaskDelay(10);
+		//tick = Task_manager::GetValue();
+		tick++;
 	}
 }
 
-
+uint32_t count_set=0;
+extern uint32_t common_count;
+char statsss[2048];
 void Device::RunTimeStatsTask(void *pvParameters)
-{
- char* stat = new char[1024];
+{	
+	uint32_t last_common_count;
 	for (;;)
 	{
-		vTaskGetRunTimeStats(stat);
+		count_set = common_count - last_common_count;
+		last_common_count = common_count;
+		vTaskGetRunTimeStats(statsss);
 		vTaskDelay(1000);
+		
 	}
 }
-
-
 
 void Device::Run(void)
 {
 	system_init();
-	
 	os_wrapper& os = *os_wrapper::getInstance();
+	
 	Axelerometr& axl = *Axelerometr::getInstance();
-	os.threadCreate(&axl.X());
-	os.threadCreate(&axl.Y());
-	os.threadCreate(&axl.Z());	
-	
-	
-		
-	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 6*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
-	xTaskCreate(Sinusoid::Sinus_make32points, "SinusMake", 3*configMINIMAL_STACK_SIZE, (void *)100, 2, &xTask1);
-	xTaskCreate(Sinusoid::Sinus_filter32points, "SinusFilter", 3*configMINIMAL_STACK_SIZE, (void *)100, 2, &xTask2);
+	os.threadCreate(&axl);
+	axl.X();
+	//os.threadCreate(&axl.X());
+	//os.threadCreate(&axl.Y());
+	//os.threadCreate(&axl.Z());
+	xTaskCreate(TestTask, "TestTask", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"2", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"3", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"4", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", 2*configMINIMAL_STACK_SIZE, (void *)"5", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"6", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"7", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"8", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"9", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"10", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"11", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"12", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"13", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"14", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"15", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"16", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"17", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"18", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"19", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"20", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"21", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"22", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"23", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"24", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"25", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"26", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"27", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"28", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	//xTaskCreate(DeviceTask, "DeviceTask", configMINIMAL_STACK_SIZE, (void *)"29", mainQUEUE_SEND_TASK_PRIORITY, NULL);
+	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 2*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	vTaskStartScheduler();
 }
