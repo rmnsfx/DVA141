@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="1f9149f4-aa07-4e2f-b33b-5b496330a735"
   name="architecture" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -105,6 +105,14 @@
             <classMoniker
               Id="004e1735-46f4-42e1-bb50-b54007894255"
               LastKnownName="singleton"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
+          <generalization
+            Id="02a630da-cc50-48ac-81e6-1458910b7d24"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a45eecea-47a5-4beb-8c36-43e520f53afc"
+              LastKnownName="ios_thread"
               LastKnownLocation="architecture.uml" />
           </generalization>
         </generalsInternal>
@@ -213,6 +221,58 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="e0e5b5dc-3d90-42f9-b914-26765b35078c"
+            isDerived="false"
+            sourceEndRoleName="Axelerometr"
+            targetEndRoleName="Axl_buffer"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6057eb6e-46e9-4b6d-93da-ad6936bc9b8f"
+              LastKnownName="Axelerometr_buffer"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e9309f79-8ed2-4f0d-bdce-cc9ff07dbf8b"
+                  name="Axelerometr"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a47b0330-136f-4b30-8670-823785a7f078"
+                  name="Axl_buffer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="de6aa3f3-c5a9-4445-8b58-40846c17a5b0"
+                      name="Lower"
+                      value="3" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0288e6c0-fe2d-444f-96af-ecf557f8f4c9"
+                      name="Upper"
+                      value="3" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedOperationsInternal>
           <operation
@@ -284,6 +344,14 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="cdd7173f-b85e-47c1-967d-3b65b5ce799e"
+            name="ReadData"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -338,6 +406,16 @@
               LastKnownLocation="architecture.uml" />
           </dependency>
         </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="c1c9d19f-ff3a-4d79-992d-5f22c42d9151"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a45eecea-47a5-4beb-8c36-43e520f53afc"
+              LastKnownName="ios_thread"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
+        </generalsInternal>
         <targetEnds>
           <association
             Id="180c255a-67b9-4a01-ad34-d27042323e87"
@@ -708,14 +786,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation
-            Id="3a00dcf3-6b3f-4ed1-aa6f-dc35593a8cf6"
-            name="WaitReady"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -761,14 +831,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation
-            Id="181e1c31-cccb-4401-983e-b7a9432a35b4"
-            name="WaitReady"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -791,13 +853,29 @@
         </generalsInternal>
         <ownedOperationsInternal>
           <operation
-            Id="6432510a-1fb7-45aa-afef-38441321f470"
-            name="WaitReady"
+            Id="c4dbe12b-b488-4264-ae00-ee43fe4fe72c"
+            name="Calculate"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e63aad61-7ee7-4a36-98a0-1560d953089f"
+                  name="axis"
+                  direction="In">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="51a9cd10-37eb-440e-a68b-0b1862c060a2"
+                      LastKnownName="Axis"
+                      LastKnownLocation="architecture.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -809,16 +887,6 @@
         isLeaf="false"
         isActiveClass="false">
         <description>описывает сигнал</description>
-        <generalsInternal>
-          <generalization
-            Id="d858aac2-02cf-4383-ba6f-cc5e08dbf594"
-            isSubstitutable="false">
-            <classMoniker
-              Id="a45eecea-47a5-4beb-8c36-43e520f53afc"
-              LastKnownName="ios_thread"
-              LastKnownLocation="architecture.uml" />
-          </generalization>
-        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="44d4abe2-4918-4b85-957a-b1897d854e87"
@@ -858,8 +926,9 @@
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="954fb04c-b52f-4815-80ca-4343274f5286"
-            name="WaitReady"
+            Id="8f04be08-6895-460f-a02c-dc50bef63901"
+            name="Calculate"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -887,16 +956,6 @@
               LastKnownLocation="architecture.uml" />
           </generalization>
         </generalsInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="2504300b-c465-40cf-8bbf-950c0f16402c"
-            name="WaitReady"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -906,6 +965,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="ca3d60e5-01c7-4eb5-a0a5-b232d79f9594"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a45eecea-47a5-4beb-8c36-43e520f53afc"
+              LastKnownName="ios_thread"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
+        </generalsInternal>
         <targetEnds>
           <association
             Id="a972d755-e712-4602-8ef0-6d0a4b3faaab"
@@ -1024,6 +1093,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="089d5461-b308-4e34-88f2-40ba8db4f523"
+            isDerived="false"
+            sourceEndRoleName="Axis"
+            targetEndRoleName="Axl_buffer"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6057eb6e-46e9-4b6d-93da-ad6936bc9b8f"
+              LastKnownName="Axelerometr_buffer"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="444eda94-9cf7-4ef2-b8b1-7731349a413d"
+                  name="Axis"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e1aeb636-89c0-44ef-9e4a-d0e91c26a762"
+                  name="Axl_buffer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedOperationsInternal>
           <operation
@@ -1118,6 +1226,524 @@
       <class
         Id="004e1735-46f4-42e1-bb50-b54007894255"
         name="singleton"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="4c002be7-6bf3-4e7d-bf5c-19a6fbe9ec54"
+        name="data_from_adxl"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="4b82b528-c90e-4bff-a810-1dcd078f4d7a"
+            name="BehaviorExecutionSpecification2">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="e28124d5-a158-442d-88bf-6325f58e95a9"
+                LastKnownName="Vibro_acceleration"
+                LastKnownLocation="architecture.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="e49cedd7-3ad4-48cb-a4fc-1858cab46dd4"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="architecture.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="336c07a2-a857-438e-a881-2834f2b42c2d"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="architecture.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="fa70a852-8013-4186-b6dc-b70957f1f37f"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="architecture.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="b8b08b01-74ad-4c38-9c8d-b61216ba1370"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="architecture.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="336c07a2-a857-438e-a881-2834f2b42c2d"
+            name="ExecutionOccurrenceSpecification3">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="83087169-29d3-4009-aaa0-31410342bb4b"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="architecture.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="e28124d5-a158-442d-88bf-6325f58e95a9"
+                LastKnownName="Vibro_acceleration"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="58efd40e-0570-44fb-a661-19079997cf14"
+            name="MessageOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="9e260cc2-22a3-4c21-8c3d-8d05583befea"
+                LastKnownName="Axelerometr"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="fa70a852-8013-4186-b6dc-b70957f1f37f"
+            name="MessageOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="e28124d5-a158-442d-88bf-6325f58e95a9"
+                LastKnownName="Vibro_acceleration"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="f3f84102-0d03-46b4-b69b-e4fe7a9228c8"
+            name="BehaviorExecutionSpecification3">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5a6cb472-0b2a-40e3-9446-d1918b995b13"
+                LastKnownName="Vibro_speed"
+                LastKnownLocation="architecture.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="e552bd97-c96e-49e2-b452-e8a5509262ab"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="architecture.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="8624f6b5-0001-4b9c-a1df-52015a5f0495"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="architecture.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="21f3d14d-3655-4a16-afe4-903a5c070a5b"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="architecture.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d388e178-6920-4617-956e-3d080403da03"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="architecture.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="8624f6b5-0001-4b9c-a1df-52015a5f0495"
+            name="ExecutionOccurrenceSpecification5">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="a12063f1-997a-47f1-8883-4573e9d86f78"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="architecture.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a6cb472-0b2a-40e3-9446-d1918b995b13"
+                LastKnownName="Vibro_speed"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b8b08b01-74ad-4c38-9c8d-b61216ba1370"
+            name="MessageOccurrenceSpecification7">
+            <covered>
+              <lifelineMoniker
+                Id="e28124d5-a158-442d-88bf-6325f58e95a9"
+                LastKnownName="Vibro_acceleration"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="21f3d14d-3655-4a16-afe4-903a5c070a5b"
+            name="MessageOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="5a6cb472-0b2a-40e3-9446-d1918b995b13"
+                LastKnownName="Vibro_speed"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="e49cedd7-3ad4-48cb-a4fc-1858cab46dd4"
+            name="ExecutionOccurrenceSpecification4">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="b1decbe3-6d2a-4181-8d1c-24217d0694a5"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="architecture.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="e28124d5-a158-442d-88bf-6325f58e95a9"
+                LastKnownName="Vibro_acceleration"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="2c3e5da0-04ef-49ec-80a7-dcdba1f86dc4"
+            name="BehaviorExecutionSpecification4">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="49671a6a-5636-4c91-8c89-e89e923617c0"
+                LastKnownName="Vibro_movement"
+                LastKnownLocation="architecture.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="c199d158-04ef-4ef2-8f31-838d70fb7314"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="architecture.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="8090faa8-a593-4ac7-83e9-ce37ad6f471e"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="architecture.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="ca1bb45a-ff97-41df-9313-1c846d9f6755"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="architecture.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="8090faa8-a593-4ac7-83e9-ce37ad6f471e"
+            name="ExecutionOccurrenceSpecification7">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="dc2c09de-d6a1-4ce8-95d3-410be12298b5"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="architecture.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="49671a6a-5636-4c91-8c89-e89e923617c0"
+                LastKnownName="Vibro_movement"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d388e178-6920-4617-956e-3d080403da03"
+            name="MessageOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="5a6cb472-0b2a-40e3-9446-d1918b995b13"
+                LastKnownName="Vibro_speed"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ca1bb45a-ff97-41df-9313-1c846d9f6755"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="49671a6a-5636-4c91-8c89-e89e923617c0"
+                LastKnownName="Vibro_movement"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="e552bd97-c96e-49e2-b452-e8a5509262ab"
+            name="ExecutionOccurrenceSpecification6">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="016ee123-ff95-44cc-92c5-f91b024d8ecb"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="architecture.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a6cb472-0b2a-40e3-9446-d1918b995b13"
+                LastKnownName="Vibro_speed"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="c199d158-04ef-4ef2-8f31-838d70fb7314"
+            name="ExecutionOccurrenceSpecification8">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="7be6ce3f-fd05-4b4f-87bf-c03b3b01c3af"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="architecture.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="49671a6a-5636-4c91-8c89-e89e923617c0"
+                LastKnownName="Vibro_movement"
+                LastKnownLocation="architecture.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="9e260cc2-22a3-4c21-8c3d-8d05583befea"
+            name="Axelerometr"
+            isActor="false"
+            lifelineDisplayName="Axelerometr">
+            <represents>
+              <propertyMoniker
+                Id="339fd411-93b8-458c-94a9-249ec035b37e"
+                LastKnownLocation="architecture.uml" />
+            </represents>
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="58efd40e-0570-44fb-a661-19079997cf14"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="architecture.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="e28124d5-a158-442d-88bf-6325f58e95a9"
+            name="Vibro_acceleration"
+            isActor="false"
+            lifelineDisplayName="Vibro_acceleration">
+            <represents>
+              <propertyMoniker
+                Id="40323b03-173b-407c-95bd-ec0d3c5ddd34"
+                LastKnownLocation="architecture.uml" />
+            </represents>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="336c07a2-a857-438e-a881-2834f2b42c2d"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="architecture.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="e49cedd7-3ad4-48cb-a4fc-1858cab46dd4"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="architecture.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="5a6cb472-0b2a-40e3-9446-d1918b995b13"
+            name="Vibro_speed"
+            isActor="false"
+            lifelineDisplayName="Vibro_speed">
+            <represents>
+              <propertyMoniker
+                Id="abc328ef-9aa6-4702-af39-dfe96bb2294d"
+                LastKnownLocation="architecture.uml" />
+            </represents>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="8624f6b5-0001-4b9c-a1df-52015a5f0495"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="architecture.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="e552bd97-c96e-49e2-b452-e8a5509262ab"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="architecture.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="49671a6a-5636-4c91-8c89-e89e923617c0"
+            name="Vibro_movement"
+            isActor="false"
+            lifelineDisplayName="Vibro_movement">
+            <represents>
+              <propertyMoniker
+                Id="a4756fdd-1dda-4c29-95b6-9fff17d128d1"
+                LastKnownLocation="architecture.uml" />
+            </represents>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="8090faa8-a593-4ac7-83e9-ce37ad6f471e"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="architecture.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="c199d158-04ef-4ef2-8f31-838d70fb7314"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="architecture.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="da2ae1b7-b92f-41f0-8c8d-0c03469b4d25"
+            name="Data_axis"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="58efd40e-0570-44fb-a661-19079997cf14"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="architecture.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="fa70a852-8013-4186-b6dc-b70957f1f37f"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="architecture.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="2e83990a-1104-44d2-9a03-dd5a00ccc1d0"
+            name="acceleration"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b8b08b01-74ad-4c38-9c8d-b61216ba1370"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="architecture.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="21f3d14d-3655-4a16-afe4-903a5c070a5b"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="architecture.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="627f7d5f-a463-4335-879f-e3e4e74c0fb1"
+            name="speed"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d388e178-6920-4617-956e-3d080403da03"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="architecture.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ca1bb45a-ff97-41df-9313-1c846d9f6755"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="architecture.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+        <ownedAttributesInternal>
+          <property
+            Id="40323b03-173b-407c-95bd-ec0d3c5ddd34"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="b922e86a-9e34-4607-85e5-4485fc89516e"
+                LastKnownName="Vibro_acceleration"
+                LastKnownLocation="architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="abc328ef-9aa6-4702-af39-dfe96bb2294d"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3"
+                LastKnownName="Vibro_speed"
+                LastKnownLocation="architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a4756fdd-1dda-4c29-95b6-9fff17d128d1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="16886ff6-e380-481c-97dc-0745478852e8"
+                LastKnownName="Vibro_movement"
+                LastKnownLocation="architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="339fd411-93b8-458c-94a9-249ec035b37e"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="a05c1887-f19c-4178-886b-07df0a0c77c8"
+                LastKnownName="Axelerometr"
+                LastKnownLocation="architecture.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="83087169-29d3-4009-aaa0-31410342bb4b"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="b1decbe3-6d2a-4181-8d1c-24217d0694a5"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="a12063f1-997a-47f1-8883-4573e9d86f78"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="016ee123-ff95-44cc-92c5-f91b024d8ecb"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="dc2c09de-d6a1-4ce8-95d3-410be12298b5"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="7be6ce3f-fd05-4b4f-87bf-c03b3b01c3af"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6057eb6e-46e9-4b6d-93da-ad6936bc9b8f"
+        name="Axelerometr_buffer"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
