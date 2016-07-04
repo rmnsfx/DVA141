@@ -11,7 +11,11 @@
 
 #include "os_wrapper.h"
 #include "Axelerometr_buffer.h"
+#include "DSP_converter.h"
+#include "DSP_vector_f32.h"
 #include "DSP_vector_q31.h"
+#include "Filter.h"
+
 //#include "Vibro_acceleration.h"
 
 #define AXIS_STACK_SIZE (configMINIMAL_STACK_SIZE)
@@ -19,7 +23,9 @@
 class Axis: public ios_thread
 {
 	private:
-	void ConvertToVector_q31(axis_data_t* data, size_t datasize, DSP_vector_q31& vector_signal);
+	void UpSample( DSP_vector_q31& data, DSP_vector_q31& vector_signal);
+	void Convert_to_acc(axis_data_t* data, size_t datasize, DSP_vector_f32& vector_signal);
+	Filter filter;
 	protected:
 	Axelerometr_buffer& buffer;
 	public:

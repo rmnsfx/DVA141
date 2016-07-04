@@ -9,8 +9,14 @@ namespace DSP
 	{
 		//		explicit DSP_vector_f32() : DSP_vector_base<float32_t>(){};
 	public:
-		explicit DSP_vector_f32(size_t size) : DSP_vector_base<float32_t>(size){};
-		explicit DSP_vector_f32(size_t size, float32_t value) : DSP_vector_base<float32_t>(size, value){};
+		explicit DSP_vector_f32(size_t size) : DSP_vector_base<float32_t>(size){}; 
+		explicit DSP_vector_f32(size_t size, float32_t value) : DSP_vector_base<float32_t>(size)
+		{
+			for(int i = 0; i < size; i++)
+			{
+				vector_data[i] = value;
+			}
+		};
 		inline void fill(float32_t value)
 		{
 			arm_fill_f32(value, &this->Vector_data()[0], this->size());
@@ -83,7 +89,7 @@ namespace DSP
 
 		DSP_vector_f32& operator=(DSP_vector_f32& vec)
 		{
-			arm_copy_f32(&vec.Vector_data()[0], &Vector_data()[0], Vector_data().size());
+			arm_copy_f32(&vec.Vector_data()[0], &Vector_data()[0], this->size());
 			return *this;
 		}
 
@@ -99,14 +105,14 @@ namespace DSP
 		float32_t& Maximum(size_t& index)
 		{
 			float32_t result;
-			arm_max_f32(&this->Vector_data()[0], this->size(), &result, &index);
+			arm_max_f32(&this->Vector_data()[0], this->size(), &result, (uint32_t*)&index);
 			return result;
 		}
 
 		float32_t& Minimum(size_t& index)
 		{
 			float32_t result;
-			arm_min_f32(&this->Vector_data()[0], this->size(), &result, &index);
+			arm_min_f32(&this->Vector_data()[0], this->size(), &result, (uint32_t*)&index);
 			return result;
 		}
 
