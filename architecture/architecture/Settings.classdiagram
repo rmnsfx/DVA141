@@ -130,21 +130,21 @@
         <description>занимается сохранение настроек во flash память</description>
         <elementDefinition Id="74d44d7d-0c86-49fa-be94-e654f9158ebe" />
         <targetEnds>
-          <association Id="870cd0a8-4f20-4d79-8bbb-12e3e790e27f" isDerived="false" sourceEndRoleName="Flash_manager" targetEndRoleName="Settings" isLeaf="false" isAbstract="false">
+          <association Id="b0bfe2b9-1e57-4618-970c-1dd629899323" isDerived="false" sourceEndRoleName="Flash_manager" targetEndRoleName="Settings" isLeaf="false" isAbstract="false">
             <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="Settings" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="fba8a0dc-ef9c-4513-9571-3187b8d9aa0c" name="Flash_manager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="f48c1836-f6c7-403e-b445-d40db08d39e3" />
+                <memberEnd Id="c68c514f-89bf-4b09-8ea3-5cc6ffa77000" name="Flash_manager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="782c5b11-5d32-4dc7-9338-739bc263a913" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="87efe1a1-ce0f-4808-8689-deac08dc10ff" name="Settings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="3a180526-a2e4-439c-ab18-fae920c88f7a" />
+                <memberEnd Id="c19df0ea-e234-4f72-a52f-3bd0bc06f012" name="Settings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="89c43e60-d92f-4bd3-8ddd-120a0886264f" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="7201f87b-f760-46e0-9f9b-cc0925331ea4" />
+            <elementDefinition Id="bc4e0c75-b593-4b93-9dcc-2442cf283a7e" />
           </association>
         </targetEnds>
       </class>

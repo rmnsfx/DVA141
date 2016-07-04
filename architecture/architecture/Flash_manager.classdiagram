@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="7d4408cd-409b-4f27-af66-f85d48542dd4" name="Flash_manager" linkedPackageId="a1de59a1-ad7c-4cd8-a8f2-34a4196ca98d" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="bdf8391c-12da-45e5-91e6-54a9085a1db3">
+      <elementDefinition Id="e3bd3a03-def2-4a92-a486-4f02a2c53d02" />
+      <body>Flash manager периодически сохраняет все настройки во flash память если они изменились.</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="83f5e4a4-a004-4724-9f13-d186751605b2">
+      <profileInstance Id="7d2f834c-01b5-43f1-89c8-00a691140872" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="83a00e13-dd95-4a9d-90de-ae375a48b18f">
+      <profileInstance Id="191b1dc0-3846-4865-9bea-ee42d952e69f" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="713ec498-ef13-41a6-a861-7810a2e9f6c9" name="Flash_manager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <description>занимается сохранение настроек во flash память</description>
+        <elementDefinition Id="74d44d7d-0c86-49fa-be94-e654f9158ebe" />
+        <generalsInternal>
+          <generalization Id="d181af2b-1894-4347-bd8b-b5f7b4c76e44" isSubstitutable="false">
+            <classMoniker Id="f4baa85b-8fc0-407e-8422-dd350ccc4deb" LastKnownName="ios_thread" />
+            <elementDefinition Id="0d779a78-e373-49f7-bd1b-b9e1f502ff33" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="db8c0653-4ad5-4ca4-8761-1d61f008e698" isDerived="false" sourceEndRoleName="Flash_manager" targetEndRoleName="Settings" isLeaf="false" isAbstract="false">
+            <classMoniker Id="abea030c-f797-4f6a-b9da-44ca2e6a6712" LastKnownName="Settings" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="007a86d5-d00b-4cb4-9632-73c508d2f4d7" name="Flash_manager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="782c5b11-5d32-4dc7-9338-739bc263a913" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="13291509-9bbc-4c13-9f6f-68ab427bf251" name="Settings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="89c43e60-d92f-4bd3-8ddd-120a0886264f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bc4e0c75-b593-4b93-9dcc-2442cf283a7e" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f4baa85b-8fc0-407e-8422-dd350ccc4deb" name="ios_thread" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a45eecea-47a5-4beb-8c36-43e520f53afc" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="abea030c-f797-4f6a-b9da-44ca2e6a6712" name="Settings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="a1de59a1-ad7c-4cd8-a8f2-34a4196ca98d" name="architecture">
+    <elementDefinition Id="1f9149f4-aa07-4e2f-b33b-5b496330a735" />
+  </package>
+</logicalClassDesignerModel>

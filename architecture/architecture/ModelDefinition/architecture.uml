@@ -3,6 +3,12 @@
   dslVersion="1.0.0.0"
   Id="1f9149f4-aa07-4e2f-b33b-5b496330a735"
   name="architecture" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="e3bd3a03-def2-4a92-a486-4f02a2c53d02">
+      <body>Flash manager периодически сохраняет все настройки во flash память если они изменились.</body>
+    </comment>
+  </ownedCommentsInternal>
   <profileInstances>
     <packageHasProfileInstances
       Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
@@ -35,14 +41,6 @@
           </dependency>
         </suppliersInternal>
         <generalsInternal>
-          <generalization
-            Id="710e3b2d-7dc7-488b-a985-3f32a1136feb"
-            isSubstitutable="false">
-            <classMoniker
-              Id="69db2740-af37-4308-93d2-61d8cd906257"
-              LastKnownName="Settings"
-              LastKnownLocation="architecture.uml" />
-          </generalization>
           <generalization
             Id="ea48fd25-caf4-490b-8b2b-86bd40ad4378"
             isSubstitutable="false">
@@ -447,14 +445,6 @@
         </suppliersInternal>
         <generalsInternal>
           <generalization
-            Id="8eb6c92a-b468-4229-860d-ed2bed83a3d1"
-            isSubstitutable="false">
-            <classMoniker
-              Id="69db2740-af37-4308-93d2-61d8cd906257"
-              LastKnownName="Settings"
-              LastKnownLocation="architecture.uml" />
-          </generalization>
-          <generalization
             Id="382ba825-9fd3-49b9-9526-e2d5301970df"
             isSubstitutable="false">
             <classMoniker
@@ -472,14 +462,6 @@
           </generalization>
         </generalsInternal>
       </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="69db2740-af37-4308-93d2-61d8cd906257"
-        name="Settings"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -557,9 +539,19 @@
         isLeaf="false"
         isActiveClass="false">
         <description>занимается сохранение настроек во flash память</description>
+        <generalsInternal>
+          <generalization
+            Id="0d779a78-e373-49f7-bd1b-b9e1f502ff33"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a45eecea-47a5-4beb-8c36-43e520f53afc"
+              LastKnownName="ios_thread"
+              LastKnownLocation="architecture.uml" />
+          </generalization>
+        </generalsInternal>
         <targetEnds>
           <association
-            Id="7201f87b-f760-46e0-9f9b-cc0925331ea4"
+            Id="bc4e0c75-b593-4b93-9dcc-2442cf283a7e"
             isDerived="false"
             sourceEndRoleName="Flash_manager"
             targetEndRoleName="Settings"
@@ -572,7 +564,7 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="f48c1836-f6c7-403e-b445-d40db08d39e3"
+                  Id="782c5b11-5d32-4dc7-9338-739bc263a913"
                   name="Flash_manager"
                   isLeaf="false"
                   isStatic="false"
@@ -585,7 +577,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="3a180526-a2e4-439c-ab18-fae920c88f7a"
+                  Id="89c43e60-d92f-4bd3-8ddd-120a0886264f"
                   name="Settings"
                   isLeaf="false"
                   isStatic="false"
