@@ -792,6 +792,12 @@
     <Compile Include="source\DSP_vector_q31.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="source\Filter.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\Filter.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="source\Generator_output_signals.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -808,6 +814,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="source\Out_4_20.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\Sinusoid.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\Sinusoid.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="source\Task_manager.cpp">
