@@ -198,7 +198,7 @@ void Axelerometr::configure_spi_master()
 	config_spi_master_adxl.run_in_standby   = false;
 	config_spi_master_adxl.receiver_enable  = true;
 	config_spi_master_adxl.generator_source = GCLK_GENERATOR_1;
-	config_spi_master_adxl.mode_specific.master.baudrate = 2000000;
+	config_spi_master_adxl.mode_specific.master.baudrate = 2100000;
 	//config_spi_master_adxl.master_slave_select_enable = true;
 	config_spi_master_adxl.select_slave_low_detect_enable = false;
 
@@ -262,7 +262,7 @@ static void transfer_rx_done(struct dma_resource* const resource )
 		Axel->buffer_x.Write(Data_from_adxl->DATAX);
 		Axel->buffer_y.Write(Data_from_adxl->DATAY);
 		Axel->buffer_z.Write(Data_from_adxl->DATAZ);
-				
+		
 		/*всегда оставляем  в буфере 1 значение. т.к. после считывания значение уменьшается.*/
 		if (Data_from_adxl->FIFO_STATUS.Entries > 1)
 		{
@@ -283,17 +283,34 @@ static void transfer_rx_done(struct dma_resource* const resource )
 	}
 }
 
+uint32_t avr_data_rate[10];
+
 void Axelerometr::main()
 {
+	uint32_t last_common_count=0;
+	TickType_t last_time =0,current_time =0;
+	uint32_t count=0;
 	for (;;)
 	{
 		SetDMA_State(DMA_READ_ALL_REGISTER_DATA);
 		ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
 		SetDMA_State(DMA_STOP);
+		current_time = xTaskGetTickCount();
+		if (current_time > (last_time + 5000))
+		{
+			avr_data_rate[count++] = (common_count - last_common_count) *1000/(current_time - last_time);
+			last_common_count = common_count;
+			last_time = current_time;
+		}
+		if(count >= 10)
+		{
+			count =0;
+		}		
+		
 		xTaskNotifyGive(x_handle);
 		xTaskNotifyGive(y_handle);
 		xTaskNotifyGive(z_handle);
-		vTaskDelay(5);
+		vTaskDelay(2);
 	}
 }
 

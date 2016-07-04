@@ -147,11 +147,11 @@ ADXL345_SetRegisterValue(ADXL345_BW_RATE, 0xF);
 delay_us(30);
 
 //Interrupt map - INT1
-ADXL345_SetRegisterValue(ADXL345_INT_MAP, 0x0);
+ADXL345_SetRegisterValue(ADXL345_INT_MAP, ADXL345_DATA_READY);
 delay_us(30);
 
 //Interrupt pins is active low
-ADXL345_SetRegisterValue(ADXL345_DATA_FORMAT, ADXL345_INT_INVERT | ADXL345_FULL_RES | ADXL345_RANGE(0x0));
+ADXL345_SetRegisterValue(ADXL345_DATA_FORMAT, ADXL345_INT_INVERT | ADXL345_FULL_RES |  ADXL345_RANGE(0x3));
 //ADXL345_SetRegisterValue(ADXL345_DATA_FORMAT, 0x0);
 delay_us(30);
 
@@ -161,7 +161,7 @@ ADXL345_SetRegisterValue(ADXL345_FIFO_CTL, ADXL345_FIFO_MODE(ADXL345_FIFO_STREAM
 delay_us(30);
 
 //Interrupt Enable
-//ADXL345_SetRegisterValue(ADXL345_INT_ENABLE, ADXL345_DATA_READY);
+ADXL345_SetRegisterValue(ADXL345_INT_ENABLE, ADXL345_DATA_READY);
 delay_us(30);
 
 //Set power to measure mode
