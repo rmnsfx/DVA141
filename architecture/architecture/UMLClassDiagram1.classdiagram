@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7a00ff-fdbc-41e2-b17e-41f4da0bc803" name="UMLClassDiagram1" linkedPackageId="7e08a497-de30-448b-84b1-53778f9f9c71" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="cc7a00ff-fdbc-41e2-b17e-41f4da0bc803" name="UMLClassDiagram1" linkedPackageId="7e08a497-de30-448b-84b1-53778f9f9c71" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="95a3be8b-a272-402b-a5fe-e7ed1d20bf25" name="modbus" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -22,39 +22,11 @@
       <class Id="a3df6d4f-dd9b-4dbb-8d2b-b65d1c482791" name="Axelerometr" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="a05c1887-f19c-4178-886b-07df0a0c77c8" />
         <suppliersInternal>
-          <dependency Id="c50bac73-090f-48fc-a239-fa2d2d7b8c5c">
-            <classMoniker Id="955c168c-bf08-46c0-8c45-732e03b85eaf" LastKnownName="SPI driver ADXL" />
-            <elementDefinition Id="296f2e45-ecfd-42c3-a88a-19e7c72ded4c" />
+          <dependency Id="ded82475-1de7-4bb6-93f0-0c1dce949b3e">
+            <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="Settings" />
+            <elementDefinition Id="ad5d6b2e-9b7d-432d-8870-b598566c4058" />
           </dependency>
         </suppliersInternal>
-        <targetEnds>
-          <association Id="6873a292-ecaf-4e75-9c06-846e237ac3c2" isDerived="false" sourceEndRoleName="Axelerometr" targetEndRoleName="Signal_processing" isLeaf="false" isAbstract="false">
-            <classMoniker Id="0f7b7187-212a-40c6-8876-96a57fb6617d" LastKnownName="Axis_signal" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="6a524ae6-5d2b-4f31-8c8c-7a5570667a06" name="Axelerometr" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="a868f16f-afea-455c-be5e-70747e92148b" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="9c07a3cf-95dd-4e08-bbcd-1138747ba6b6" name="Signal_processing" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <lowerValueInternal>
-                    <literalString Id="12e676e1-85c6-422c-819b-8a1c69667903" name="Lower" value="3">
-                      <elementDefinition Id="4e059e72-575e-4559-8585-e5be5f0dd1b7" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="2e40f33b-f820-41f6-88fc-e4a1d5a35e59" name="Upper" value="3">
-                      <elementDefinition Id="7f665668-ea26-4341-8120-5a5015319fa6" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="aabc3eb9-d34b-424a-a74d-ac87d574b687" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="d7fa93c0-8270-4293-9e1a-4f013e54e4d4" />
-          </association>
-        </targetEnds>
         <ownedOperationsInternal>
           <operation Id="c6b283ce-fd0c-4378-bb42-704771113b46" name="X" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="17fe13c4-9b9b-41e3-8100-a9059aa0d1d2" />
@@ -95,18 +67,10 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="5977a2da-243f-4db0-9ed2-f6352b1d7d30" name="ReadData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cdd7173f-b85e-47c1-967d-3b65b5ce799e" />
+          </operation>
         </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="0f7b7187-212a-40c6-8876-96a57fb6617d" name="Axis_signal" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="53153019-b593-4892-8b61-e3c0bf9f84f8" />
-        <suppliersInternal>
-          <dependency Id="34c00d0c-0081-4d1c-b4e6-66653fbcf048">
-            <classMoniker Id="9c047805-b691-41b6-ba2d-bc936f010899" LastKnownName="DSP lib" />
-            <elementDefinition Id="9a75c83c-1850-47fb-8b53-e5fed4fae576" />
-          </dependency>
-        </suppliersInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -116,17 +80,9 @@
 так и из данных по нескольким осям(вектор)</description>
         <elementDefinition Id="f226abb2-23d8-4e54-962e-cb4ca303d291" />
         <suppliersInternal>
-          <dependency Id="c78ff5e8-5ec1-48c3-b386-99f2fa5f3297">
-            <classMoniker Id="0f7b7187-212a-40c6-8876-96a57fb6617d" LastKnownName="Axis_signal" />
-            <elementDefinition Id="99274c11-329e-471d-944f-36ad8b9dd733" />
-          </dependency>
-          <dependency Id="830b75f0-f5b1-4e00-9a36-14dfc736f55e">
-            <classMoniker Id="9c047805-b691-41b6-ba2d-bc936f010899" LastKnownName="DSP lib" />
-            <elementDefinition Id="df11e095-736c-4fce-9895-4401b1c851e2" />
-          </dependency>
-          <dependency Id="5a2b70b6-d567-46e7-84af-3d8f7c865878">
-            <classMoniker Id="02c7acf5-2698-4e34-9edc-4f70298d605c" LastKnownName="SPI driver DAC" />
-            <elementDefinition Id="2a7e5891-5058-4b71-a6f7-69a7dcffb4e0" />
+          <dependency Id="aba765aa-ea57-4b7d-85de-41e45c355d23">
+            <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="Settings" />
+            <elementDefinition Id="633541e1-56d4-43de-b308-6b3c9e5060e3" />
           </dependency>
         </suppliersInternal>
       </class>
@@ -151,60 +107,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" name="Settings" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b" />
-        <targetEnds>
-          <association Id="084e0c36-3144-4bf4-babb-05a6380d1ee6" isDerived="false" sourceEndRoleName="iSettings" targetEndRoleName="Generator_output_signals" isLeaf="false" isAbstract="false">
-            <classMoniker Id="e15885c8-9ed9-4530-b94f-8a2eaa59380f" LastKnownName="Generator_output_signals" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="6e76a651-4c89-4e29-bd87-2c6ee045accd" name="iSettings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="7fe31c25-9600-4939-946f-9d87f4f8bf51" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="4bd545f3-2967-47a8-a567-21a64e1a6dbd" name="Generator_output_signals" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="f87bc9a2-29a8-48c3-98be-dfdf26e040d8" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="4da774c4-fbcc-4f34-99ad-92dd4ee2b7e4" />
-          </association>
-          <association Id="8125c4cd-a9aa-46ab-8546-c72ca8b5bdbb" isDerived="false" sourceEndRoleName="iSettings" targetEndRoleName="Axis_signal" isLeaf="false" isAbstract="false">
-            <classMoniker Id="0f7b7187-212a-40c6-8876-96a57fb6617d" LastKnownName="Axis_signal" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="30c0d06c-a86b-4a80-94f9-1054180c7d45" name="iSettings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="3d949dea-77c1-4d5e-9c86-72adc2ce5f22" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="58dc9342-6589-4cb7-b745-87b53993091b" name="Axis_signal" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <lowerValueInternal>
-                    <literalString Id="d857a75a-bfc2-4eaf-9b9c-26eb8e9b2f3e" name="Lower" value="3">
-                      <elementDefinition Id="be8e2de4-1758-401f-a89f-e92d4fa03b52" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="d5743584-7aa3-4b30-b5ae-fe623b9b6ea1" name="Upper" value="3">
-                      <elementDefinition Id="fcb85950-10a9-40ba-b2d4-d5278ff8c154" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="2c6cc509-d0cc-48fb-93ef-0cf28d0eea68" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="0161a9e5-8d99-4479-8e6d-3bcb3d469528" />
-          </association>
-        </targetEnds>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="02c7acf5-2698-4e34-9edc-4f70298d605c" name="SPI driver DAC" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="b8985f71-3506-4686-b5a7-ecbcbd011b0e" />
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="955c168c-bf08-46c0-8c45-732e03b85eaf" name="SPI driver ADXL" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="4c0164fd-ab54-4dd0-8864-e1c6b365a585" />
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -213,13 +115,14 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="9c047805-b691-41b6-ba2d-bc936f010899" name="DSP lib" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="4f2e2cc2-fd52-4cbe-b179-c8ac97765098" />
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
       <class Id="c4eb504c-33b7-4f0f-9977-2f1d9a0346f3" name="Dout" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="f04fce85-849b-4655-8f48-c1c5e87e6046" />
+        <suppliersInternal>
+          <dependency Id="c78d7f16-c69c-432c-89a1-f8a950ca03cd">
+            <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="Settings" />
+            <elementDefinition Id="84533935-b2b5-4e3b-9d96-e45601ec91d0" />
+          </dependency>
+        </suppliersInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -246,87 +149,9 @@
         </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="758f4dbd-0d76-4017-8de4-f51c1d53b639" name="Vibro_movement" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="16886ff6-e380-481c-97dc-0745478852e8" />
-        <generalsInternal>
-          <generalization Id="5116c2c8-655c-4f56-bd86-c980dc7fa4c3" isSubstitutable="false">
-            <classMoniker Id="69d97634-1804-4847-b845-4c9383b1f75c" LastKnownName="Vibro_speed" />
-            <elementDefinition Id="d46bd70f-8c06-4f31-8e00-4badc74c3d23" />
-          </generalization>
-        </generalsInternal>
-        <ownedOperationsInternal>
-          <operation Id="f3e789f2-215e-4ad0-be90-f7b858751925" name="vibro_movement" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="15dc89f9-bdcc-4520-97f3-35b0eaa0de6a" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="98865c7e-7ce1-4ace-ac72-9572b208123d" name="speed" direction="In">
-                  <elementDefinition Id="6d4036ea-cd35-4ac0-9efe-9bcf37d188dd" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="9cf62ddf-11b8-4414-8962-c32df83c5a42" LastKnownName="Vibro_speed" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="41c09b26-35ad-4dbe-a6c1-9620fb210ddb" name="WaitReady" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="3a00dcf3-6b3f-4ed1-aa6f-dc35593a8cf6" />
-          </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="69d97634-1804-4847-b845-4c9383b1f75c" name="Vibro_speed" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3" />
-        <generalsInternal>
-          <generalization Id="20cd93c3-6683-4687-8433-259eb2b70610" isSubstitutable="false">
-            <classMoniker Id="a9d9fe38-e946-4de7-aca5-8e1c19513cb3" LastKnownName="Vibro_acceleration" />
-            <elementDefinition Id="6b825392-38ba-4a13-98b6-9fa6c09c9569" />
-          </generalization>
-        </generalsInternal>
-        <ownedOperationsInternal>
-          <operation Id="355691dc-9467-4797-8420-558dad9c7ae8" name="vibro_speed" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="24224a5a-3ad5-4ebe-b114-18dbe141cc1d" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="72a3662d-d7ae-4bb4-b46c-5230d5a841dd" name="acceleration" direction="In">
-                  <elementDefinition Id="8521b307-87e4-4070-948d-91dd2937c94e" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="435cd8a9-7f36-4e8d-9042-bbb9b42fc3dd" LastKnownName="Vibro_acceleration" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="1934922a-e5b1-4862-9bf3-8c8a41bba858" name="WaitReady" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="181e1c31-cccb-4401-983e-b7a9432a35b4" />
-          </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="a9d9fe38-e946-4de7-aca5-8e1c19513cb3" name="Vibro_acceleration" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="b922e86a-9e34-4607-85e5-4485fc89516e" />
-        <ownedOperationsInternal>
-          <operation Id="4ea73f1e-dc02-4524-93d9-e40b27f71af3" name="WaitReady" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="6432510a-1fb7-45aa-afef-38441321f470" />
-          </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
       <referencedType Id="737b3a5e-b34a-4793-9862-25aac32a6c43" name="Axis" isAbstract="false" isLeaf="false" cachedFullName="architecture::Axis">
         <elementDefinition Id="51a9cd10-37eb-440e-a68b-0b1862c060a2" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="435cd8a9-7f36-4e8d-9042-bbb9b42fc3dd" name="Vibro_acceleration" isAbstract="false" isLeaf="false" cachedFullName="architecture::Vibro_acceleration">
-        <elementDefinition Id="b922e86a-9e34-4607-85e5-4485fc89516e" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="9cf62ddf-11b8-4414-8962-c32df83c5a42" name="Vibro_speed" isAbstract="false" isLeaf="false" cachedFullName="architecture::Vibro_speed">
-        <elementDefinition Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

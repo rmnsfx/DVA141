@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>data_from_adxl.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="Protocols.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Protocols.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Protocols.classdiagram</DependentUpon>
+    </Content>
     <Content Include="Signals.classdiagram">
       <SubType>Content</SubType>
     </Content>

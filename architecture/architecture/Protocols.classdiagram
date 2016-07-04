@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="58d73428-412a-4e49-9477-5c604fc6b0be" name="Hart_protocol" linkedPackageId="906a4658-d7bd-47ab-a268-41279ed51a4c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="1851b0dc-31bb-4d3f-bb20-68824d66956f">
+      <profileInstance Id="78762d33-4dd9-49a8-b34c-7955a96753a9" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="a8b55d55-8385-4275-a758-527a44ea49fc">
+      <profileInstance Id="88d0a6b0-7e56-4cda-aeee-d1882988a4c7" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="baf5f619-39a5-4716-b131-19041488854f" name="Hart" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f1138489-2cbb-49af-8091-f7299403fbc0" />
+        <generalsInternal>
+          <generalization Id="62ded54e-3a16-4ffa-b607-a7f7283fd6b0" isSubstitutable="false">
+            <classMoniker Id="36687235-dd52-4bc2-9f22-0c47c69c9841" LastKnownName="Settings" />
+            <elementDefinition Id="382ba825-9fd3-49b9-9526-e2d5301970df" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="50c3c920-a52e-4f48-8fb5-f01d5e9dfb55" name="Generator_output_signals" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <description>имеет методы для выбора алгоритма формирования выходного сигнала, 
+сигнал может формироваться как из данных по одной оси, 
+так и из данных по нескольким осям(вектор)</description>
+        <elementDefinition Id="f226abb2-23d8-4e54-962e-cb4ca303d291" />
+        <suppliersInternal>
+          <dependency Id="1d3a5f16-9ac5-4839-ae09-9869131bacdd">
+            <classMoniker Id="36687235-dd52-4bc2-9f22-0c47c69c9841" LastKnownName="Settings" />
+            <elementDefinition Id="633541e1-56d4-43de-b308-6b3c9e5060e3" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="779d3e21-c9c6-4aee-baf2-a63b3c9b34c9" name="Dout" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f04fce85-849b-4655-8f48-c1c5e87e6046" />
+        <suppliersInternal>
+          <dependency Id="9e5a8130-ea0b-4d85-b238-cb1321b94d41">
+            <classMoniker Id="36687235-dd52-4bc2-9f22-0c47c69c9841" LastKnownName="Settings" />
+            <elementDefinition Id="84533935-b2b5-4e3b-9d96-e45601ec91d0" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9ecbaf90-2ee4-4543-8cea-eb08c5ea4767" name="Axelerometr" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a05c1887-f19c-4178-886b-07df0a0c77c8" />
+        <suppliersInternal>
+          <dependency Id="1c26547f-62fb-4034-b3e4-e7405d46d2fc">
+            <classMoniker Id="36687235-dd52-4bc2-9f22-0c47c69c9841" LastKnownName="Settings" />
+            <elementDefinition Id="ad5d6b2e-9b7d-432d-8870-b598566c4058" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="3a0241df-117f-40ab-bd88-6558e1778486" name="X" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="17fe13c4-9b9b-41e3-8100-a9059aa0d1d2" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="75cbb894-406d-4788-ac91-97b975719ab9" direction="Return">
+                  <elementDefinition Id="a084e316-fdf5-4233-9717-06c6e6272f53" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="15d795a4-f852-44fc-bb56-fce6c5adce03" LastKnownName="Axis" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="254011c4-4fdd-4a46-83b5-5e545ffa03f6" name="Y" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6c53e38f-9c60-4414-ad67-3b6981111a53" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f64a5380-4109-4015-9ede-376a9b528254" direction="Return">
+                  <elementDefinition Id="663fbf3f-3027-4bed-a4a8-aa43724e2160" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="15d795a4-f852-44fc-bb56-fce6c5adce03" LastKnownName="Axis" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e35e2f0b-55f3-46d0-8960-d522db4d334f" name="Z" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f396ecb4-09a6-409e-8aff-29e5d34eca49" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2a384495-c20b-4bb9-99ae-f6f059082a6c" direction="Return">
+                  <elementDefinition Id="b1764680-d5c3-456a-b091-6bedfc443127" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="15d795a4-f852-44fc-bb56-fce6c5adce03" LastKnownName="Axis" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="92a1cf67-750e-4174-b494-1cb72df74e53" name="ReadData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cdd7173f-b85e-47c1-967d-3b65b5ce799e" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="15d795a4-f852-44fc-bb56-fce6c5adce03" name="Axis" isAbstract="false" isLeaf="false" cachedFullName="architecture::Axis">
+        <elementDefinition Id="51a9cd10-37eb-440e-a68b-0b1862c060a2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="36687235-dd52-4bc2-9f22-0c47c69c9841" name="Settings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c5751a62-62e8-45b9-a0a6-aedec68a5956" name="modbus" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="98a62649-a331-42b6-b2be-d49695f2b187" />
+        <generalsInternal>
+          <generalization Id="2842cd6b-6d18-4110-8de2-cec5b9865fab" isSubstitutable="false">
+            <classMoniker Id="36687235-dd52-4bc2-9f22-0c47c69c9841" LastKnownName="Settings" />
+            <elementDefinition Id="ea48fd25-caf4-490b-8b2b-86bd40ad4378" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="906a4658-d7bd-47ab-a268-41279ed51a4c" name="architecture">
+    <elementDefinition Id="1f9149f4-aa07-4e2f-b33b-5b496330a735" />
+  </package>
+</logicalClassDesignerModel>
