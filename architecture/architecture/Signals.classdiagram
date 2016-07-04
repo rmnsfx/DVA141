@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="490fef2b-34c8-4016-8a14-94c550449888" name="ReadyNotification" linkedPackageId="67b68fd4-0cea-4d12-8214-600d867e4639" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="490fef2b-34c8-4016-8a14-94c550449888" name="ReadyNotification" linkedPackageId="67b68fd4-0cea-4d12-8214-600d867e4639" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <description>метод для расчета параметров</description>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
@@ -305,6 +305,22 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="089d5461-b308-4e34-88f2-40ba8db4f523" />
           </association>
+          <association Id="8b1923de-6f68-4545-95f3-afc2a62d4479" isDerived="false" sourceEndRoleName="Axis" targetEndRoleName="Filter" isLeaf="false" isAbstract="false">
+            <classMoniker Id="5f03b567-c0d2-473a-ac50-d036aa870ddf" LastKnownName="Filter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ec24c502-7224-473c-b3e8-ace2d13b4dbc" name="Axis" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="97e474f1-03b2-4b1d-99e7-4a504ad511bb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3cf111de-36af-4a57-8122-4bb1f7f8b260" name="Filter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="434ae113-db5c-4ac7-b02a-82f3d0a9817d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="437e38b2-d283-4098-9d60-805f0f43084f" />
+          </association>
         </targetEnds>
         <ownedOperationsInternal>
           <operation Id="b90be127-8c7d-4947-a540-14a4737b3557" name="A" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -434,6 +450,16 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="77de2065-0271-44dc-89f4-82255e859747" name="ios_thread" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="a45eecea-47a5-4beb-8c36-43e520f53afc" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5f03b567-c0d2-473a-ac50-d036aa870ddf" name="Filter" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="129d3945-2a21-47de-b7c1-7fb6e185a927" />
+        <ownedOperationsInternal>
+          <operation Id="a0968e28-d892-49c0-9480-905d87548acc" name="Filtering" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cd1e47ef-db9b-48ed-987a-e3e90db93eda" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
