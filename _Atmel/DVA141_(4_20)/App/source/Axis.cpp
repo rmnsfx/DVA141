@@ -8,16 +8,17 @@
 #include "Axis.h"
 #include "Axelerometr_buffer.h"
 
-
+/*конвертирует и пересэмплирует*/
 void Axis::ConvertToVector_q31(axis_data_t* data, size_t datasize, DSP_vector_q31& vector_signal)
 {
 	float value;
 	int32_t size = datasize > vector_signal.size() ? vector_signal.size() : datasize;
 	float32_t tmp = 0;
-	for (int32_t i = 0; i < size; i++)
+	for (int32_t i = 0; i < size; i+=2)
 	{
 		tmp = data->value *0.0039;
 		vector_signal[i] = tmp;
+		vector_signal[i+1] = 0;
 	}
 }
 
@@ -40,7 +41,7 @@ void Axis::main(void)
 	axis_data_t data[32];
 	uint32_t count = 0;
 	size_t read_count=0;
-	DSP::DSP_vector_q31 vector_data(32);
+	DSP::DSP_vector_q31 vector_data(64);
 	while(1)
 	{
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
@@ -50,10 +51,18 @@ void Axis::main(void)
 		{
 			/*сконвертировать данные в вектор q31*/
 			ConvertToVector_q31(data, 32, vector_data);
+			/*передискретизация данных*/
+			
 			/*отфильтровать данные*/
+			
 			/*расчет параметров виброускорения*/
+			
 			/*расчет параметров виброскорости*/
-			/*расчет параметров виброуперемещения*/
+			
+			/*расчет параметров виброперемещения*/
+			
+			/*расчет параметров векторных сигналов*/
+			
 			count = 0;
 		}
 	}
