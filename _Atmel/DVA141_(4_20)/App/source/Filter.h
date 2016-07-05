@@ -10,7 +10,6 @@
 #define FILTER_H_
 
 #include "arm_math.h"
-#include "DSP_vector_q31.h"
 
 class Filter
 {
@@ -19,10 +18,13 @@ class Filter
 	static const float32_t pCoeffs[10] ;
 	
 	arm_biquad_cas_df1_32x64_ins_q31 instatnse_filter;
+
 	q63_t pStates[8];
-	public:
+	protected:
+	 
+	public:		
 		Filter();
-		void Filtering(DSP_vector_q31& destination, DSP_vector_q31& source);
+		void Filtering(q31_t* destination, q31_t* source, size_t size);
 		virtual ~Filter();
 	};
 

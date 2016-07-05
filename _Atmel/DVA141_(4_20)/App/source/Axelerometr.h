@@ -14,7 +14,7 @@
 #include "os_wrapper.h"
 #include "Vibro_acceleration.h"
 #include "singleton.h"
-#include "DSP_vector_q31.h"
+
 
 
 #define SIZE_ADXL_BUFFER  (32)

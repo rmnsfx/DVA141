@@ -11,6 +11,7 @@
 #include "Axelerometr.h"
 #include "Axis.h"
 #include "os_wrapper.h"
+#include "TestFilter.h"
 
 #define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY )
 
@@ -208,6 +209,9 @@ void Device::Run(void)
 {
 	system_init();
 	os_wrapper& os = *os_wrapper::getInstance();
+	
+	//TestFilter* test_filter = new TestFilter();
+	//os.threadCreate(test_filter);
 	
 	Axelerometr& axl = *Axelerometr::getInstance();
 	os.threadCreate(&axl);

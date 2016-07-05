@@ -6,30 +6,43 @@
 */
 
 #include "Filter.h"
+#include <cmath>
 
 //в знаменателе необходимо инвертировать знаки
-const float32_t Filter::pCoeffs[10] = {
 
-	0.6413771412884,	 0,					-0.6413771412884,
-	1.972233500942,	-0.9726187287542,
+//static const float32_t gain[2] = { 0.5107605809916,  0.3729818195101 };
+//static const float32_t coef[10] = {1, 2, 1, -0.5654500738938, -0.4775922500725,1, 2, 1, -0.412918704481,  -0.07900857355927} ; 
 
-	0.6413771412884,	0,					-0.6413771412884,
-	-0.4569532855558,	-0.2117293533411,
-};
+static const float32_t gain[2] = { 0.6413771412884,  0.6413771412884 };
+static const float32_t coef[10] = {1, 0, -1, 1.972233500942, -0.9726187287542, 1, 0, -1, -0.4569532855558, -0.2117293533411} ;
+
+static q31_t coef_q31[10];
 
 Filter::Filter()
 {
 	float32_t coef_f32 [10];
-	q31_t coef_q31[10];
-	for (int i = 0; i < 10; i++) coef_f32[i] = pCoeffs[i] / 2;
+	int8_t shift = 4;
+	uint32_t scale = pow(2, shift);
+	for (int i = 0; i < 2; i++)
+	{
+		 coef_f32[i*5] = coef[i*5] * gain[i] / scale ;
+		 coef_f32[i*5 + 1] = coef[i*5 + 1] * gain[i] / scale;
+		 coef_f32[i*5 + 2] = coef[i*5 + 2] * gain[i] / scale;
+		 coef_f32[i*5 + 3] = coef[i*5 + 3] / scale; 
+		 coef_f32[i*5 + 4] = coef[i*5 + 4] / scale;
+	}
 	arm_float_to_q31(coef_f32, coef_q31, 10);
-	arm_biquad_cas_df1_32x64_init_q31(&instatnse_filter, numStages, (q31_t *) &coef_q31, pStates, 1);
+	for (int i=0; i < 8 ;i++) 
+	{ 
+		pStates[i] =0;
+	}
+	arm_biquad_cas_df1_32x64_init_q31(&instatnse_filter, numStages, coef_q31, pStates, shift);
 }
 
-void Filter::Filtering(DSP_vector_q31& destination, DSP_vector_q31& source)
+
+void Filter::Filtering(q31_t* destination, q31_t* source, size_t size)
 {
-	uint32_t size = source.size() > destination.size() ? destination.size() : source.size();
-	arm_biquad_cas_df1_32x64_q31(&instatnse_filter, &source[0], &destination[0], size);
+	arm_biquad_cas_df1_32x64_q31(&instatnse_filter, source, destination, size);
 }
 
 Filter::~Filter()

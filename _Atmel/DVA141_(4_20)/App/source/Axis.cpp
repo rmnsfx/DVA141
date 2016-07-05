@@ -9,26 +9,23 @@
 #include "Axelerometr_buffer.h"
 
 /*конвертирует и пересэмплирует (увеличение дискретизации)*/
-void Axis::UpSample( DSP_vector_q31& data, DSP_vector_q31& vector_signal)
+void Axis::UpSample( q31_t* data, q31_t* vector_signal, size_t size)
 {
-	float value;
-	int32_t size = data.size() > vector_signal.size()/2 ? vector_signal.size()/2 : data.size();
+	float value;	
 	float32_t tmp = 0;
 	for (int32_t i = 0; i < size; i++)
 	{
 		tmp = data[i] *0.0039;
 		vector_signal[2*i] = 0;
-		vector_signal[2*i+1] = tmp;
+		vector_signal[2*i + 1] = tmp;
 	}
 }
 
 /*конвертирует значения*/
-void Axis::Convert_to_acc(axis_data_t* data, size_t datasize, DSP_vector_f32& vector_signal)
+void Axis::Convert_to_acc(float32_t* vector_signal, axis_data_t* data, size_t vector_signal_size)
 {
-	float value;
-	int32_t size = datasize > vector_signal.size() ? vector_signal.size() : datasize;
 	float32_t tmp = 0;
-	for (int32_t i = 0; i < size; i++)
+	for (int32_t i = 0; i < vector_signal_size; i++)
 	{
 		tmp = data->value *0.0039;
 		vector_signal[i] = tmp;
@@ -52,16 +49,18 @@ void TestUpsample()
 	
 }
 
+#define COUNT_POINT_TO_CALCULATE (32)  /*количество точек для расчета*/
+
 void Axis::main(void)
 {
 	os_wrapper& os = *os_wrapper::getInstance();
-	axis_data_t data[32];
+	axis_data_t data[COUNT_POINT_TO_CALCULATE];
+	float32_t value_acc_f32[COUNT_POINT_TO_CALCULATE];
+	q31_t value_acc_q31[COUNT_POINT_TO_CALCULATE];
+	q31_t signal[2*COUNT_POINT_TO_CALCULATE]; //готовый сигнал для вычисления значения и интегрированию
+
 	uint32_t count = 0;
-	size_t read_count=0;
-	DSP::DSP_vector_f32 value_acc_f32(32);
-	DSP::DSP_vector_q31 value_acc_q31(32);
-	DSP::DSP_vector_q31 signal(64); //готовый сигнал для вычисления значения и интегрированию
-	DSP::DSP_vector_q31 rms_vector(1);
+	size_t read_count = 0;
 	size_t max_index;
 	size_t min_index;
 	q31_t rms;
@@ -75,16 +74,16 @@ void Axis::main(void)
 		if(count == 32)
 		{
 			/*сконвертировать данные в вектор f32*/
-			Convert_to_acc(data, 32, value_acc_f32);			
-			value_acc_f32.Scale(0.01, value_acc_f32);
-			rms_f32_before = value_acc_f32.RMS();
-			DSP_converter::f32_to_q31(value_acc_q31, value_acc_f32);			
-			
+			Convert_to_acc(value_acc_f32, data, COUNT_POINT_TO_CALCULATE);	
+			arm_scale_f32(value_acc_f32, 0.01,value_acc_f32,COUNT_POINT_TO_CALCULATE);		
+			arm_rms_f32(value_acc_f32, COUNT_POINT_TO_CALCULATE, &rms_f32_before);
+			arm_float_to_q31(value_acc_f32, value_acc_q31, COUNT_POINT_TO_CALCULATE);
+				
 			/*передискретизация данных*/
-			UpSample(value_acc_q31, signal);			
+			UpSample(value_acc_q31, signal, COUNT_POINT_TO_CALCULATE);			
 			
 			/*отфильтровать данные*/
-			filter.Filtering(signal, signal);
+			filter.Filtering(signal, signal, 2*COUNT_POINT_TO_CALCULATE);
 			
 			//signal.Scale(1, signal);
 			
@@ -93,8 +92,8 @@ void Axis::main(void)
 			
 			
 			/*расчет параметров виброускорения*/
-			rms = signal.RMS();
-			DSP_converter::q31_to_f32(rms_f32, rms);
+			arm_rms_q31(signal, 2*COUNT_POINT_TO_CALCULATE, &rms);
+			arm_q31_to_float(&rms, &rms_f32, 1);
 			/*расчет параметров виброскорости*/
 			
 			/*расчет параметров виброперемещения*/
