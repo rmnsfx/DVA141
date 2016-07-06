@@ -15,26 +15,24 @@
 #define sampleSize 64 //кол-во отсчетов в выборке
 #define sampleScale 20 //диапазон для масштабирования в q31 и расчета коэф. преобр. в ЦАП
 
-class iSignal:public ios_thread
+class iSignal
 {
-	
 	protected:
-	
-	static q31_t Amplitude;
-	static q31_t RMS;
-	static q31_t PeakToPeak;
+	volatile q31_t amplitude;
+	volatile q31_t rms;
+	volatile q31_t peakToPeak;
 	
 	public:
-			
-	iSignal(const char* const ThreadName = "iSignal", osPriority_t priority =
-	osThreadPriorityNormal, uint32_t stack = 0);
-	void main(void);
-	~iSignal();	
 	
-	static void getAmplitude(q31_t *inn);
-	static void getPeakToPeak(q31_t *inn);
-	static void getRMS(q31_t *inn);
+	iSignal();
 	
+	virtual	~iSignal();
+	
+	virtual q31_t Amplitude();
+	
+	virtual q31_t PeakToPeak();
+	
+	virtual q31_t RMS();
 };
 
 

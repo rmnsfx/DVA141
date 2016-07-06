@@ -12,6 +12,7 @@
 #include "Axis.h"
 #include "os_wrapper.h"
 #include "TestFilter.h"
+#include "Generator_output_signals.h"
 
 #define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY )
 
@@ -215,6 +216,10 @@ void Device::Run(void)
 	
 	Axelerometr& axl = *Axelerometr::getInstance();
 	os.threadCreate(&axl);
+	
+	Generator_output_signals* out =  new Generator_output_signals();
+	os.threadCreate(out);
+	
 	axl.X();
 	xTaskCreate(TestTask, "TestTask", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 2*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);
