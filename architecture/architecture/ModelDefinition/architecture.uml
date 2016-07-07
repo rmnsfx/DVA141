@@ -333,6 +333,13 @@
               LastKnownName="Settings"
               LastKnownLocation="architecture.uml" />
           </dependency>
+          <dependency
+            Id="cc10ca73-21fc-4b30-b4dc-001495b0d0da">
+            <classMoniker
+              Id="a05c1887-f19c-4178-886b-07df0a0c77c8"
+              LastKnownName="Axelerometr"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -381,46 +388,6 @@
                   isDerivedUnion="false"
                   aggregation="None"
                   isComposite="true" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="7e2244b6-ca99-4167-9547-4afbd40fcefa"
-            isDerived="false"
-            sourceEndRoleName="Generator_output_signals"
-            targetEndRoleName="iSignal"
-            isLeaf="false"
-            name="установлен"
-            isAbstract="false">
-            <classMoniker
-              Id="57fe728e-11d3-4477-a6c1-55fffe2dfe86"
-              LastKnownName="iSignal"
-              LastKnownLocation="architecture.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="3bc8e336-5799-4206-a1d1-594ce5f94ebc"
-                  name="Generator_output_signals"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="295aa57b-eef3-4e73-995c-28d1efcdbdfa"
-                  name="iSignal"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>

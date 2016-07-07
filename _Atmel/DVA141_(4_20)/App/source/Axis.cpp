@@ -74,7 +74,7 @@ void TestUpsample()
 	
 }
 
-#define COUNT_POINT_TO_CALCULATE (32)  /*количество точек для расчета*/
+#define COUNT_POINT_TO_CALCULATE (SIGNAL_BUFFER_SIZE / 2)  /*количество точек для расчета*/
 
 void Axis::main(void)
 {
@@ -86,9 +86,12 @@ void Axis::main(void)
 
 	uint32_t count = 0;
 	size_t read_count = 0;
-	size_t max_index;
-	size_t min_index;
+
 	q31_t rms;
+	
+	q31_t amp_q31;
+	float32_t amp_f32;
+	float32_t value_acc_f32_befor[2*COUNT_POINT_TO_CALCULATE];
 	float32_t rms_f32_before;
 	float32_t rms_f32;
 	float32_t rms_f32_2;
@@ -97,31 +100,41 @@ void Axis::main(void)
 	while(1)
 	{
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-		read_count = buffer.Read((data + count), 32 - count);
+		read_count = buffer.Read((data + count), COUNT_POINT_TO_CALCULATE - count);
 		count += read_count;
-		if(count == 32)
+		if(count == COUNT_POINT_TO_CALCULATE)
 		{
 			/*конвертируем данные + повышаем дискретизацию*/
 			FastConvertUpSample(data, signal, COUNT_POINT_TO_CALCULATE);
-			
+									
 			/*отфильтровать данные*/
 			filter.Filtering(signal, signal, 2*COUNT_POINT_TO_CALCULATE);
-			
+						
 			/*умножить значения на 2 из-за upsample*/
 			//signal.Scale(3, signal);
+			acceleration.Calculate(signal, 2*COUNT_POINT_TO_CALCULATE);
 			
+			amp_q31 = acceleration.Amplitude();
+			arm_q31_to_float(&amp_q31, &amp_f32, 1);
+			amp_f32 *=32;
+			amp_f32 =amp_f32 * 9.81;
 			arm_q31_to_float(signal, value_acc_f32, 2*COUNT_POINT_TO_CALCULATE);
 			arm_rms_f32(value_acc_f32, 2*COUNT_POINT_TO_CALCULATE, &rms_f32_2);
 			
 			/*расчет параметров виброускорения*/
 			arm_rms_q31(signal, 2*COUNT_POINT_TO_CALCULATE, &rms);
-			rms *=16;
+			rms *=16 ;
 			arm_q31_to_float(&rms, &rms_f32, 1);
 			/*расчет параметров виброскорости*/
 			
 			/*расчет параметров виброперемещения*/
 			
 			/*расчет параметров векторных сигналов*/
+			
+			for (int i=0; i< COUNT_POINT_TO_CALCULATE; i++ )
+			{ 
+				value_acc_f32_befor[i] = 0.0039 * data[i].value;
+			}
 			
 			count = 0;
 		}

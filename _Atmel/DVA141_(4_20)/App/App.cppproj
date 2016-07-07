@@ -753,6 +753,12 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="source\AD5421.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\AD5421.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="source\Axelerometr.cpp">
       <SubType>compile</SubType>
     </Compile>

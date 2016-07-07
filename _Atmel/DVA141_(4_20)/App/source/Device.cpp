@@ -217,8 +217,8 @@ void Device::Run(void)
 	Axelerometr& axl = *Axelerometr::getInstance();
 	os.threadCreate(&axl);
 	
-	Generator_output_signals* out =  new Generator_output_signals();
-	os.threadCreate(out);
+	//Generator_output_signals* out = Generator_output_signals::getInstance();
+	//os.threadCreate(out);
 	
 	axl.X();
 	xTaskCreate(TestTask, "TestTask", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY, NULL);

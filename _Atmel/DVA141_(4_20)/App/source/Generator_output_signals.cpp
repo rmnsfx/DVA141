@@ -11,18 +11,26 @@
 #include "os_wrapper.h"
 
 
- Generator_output_signals::Generator_output_signals(void)
+void Generator_output_signals::SetCurrent(uint16_t value)
 {
-
+		port_pin_set_output_level(PIN_PA24, 0);
+		AD5421::AD5421_SetRegisterValue(AD5421_REG_DAC_DATA, value);
+		port_pin_set_output_level(PIN_PA24, 1);
 }
 
- Generator_output_signals::~Generator_output_signals(void)
+Generator_output_signals::Generator_output_signals(void)
+{
+	AD5421::AD5421_Init();
+}
+
+Generator_output_signals::~Generator_output_signals(void)
 {
 
 }
 
 uint32_t Generator_output_signals::dacConverter(q31_t &src)
 {
+	return 0;
 	float32_t temp1 = 0.0;
 	float32_t temp2 = 0.0;
 	
@@ -32,25 +40,28 @@ uint32_t Generator_output_signals::dacConverter(q31_t &src)
 	
 	temp2 = sampleScale / (float32_t) 65535;
 	//temp2 = 16 / (float32_t) (65536 - 16384);
-	
-	
 	return (uint32_t) (temp1 / temp2);
-	
 }
 
 void Generator_output_signals::main()
 {
 	os_wrapper& os = *os_wrapper::getInstance();
 	Axelerometr& axel = *Axelerometr::getInstance();
-	uint16_t dacData = 0;
 	q31_t value;
+	uint16_t val_reg = 0;
+	uint16_t dacData = 32768;
+	AD5421::AD5421_SetRegisterValue(AD5421_REG_OFFSET, dacData);
+	dacData = 65535;
+	AD5421::AD5421_SetRegisterValue(AD5421_REG_GAIN, dacData);
 	for (;;)
 	{
 		os.delay(100);
 		value = axel.Z().A().Amplitude();
-		dacData = Generator_output_signals::dacConverter(value);
-		AD5421::AD5421_SetRegisterValue(AD5421_REG_DAC_DATA, dacData);
-		loadDAC();
+		dacData = Generator_output_signals::dacConverter(value) ; 
+		SetCurrent(dacData);		
+		val_reg = AD5421::AD5421_GetRegisterValue(AD5421_REG_OFFSET);
+		val_reg = AD5421::AD5421_GetRegisterValue(AD5421_REG_GAIN);
+		val_reg = AD5421::AD5421_GetRegisterValue(AD5421_REG_DAC_DATA);		
 	}
 }
 
@@ -59,9 +70,9 @@ void Generator_output_signals::main()
 void Generator_output_signals::loadDAC()
 {
 	port_pin_set_output_level(PIN_PA24, 0);
-	os_wrapper& os = *os_wrapper::getInstance();
-	os.delay(1);
-	//for(int i=0; i<2500; i++){};
+	//os_wrapper& os = *os_wrapper::getInstance();
+	//os.delay(1);
+	for(int i=0; i<2500; i++){};
 	port_pin_set_output_level(PIN_PA24, 1);
 }
 

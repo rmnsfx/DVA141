@@ -64,7 +64,7 @@ void AD5421::configure_spi_master_AD5421(void)
 	config_spi_master.run_in_standby   = false;
 	config_spi_master.receiver_enable  = true;
 	config_spi_master.generator_source = GCLK_GENERATOR_1;
-	config_spi_master.mode_specific.master.baudrate = 1000000;
+	config_spi_master.mode_specific.master.baudrate = 2000000;
 	config_spi_master.master_slave_select_enable = true;
 	config_spi_master.select_slave_low_detect_enable = false;
 	

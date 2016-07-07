@@ -13,10 +13,10 @@
 #define GENERATOR_OUTPUT_SIGNALS_H_
 
 
-class Generator_output_signals: public ios_thread
+class Generator_output_signals:  public Singleton<Generator_output_signals>, public ios_thread
 {		
 	private:
-		
+	void SetCurrent(uint16_t value);	
 	public:
 
 	Generator_output_signals(void);
@@ -29,6 +29,9 @@ class Generator_output_signals: public ios_thread
 	static void outputRMS(iSignal &signal);
 	static void outputPeakToPeak(iSignal &signal);
 	static void loadDAC(void);		
+	
+	protected:
+	friend class Singleton<Generator_output_signals> ;
 };
 
 

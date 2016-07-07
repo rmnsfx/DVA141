@@ -10,7 +10,7 @@
 #define AXL_BUFFER_H_
 
 #include "Axelerometr_types.h"
-#define AXELEROMETER_BUFFER_SIZE (100)
+#define AXELEROMETER_BUFFER_SIZE (64)
 class Axelerometr_buffer
 {
 	axis_data_t buffer[AXELEROMETER_BUFFER_SIZE];

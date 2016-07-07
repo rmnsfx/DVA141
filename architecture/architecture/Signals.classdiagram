@@ -395,38 +395,6 @@
         <elementDefinition Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3" />
       </referencedType>
     </packageHasNamedElement>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="5e9e891b-2fd2-4ffc-ad46-a2051077819a" name="Generator_output_signals" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <description>имеет методы для выбора алгоритма формирования выходного сигнала, 
-сигнал может формироваться как из данных по одной оси, 
-так и из данных по нескольким осям(вектор)</description>
-        <elementDefinition Id="f226abb2-23d8-4e54-962e-cb4ca303d291" />
-        <generalsInternal>
-          <generalization Id="d529bfdf-1cc8-4f08-b907-55a354505340" isSubstitutable="false">
-            <classMoniker Id="77de2065-0271-44dc-89f4-82255e859747" LastKnownName="ios_thread" />
-            <elementDefinition Id="c1c9d19f-ff3a-4d79-992d-5f22c42d9151" />
-          </generalization>
-        </generalsInternal>
-        <targetEnds>
-          <association Id="647972c2-59eb-44da-ad61-d24241e43dc4" isDerived="false" sourceEndRoleName="Generator_output_signals" targetEndRoleName="iSignal" isLeaf="false" name="установлен" isAbstract="false">
-            <classMoniker Id="1f312fc9-2dce-4df9-bf89-e76878535922" LastKnownName="iSignal" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="8ef3faa3-ae47-411e-a9d7-0e4d29640b97" name="Generator_output_signals" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="3bc8e336-5799-4206-a1d1-594ce5f94ebc" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="e208ec10-c7cb-4918-bcff-72ad5f7b11e6" name="iSignal" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="295aa57b-eef3-4e73-995c-28d1efcdbdfa" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="7e2244b6-ca99-4167-9547-4afbd40fcefa" />
-          </association>
-        </targetEnds>
-      </class>
-    </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
       <referencedType Id="1f60e03b-2276-46c1-bf97-a5b77f2af987" name="Vibro_speed" isAbstract="false" isLeaf="false" cachedFullName="architecture::Vibro_speed">
         <elementDefinition Id="847b77d8-e9ac-4708-93bc-7dfe1081aea3" />
@@ -445,11 +413,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="1957ea3a-7145-48cd-afc6-cf18f2998058" name="Axelerometr_buffer" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6057eb6e-46e9-4b6d-93da-ad6936bc9b8f" />
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="77de2065-0271-44dc-89f4-82255e859747" name="ios_thread" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="a45eecea-47a5-4beb-8c36-43e520f53afc" />
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>

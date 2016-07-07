@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="cc7a00ff-fdbc-41e2-b17e-41f4da0bc803" name="UMLClassDiagram1" linkedPackageId="7e08a497-de30-448b-84b1-53778f9f9c71" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7a00ff-fdbc-41e2-b17e-41f4da0bc803" name="UMLClassDiagram1" linkedPackageId="7e08a497-de30-448b-84b1-53778f9f9c71" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="95a3be8b-a272-402b-a5fe-e7ed1d20bf25" name="modbus" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -83,6 +83,10 @@
           <dependency Id="aba765aa-ea57-4b7d-85de-41e45c355d23">
             <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="Settings" />
             <elementDefinition Id="633541e1-56d4-43de-b308-6b3c9e5060e3" />
+          </dependency>
+          <dependency Id="b6ca4e71-a80b-47a0-a567-cfff15ce28f6">
+            <classMoniker Id="a3df6d4f-dd9b-4dbb-8d2b-b65d1c482791" LastKnownName="Axelerometr" />
+            <elementDefinition Id="cc10ca73-21fc-4b30-b4dc-001495b0d0da" />
           </dependency>
         </suppliersInternal>
       </class>

@@ -283,30 +283,13 @@ static void transfer_rx_done(struct dma_resource* const resource )
 	}
 }
 
-uint32_t avr_data_rate[10];
-
 void Axelerometr::main()
 {
-	uint32_t last_common_count=0;
-	TickType_t last_time =0,current_time =0;
-	uint32_t count=0;
 	for (;;)
 	{
 		SetDMA_State(DMA_READ_ALL_REGISTER_DATA);
 		ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
-		SetDMA_State(DMA_STOP);
-		current_time = xTaskGetTickCount();
-		if (current_time > (last_time + 5000))
-		{
-			avr_data_rate[count++] = (common_count - last_common_count) *1000/(current_time - last_time);
-			last_common_count = common_count;
-			last_time = current_time;
-		}
-		if(count >= 10)
-		{
-			count =0;
-		}		
-		
+		SetDMA_State(DMA_STOP);		
 		xTaskNotifyGive(x_handle);
 		xTaskNotifyGive(y_handle);
 		xTaskNotifyGive(z_handle);
