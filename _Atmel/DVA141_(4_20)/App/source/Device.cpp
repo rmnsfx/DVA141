@@ -11,6 +11,8 @@
 #include "Axelerometr.h"
 #include "Axis.h"
 #include "os_wrapper.h"
+#include "TestFilter.h"
+#include "Generator_output_signals.h"
 
 #define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY )
 
@@ -199,8 +201,7 @@ void Device::RunTimeStatsTask(void *pvParameters)
 		count_set = common_count - last_common_count;
 		last_common_count = common_count;
 		vTaskGetRunTimeStats(statsss);
-		vTaskDelay(1000);
-		
+		vTaskDelay(1000);		
 	}
 }
 
@@ -209,8 +210,15 @@ void Device::Run(void)
 	system_init();
 	os_wrapper& os = *os_wrapper::getInstance();
 	
+	//TestFilter* test_filter = new TestFilter();
+	//os.threadCreate(test_filter);
+	
 	Axelerometr& axl = *Axelerometr::getInstance();
 	os.threadCreate(&axl);
+	
+	//Generator_output_signals* out = Generator_output_signals::getInstance();
+	//os.threadCreate(out);
+	
 	axl.X();
 	xTaskCreate(TestTask, "TestTask", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY, NULL);
 	xTaskCreate(RunTimeStatsTask, "RunTimeStat", 2*configMINIMAL_STACK_SIZE, (void *)"RunTimeStat", mainQUEUE_SEND_TASK_PRIORITY, NULL);

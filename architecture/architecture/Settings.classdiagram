@@ -84,6 +84,10 @@
             <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="Settings" />
             <elementDefinition Id="633541e1-56d4-43de-b308-6b3c9e5060e3" />
           </dependency>
+          <dependency Id="ca6875b2-2a21-48cb-9e60-a79882cd7e62">
+            <classMoniker Id="a3df6d4f-dd9b-4dbb-8d2b-b65d1c482791" LastKnownName="Axelerometr" />
+            <elementDefinition Id="8d6b307c-01f0-40e7-bcf5-9fceacb5fcf5" />
+          </dependency>
         </suppliersInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -121,6 +125,10 @@
           <dependency Id="c78d7f16-c69c-432c-89a1-f8a950ca03cd">
             <classMoniker Id="c65305a9-be2f-47fd-8d40-f95373e40ae6" LastKnownName="Settings" />
             <elementDefinition Id="84533935-b2b5-4e3b-9d96-e45601ec91d0" />
+          </dependency>
+          <dependency Id="c5671d90-b94c-4ba5-8a34-1e9c70175169">
+            <classMoniker Id="a3df6d4f-dd9b-4dbb-8d2b-b65d1c482791" LastKnownName="Axelerometr" />
+            <elementDefinition Id="79c04f00-ee9c-4255-87e3-558d9ac9a9e0" />
           </dependency>
         </suppliersInternal>
       </class>

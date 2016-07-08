@@ -29,12 +29,26 @@
       <SubType>Content</SubType>
       <DependentUpon>data_from_adxl.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="Device.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Device.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Device.classdiagram</DependentUpon>
+    </Content>
     <Content Include="Flash_manager.classdiagram">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Flash_manager.classdiagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>Flash_manager.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Output_4_20.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Output_4_20.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Output_4_20.classdiagram</DependentUpon>
     </Content>
     <Content Include="Signals.classdiagram">
       <SubType>Content</SubType>

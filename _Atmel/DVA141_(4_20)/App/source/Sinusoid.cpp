@@ -258,12 +258,12 @@ void Sinusoid::Sinus_filter32points(void *pvParameters)
 		
 		arm_float_to_q31(tempp, tempp2, 64);				
 		
-		iSignal sig;				
-		sig.getAmplitude(tempp2);
-		sig.getPeakToPeak(tempp2);
-		sig.getRMS(tempp2);
+		//iSignal sig;				
+		//sig.getAmplitude(tempp2);
+		//sig.getPeakToPeak(tempp2);
+		//sig.getRMS(tempp2);
 									
-		Generator_output_signals::outputAmplitude(sig);		
+		//Generator_output_signals::outputAmplitude(sig);		
 		//Generator_output_signals::outputPeakToPeak(sig);		
 		//Generator_output_signals::outputRMS(sig);		
 				

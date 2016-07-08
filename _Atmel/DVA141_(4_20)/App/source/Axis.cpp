@@ -8,18 +8,54 @@
 #include "Axis.h"
 #include "Axelerometr_buffer.h"
 
-/*конвертирует и пересэмплирует*/
-void Axis::ConvertToVector_q31(axis_data_t* data, size_t datasize, DSP_vector_q31& vector_signal)
+
+#define RESOLUTION (0.0039)   // Its high resolution (3.9 mg/LSB)
+#define BASE_MATH (2147483648) //
+#define CONVERSION_RATIO (BASE_MATH * RESOLUTION / DEVIDER_RATIO )  //коэффициент преобразования значения axis_data_t в тип q31_t (для ускорения работы не применяет тип float)
+
+/*конвертирует и пересэмплирует (увеличение дискретизации)*/
+void Axis::UpSample( q31_t* data, q31_t* vector_signal, size_t size)
 {
 	float value;
-	int32_t size = datasize > vector_signal.size() ? vector_signal.size() : datasize;
 	float32_t tmp = 0;
-	for (int32_t i = 0; i < size; i+=2)
+	for (int32_t i = 0; i < size; i++)
+	{
+		tmp = data[i] * 0.0039;
+		vector_signal[2*i] = 0;
+		vector_signal[2*i + 1] = tmp;
+	}
+}
+
+
+/*конвертирует и пересэмплирует (увеличение дискретизации)*/
+void Axis::FastConvertUpSample( axis_data_t* data, q31_t* vector_signal, size_t size_data)
+{
+	float value;
+	float32_t tmp = 0;
+	for (int32_t i = 0; i < size_data; i++)
+	{
+		tmp = data[i].value * CONVERSION_RATIO;
+		vector_signal[2*i] = 0;
+		vector_signal[2*i + 1] = tmp;
+	}
+}
+
+
+/*конвертирует значения*/
+void Axis::Convert_to_acc(float32_t* vector_signal, axis_data_t* data, size_t vector_signal_size)
+{
+	float32_t tmp = 0;
+	for (int32_t i = 0; i < vector_signal_size; i++)
 	{
 		tmp = data->value *0.0039;
 		vector_signal[i] = tmp;
-		vector_signal[i+1] = 0;
+		data++;
 	}
+}
+
+iSignal& Axis::A()
+{
+	return acceleration;
 }
 
 Axis::Axis(const char* name, Axelerometr_buffer& buffer): ios_thread(name, osThreadPriorityNormal, AXIS_STACK_SIZE),buffer(buffer)
@@ -33,35 +69,84 @@ Axis::Axis(const char* name, Axelerometr_buffer& buffer): ios_thread(name, osThr
 //
 //}
 
+void TestUpsample()
+{
+	
+}
 
+#define COUNT_POINT_TO_CALCULATE (SIGNAL_BUFFER_SIZE / 2)  /*количество точек для расчета*/
 
 void Axis::main(void)
 {
 	os_wrapper& os = *os_wrapper::getInstance();
-	axis_data_t data[32];
+	axis_data_t data[COUNT_POINT_TO_CALCULATE];
+	float32_t value_acc_f32[2*COUNT_POINT_TO_CALCULATE];
+	q31_t value_acc_q31[COUNT_POINT_TO_CALCULATE];
+	q31_t signal[2*COUNT_POINT_TO_CALCULATE]; //готовый сигнал для вычисления значения и интегрированию
+
 	uint32_t count = 0;
-	size_t read_count=0;
-	DSP::DSP_vector_q31 vector_data(64);
+	size_t read_count = 0;
+
+	q31_t rms;
+	
+	q31_t amp_q31;
+	float32_t amp_f32;
+	float32_t value_acc_f32_befor[2*COUNT_POINT_TO_CALCULATE];
+	float32_t rms_f32_before;
+	float32_t rms_f32;
+	float32_t rms_f32_2;
+	float32_t rms_f32_ready;
+	q31_t rms_q31_ready;
+	
+	float32_t tmp;
+	axis_data_t tmp_data;
 	while(1)
 	{
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-		read_count = buffer.Read((data + count), 32 - count);
+		read_count = buffer.Read((data + count), COUNT_POINT_TO_CALCULATE - count);
 		count += read_count;
-		if(count == 32)
+		if (count == COUNT_POINT_TO_CALCULATE)
 		{
-			/*сконвертировать данные в вектор q31*/
-			ConvertToVector_q31(data, 32, vector_data);
-			/*передискретизация данных*/
-			
+			/*конвертируем данные + повышаем дискретизацию*/
+			FastConvertUpSample(data, signal, COUNT_POINT_TO_CALCULATE);
+									
 			/*отфильтровать данные*/
+			filter.Filtering(signal, signal, 2*COUNT_POINT_TO_CALCULATE);
+						
+			/*умножить значения на 2 из-за повышения дискретизации*/
+			//signal.Scale(3, signal);
 			
-			/*расчет параметров виброускорения*/
+			acceleration.Calculate(signal, 2*COUNT_POINT_TO_CALCULATE);
+		
 			
-			/*расчет параметров виброскорости*/
-			
-			/*расчет параметров виброперемещения*/
-			
-			/*расчет параметров векторных сигналов*/
+			//amp_q31 = acceleration.Amplitude();		
+			//
+			//arm_q31_to_float(&amp_q31, &amp_f32, 1);
+			//amp_f32 *= DEVIDER_RATIO * 2;
+			//amp_f32 =amp_f32 *  10 ;//9.81;
+			//
+			//rms_q31_ready = acceleration.RMS();
+			//arm_q31_to_float(&rms_q31_ready, &rms_f32_ready, 1);
+			//rms_f32_ready *= DEVIDER_RATIO * 2;
+			//rms_f32_ready = rms_f32_ready* 10 ;// 9.81;
+			//
+			//arm_q31_to_float(signal, value_acc_f32, 2*COUNT_POINT_TO_CALCULATE);
+			//arm_rms_f32(value_acc_f32, 2*COUNT_POINT_TO_CALCULATE, &rms_f32_2);
+			//
+			///*расчет параметров виброускорения*/
+			//arm_rms_q31(signal, 2*COUNT_POINT_TO_CALCULATE, &rms);
+			//rms *=16 ;
+			//arm_q31_to_float(&rms, &rms_f32, 1);
+			///*расчет параметров виброскорости*/
+			//
+			///*расчет параметров виброперемещения*/
+			//
+			///*расчет параметров векторных сигналов*/
+			//
+			//for (int i=0; i< COUNT_POINT_TO_CALCULATE; i++ )
+			//{ 
+				//value_acc_f32_befor[i] = 0.0039 * data[i].value;
+			//}
 			
 			count = 0;
 		}

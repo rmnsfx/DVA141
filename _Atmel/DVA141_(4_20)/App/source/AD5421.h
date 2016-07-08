@@ -52,12 +52,7 @@
 
 class AD5421
 {
-//variables
-public:
-protected:
-private:
 
-//functions
 public:
 
 	static void AD5421_SetRegisterValue(uint8_t regAddress, uint16_t regValue);
@@ -69,13 +64,13 @@ public:
 	static void SPI_Write_AD5421(uint8_t* data);
 	static void SPI_Read_AD5421(uint8_t* data);
 
-	AD5421();
-	~AD5421();
+	//AD5421();
+	//~AD5421();
 protected:
 	
 private:
-	AD5421( const AD5421 &c );
-	AD5421& operator=( const AD5421 &c );
+	//AD5421( const AD5421 &c );
+	//AD5421& operator=( const AD5421 &c );
 
 }; //AD5421
 

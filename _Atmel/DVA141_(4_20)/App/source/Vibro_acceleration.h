@@ -11,10 +11,16 @@
 
 #include "iSignal.h"
 
+//#define ACCELERATION_BUFFER_SIZE (32)
+
+
 class Vibro_acceleration: public iSignal
 {
+
+	
 	public:
 	Vibro_acceleration();
+
 	};
 
 

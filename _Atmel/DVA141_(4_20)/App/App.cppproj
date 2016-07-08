@@ -753,6 +753,12 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="source\AD5421.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\AD5421.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="source\Axelerometr.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -780,16 +786,10 @@
     <Compile Include="source\Device.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="source\DSP_converter.h">
+    <Compile Include="source\Filter.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="source\DSP_vector_base.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="source\DSP_vector_f32.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="source\DSP_vector_q31.h">
+    <Compile Include="source\Filter.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="source\Generator_output_signals.cpp">
@@ -810,10 +810,22 @@
     <Compile Include="source\Out_4_20.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="source\Sinusoid.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\Sinusoid.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="source\Task_manager.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="source\Task_manager.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\TestFilter.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\TestFilter.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="source\Vibro_acceleration.cpp">

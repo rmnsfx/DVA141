@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="68e7cede-03ef-41af-8193-0f8c30f84135" name="Output_4_20" linkedPackageId="7a1c0b9d-f423-40d6-bede-3dcb483528eb" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f6861ff9-199b-4b20-99e8-3c41ae44793e" name="Axelerometr" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a05c1887-f19c-4178-886b-07df0a0c77c8" />
+        <generalsInternal>
+          <generalization Id="45b6d3bf-ecd7-430b-be9d-78a56d78d3f5" isSubstitutable="false">
+            <classMoniker Id="fe441f68-1510-48f9-aba1-697f5226d68f" LastKnownName="ios_thread" />
+            <elementDefinition Id="02a630da-cc50-48ac-81e6-1458910b7d24" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="6b6c1199-0f21-43eb-b7f7-54c89ed06662" name="X" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="17fe13c4-9b9b-41e3-8100-a9059aa0d1d2" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c0ae3867-2f27-41c2-b537-002a4f817b95" direction="Return">
+                  <elementDefinition Id="a084e316-fdf5-4233-9717-06c6e6272f53" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c39e2f92-7a5f-4763-a3f2-e42b8fb1dffe" LastKnownName="Axis" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="29f15be6-30f2-42ca-a737-ba8e03eb9a15" name="Y" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6c53e38f-9c60-4414-ad67-3b6981111a53" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4fc7d5fa-97a1-4e1f-a469-507768e8cfe3" direction="Return">
+                  <elementDefinition Id="663fbf3f-3027-4bed-a4a8-aa43724e2160" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c39e2f92-7a5f-4763-a3f2-e42b8fb1dffe" LastKnownName="Axis" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="56871c94-540b-427f-b4fb-fb5a9081fc20" name="Z" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f396ecb4-09a6-409e-8aff-29e5d34eca49" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5657c86f-9a33-4f41-a0da-cb4d986a423d" direction="Return">
+                  <elementDefinition Id="b1764680-d5c3-456a-b091-6bedfc443127" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c39e2f92-7a5f-4763-a3f2-e42b8fb1dffe" LastKnownName="Axis" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="798961f9-174c-45bf-a476-2bd1aec9d906" name="ReadData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cdd7173f-b85e-47c1-967d-3b65b5ce799e" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="c39e2f92-7a5f-4763-a3f2-e42b8fb1dffe" name="Axis" isAbstract="false" isLeaf="false" cachedFullName="architecture::Axis">
+        <elementDefinition Id="51a9cd10-37eb-440e-a68b-0b1862c060a2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6dcaf9e2-02a3-43b0-8b0f-617196f718ab" name="Generator_output_signals" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <description>имеет методы для выбора алгоритма формирования выходного сигнала, 
+сигнал может формироваться как из данных по одной оси, 
+так и из данных по нескольким осям(вектор)</description>
+        <elementDefinition Id="f226abb2-23d8-4e54-962e-cb4ca303d291" />
+        <suppliersInternal>
+          <dependency Id="6592ba66-902f-41b2-8b5b-c3129cfce3ee">
+            <classMoniker Id="f6861ff9-199b-4b20-99e8-3c41ae44793e" LastKnownName="Axelerometr" />
+            <elementDefinition Id="8d6b307c-01f0-40e7-bcf5-9fceacb5fcf5" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization Id="78bbea45-3ab7-4938-be96-bfb2b345d7a8" isSubstitutable="false">
+            <classMoniker Id="fe441f68-1510-48f9-aba1-697f5226d68f" LastKnownName="ios_thread" />
+            <elementDefinition Id="c1c9d19f-ff3a-4d79-992d-5f22c42d9151" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fe441f68-1510-48f9-aba1-697f5226d68f" name="ios_thread" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a45eecea-47a5-4beb-8c36-43e520f53afc" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="7a1c0b9d-f423-40d6-bede-3dcb483528eb" name="architecture">
+    <elementDefinition Id="1f9149f4-aa07-4e2f-b33b-5b496330a735" />
+    <profileInstances>
+      <packageHasProfileInstances Id="478c1a78-fb97-4335-8b37-70779d38aec8">
+        <profileInstance Id="6fe2f3cc-a86e-4947-a2f7-cbd31dbe9f63" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="9c20889b-1737-45f5-9043-381296ea63c8">
+        <profileInstance Id="283e49a1-2df4-4cf2-937d-cacc45fa94be" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="13e3a448-0468-4bf5-bd0d-3c9fc8c6dc13" name="Device" linkedPackageId="47c032a7-50f9-4678-83d2-0b5af19acb02" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="f66df576-0a2d-489a-82a9-d26c8fd3747d">
+      <profileInstance Id="d4260a85-bebe-4033-b114-7f8de4d90cec" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="16ece5f3-ff62-4e5f-989a-0bc25a2190ec">
+      <profileInstance Id="edb71709-4b1c-4ac2-847a-428f91c947e1" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="75897840-d748-4cf6-b5b7-a54104708529" name="Device" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bd216941-7ff3-4953-802d-5a9f6908e7c4" />
+        <targetEnds>
+          <association Id="e6e04f98-83b8-42ba-b561-40cd831bfff2" isDerived="false" sourceEndRoleName="Device" targetEndRoleName="Generator_output_signals" isLeaf="false" name="Запускает в устройстве с выходом 4-20" isAbstract="false">
+            <classMoniker Id="5018e273-3489-4ca2-9de8-18e5782501ec" LastKnownName="Generator_output_signals" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b8c71dd0-7d11-4b5b-9808-b5481ab8816c" name="Device" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="93e4a34f-b7d2-4c03-a1b5-f28cf96bb759" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4593c976-d1b5-4687-ad82-b545c64e49be" name="Generator_output_signals" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="bb8f7552-a776-44d8-be66-9d22b640f446" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="158b16f6-15be-4873-8020-b57f6a3b3394" />
+          </association>
+          <association Id="c824a9db-8ab4-4c82-89a1-78d383e98c4a" isDerived="false" sourceEndRoleName="Device" targetEndRoleName="Axelerometr" isLeaf="false" isAbstract="false">
+            <classMoniker Id="99d6ed13-69f9-490a-a14c-e8371943ef11" LastKnownName="Axelerometr" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="923edb2e-7f95-469f-afbd-ee0db1a15247" name="Device" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c272d67e-0ee9-4efc-9998-3976bcea5d6c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b8c39469-b4bb-4ce7-bc2a-24719854dc37" name="Axelerometr" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="61b4ebb5-e811-4fb2-b594-b0f0b917962e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f76bed5b-ac17-4455-b9c3-6116aeaa3b61" />
+          </association>
+          <association Id="6bf94f64-17ac-4e04-91c9-0cf846dc7903" isDerived="false" sourceEndRoleName="Device" targetEndRoleName="Task_manager" isLeaf="false" isAbstract="false">
+            <classMoniker Id="4436ed0a-e4a6-4047-a8a8-f6cab5e241ba" LastKnownName="Task_manager" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="28073e24-f433-4799-bf93-157f1ee50d20" name="Device" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="096db6e4-5b55-4d8a-9921-9c0418b38806" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="63222e5d-62b3-4f14-acf1-3f447e2b78c2" name="Task_manager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2a4761a8-2de8-4944-80b1-11a37923d7ce" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1a11e857-0e12-491d-9bd1-961421f1314f" />
+          </association>
+          <association Id="9a0fe8b4-06cd-42e7-924f-22a6facc8c6c" isDerived="false" sourceEndRoleName="Device" targetEndRoleName="Dout" isLeaf="false" name="запускается в устройстве с выходом RS-485" isAbstract="false">
+            <classMoniker Id="c12f5087-7e2c-41c0-8279-1508ff4899da" LastKnownName="Dout" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d1374c62-9800-4b48-84aa-a35eac842c28" name="Device" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d4c68717-ed2e-4b83-bb99-ec2a3e2320e2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cead5094-be55-4cba-9274-e7845750fe23" name="Dout" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f857efd6-b38b-4663-8dad-a04d50bcc629" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a2dd9d67-15e5-4fbb-aebe-36412b35d718" />
+          </association>
+          <association Id="6d58d2d4-7a2d-46f6-89b8-90900a59a89e" isDerived="false" sourceEndRoleName="Device" targetEndRoleName="Flash_manager" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e9c5d0c8-b020-4b52-8c3f-04225086e333" LastKnownName="Flash_manager" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="01f32951-5190-4fbe-a38e-9d60c5f1a7e4" name="Device" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="901d3f23-9de8-4303-a789-aa110f965961" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="97713fd8-21e3-4503-b129-975068c6f371" name="Flash_manager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d1ed6151-5d60-4ac9-b0bb-b244a0ead3c6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1b047374-8362-427c-b184-02db2c2d0a39" />
+          </association>
+          <association Id="9211727b-e25e-4020-99c0-0b45f3ee9f3f" isDerived="false" sourceEndRoleName="Device" targetEndRoleName="modbus" isLeaf="false" name="запускается в устройстве с выходом RS-485" isAbstract="false">
+            <classMoniker Id="c3c2536c-7e42-4cff-8fb9-538de44a51c4" LastKnownName="modbus" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a8649500-5f8c-4dfb-bc4f-9e48aad69ff9" name="Device" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9f652f55-4dbb-45e0-b050-0e4f302756ca" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bb222b0c-4a4e-4589-b92f-4a8b5821c00f" name="modbus" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="66ea7a69-f0aa-49f1-89e0-212ecc185dd1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f3d6d434-8b8b-46a8-b554-3ad5d582f370" />
+          </association>
+          <association Id="ccff9d78-09ef-4939-8ace-ef140903dd64" isDerived="false" sourceEndRoleName="Device" targetEndRoleName="Hart" isLeaf="false" name="Запускает в устройстве с выходом 4-20" isAbstract="false">
+            <classMoniker Id="0bedc4a0-8393-4e24-b22c-7f28f7921982" LastKnownName="Hart" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4a47bb27-3465-4f96-b023-8239992d8cbf" name="Device" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="65b3741d-c385-4519-bab6-a5e581b89e4f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="66377d64-9393-4413-9ee9-dd677bdb6948" name="Hart" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8c67091c-e74e-41ff-bd3d-d849cffe00dd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="977cb88a-5496-47c8-92f6-ba61b1e7bf9c" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="99d6ed13-69f9-490a-a14c-e8371943ef11" name="Axelerometr" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a05c1887-f19c-4178-886b-07df0a0c77c8" />
+        <ownedOperationsInternal>
+          <operation Id="18edbfbe-f8f4-4f04-9c70-9a16a49e0919" name="X" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="17fe13c4-9b9b-41e3-8100-a9059aa0d1d2" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="23769015-5221-4403-b927-9c49edc3b862" direction="Return">
+                  <elementDefinition Id="a084e316-fdf5-4233-9717-06c6e6272f53" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7428cebc-2091-45a1-b66e-e73a4cebe30e" LastKnownName="Axis" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="c7fdbb84-3ca6-4ff9-94a1-6072e0c0e1b4" name="Y" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6c53e38f-9c60-4414-ad67-3b6981111a53" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b341ee4d-7cef-40c3-b7cf-e248f7411e5c" direction="Return">
+                  <elementDefinition Id="663fbf3f-3027-4bed-a4a8-aa43724e2160" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7428cebc-2091-45a1-b66e-e73a4cebe30e" LastKnownName="Axis" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="89a00b5d-a4f4-4c9d-9c8b-df79be7d618f" name="Z" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f396ecb4-09a6-409e-8aff-29e5d34eca49" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="521f3f1b-be58-45f3-aea7-73a0a37eb25d" direction="Return">
+                  <elementDefinition Id="b1764680-d5c3-456a-b091-6bedfc443127" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7428cebc-2091-45a1-b66e-e73a4cebe30e" LastKnownName="Axis" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="89df35b2-8c09-4a1d-8dcd-9d0e05dc7a15" name="ReadData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cdd7173f-b85e-47c1-967d-3b65b5ce799e" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="7428cebc-2091-45a1-b66e-e73a4cebe30e" name="Axis" isAbstract="false" isLeaf="false" cachedFullName="architecture::Axis">
+        <elementDefinition Id="51a9cd10-37eb-440e-a68b-0b1862c060a2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5018e273-3489-4ca2-9de8-18e5782501ec" name="Generator_output_signals" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <description>имеет методы для выбора алгоритма формирования выходного сигнала, 
+сигнал может формироваться как из данных по одной оси, 
+так и из данных по нескольким осям(вектор)</description>
+        <elementDefinition Id="f226abb2-23d8-4e54-962e-cb4ca303d291" />
+        <suppliersInternal>
+          <dependency Id="0bcbaa72-730d-44e9-b3af-04f031461eb8">
+            <classMoniker Id="99d6ed13-69f9-490a-a14c-e8371943ef11" LastKnownName="Axelerometr" />
+            <elementDefinition Id="8d6b307c-01f0-40e7-bcf5-9fceacb5fcf5" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4436ed0a-e4a6-4047-a8a8-f6cab5e241ba" name="Task_manager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c826cb59-7a79-4ac9-bf54-c54a636768be" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c12f5087-7e2c-41c0-8279-1508ff4899da" name="Dout" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f04fce85-849b-4655-8f48-c1c5e87e6046" />
+        <suppliersInternal>
+          <dependency Id="37ba59e6-70a5-4c0e-84b7-db5fa70ec067">
+            <classMoniker Id="99d6ed13-69f9-490a-a14c-e8371943ef11" LastKnownName="Axelerometr" />
+            <elementDefinition Id="79c04f00-ee9c-4255-87e3-558d9ac9a9e0" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e9c5d0c8-b020-4b52-8c3f-04225086e333" name="Flash_manager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <description>занимается сохранение настроек во flash память</description>
+        <elementDefinition Id="74d44d7d-0c86-49fa-be94-e654f9158ebe" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c3c2536c-7e42-4cff-8fb9-538de44a51c4" name="modbus" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="98a62649-a331-42b6-b2be-d49695f2b187" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0bedc4a0-8393-4e24-b22c-7f28f7921982" name="Hart" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f1138489-2cbb-49af-8091-f7299403fbc0" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="47c032a7-50f9-4678-83d2-0b5af19acb02" name="architecture">
+    <elementDefinition Id="1f9149f4-aa07-4e2f-b33b-5b496330a735" />
+  </package>
+</logicalClassDesignerModel>

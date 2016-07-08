@@ -451,7 +451,7 @@ static void transfer_rx_done(struct dma_resource* const resource )
 }
 
 
-
+	uint8_t id=0 ;
 int main (void)
 {
 	volatile char temp = 1;
@@ -472,7 +472,10 @@ int main (void)
 	
 	AD5421_Init();	
 	ADXL345_Init();
-	
+	 
+	 
+	id = ADXL345_GetRegisterValue(ADXL345_DEVID);
+	id++;
 	//configure_extint_channel();		
 	//configure_extint_callbacks();	
 	//system_interrupt_enable_global();

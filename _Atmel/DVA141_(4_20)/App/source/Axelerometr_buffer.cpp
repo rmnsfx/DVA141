@@ -32,7 +32,7 @@ size_t Axelerometr_buffer::Read(axis_data_t* data, size_t data_size)
 	while(current < end)
 	{			
 		*current = buffer[rd_index++];
-		if (rd_index < AXELEROMETER_BUFFER_SIZE)
+		if (rd_index >= AXELEROMETER_BUFFER_SIZE)
 		{
 			rd_index = 0;
 		}		
