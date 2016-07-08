@@ -119,34 +119,34 @@ void Axis::main(void)
 			acceleration.Calculate(signal, 2*COUNT_POINT_TO_CALCULATE);
 		
 			
-			//amp_q31 = acceleration.Amplitude();		
-			//
-			//arm_q31_to_float(&amp_q31, &amp_f32, 1);
-			//amp_f32 *= DEVIDER_RATIO * 2;
-			//amp_f32 =amp_f32 *  10 ;//9.81;
-			//
-			//rms_q31_ready = acceleration.RMS();
-			//arm_q31_to_float(&rms_q31_ready, &rms_f32_ready, 1);
-			//rms_f32_ready *= DEVIDER_RATIO * 2;
-			//rms_f32_ready = rms_f32_ready* 10 ;// 9.81;
-			//
-			//arm_q31_to_float(signal, value_acc_f32, 2*COUNT_POINT_TO_CALCULATE);
-			//arm_rms_f32(value_acc_f32, 2*COUNT_POINT_TO_CALCULATE, &rms_f32_2);
-			//
-			///*расчет параметров виброускорения*/
-			//arm_rms_q31(signal, 2*COUNT_POINT_TO_CALCULATE, &rms);
-			//rms *=16 ;
-			//arm_q31_to_float(&rms, &rms_f32, 1);
-			///*расчет параметров виброскорости*/
-			//
-			///*расчет параметров виброперемещения*/
-			//
-			///*расчет параметров векторных сигналов*/
-			//
-			//for (int i=0; i< COUNT_POINT_TO_CALCULATE; i++ )
-			//{ 
-				//value_acc_f32_befor[i] = 0.0039 * data[i].value;
-			//}
+			amp_q31 = acceleration.Amplitude();		
+			
+			arm_q31_to_float(&amp_q31, &amp_f32, 1);
+			amp_f32 *= DEVIDER_RATIO * 2;
+			amp_f32 =amp_f32 *  10 ;//9.81;
+			
+			rms_q31_ready = acceleration.RMS();
+			arm_q31_to_float(&rms_q31_ready, &rms_f32_ready, 1);
+			rms_f32_ready *= DEVIDER_RATIO * 2;
+			rms_f32_ready = rms_f32_ready* 10 ;// 9.81;
+			
+			arm_q31_to_float(signal, value_acc_f32, 2*COUNT_POINT_TO_CALCULATE);
+			arm_rms_f32(value_acc_f32, 2*COUNT_POINT_TO_CALCULATE, &rms_f32_2);
+			
+			/*расчет параметров виброускорения*/
+			arm_rms_q31(signal, 2*COUNT_POINT_TO_CALCULATE, &rms);
+			rms *=16 ;
+			arm_q31_to_float(&rms, &rms_f32, 1);
+			/*расчет параметров виброскорости*/
+			
+			/*расчет параметров виброперемещения*/
+			
+			/*расчет параметров векторных сигналов*/
+			
+			for (int i=0; i< COUNT_POINT_TO_CALCULATE; i++ )
+			{ 
+				value_acc_f32_befor[i] = 0.0039 * data[i].value;
+			}
 			
 			count = 0;
 		}
