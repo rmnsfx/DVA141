@@ -11,6 +11,8 @@
 
 #include "arm_math.h"
 
+#define DEVIDER_RATIO (512) //делитель значений сигнала используется для фильтра.
+
 class Filter
 {
 	static const uint8_t numStages = 2; 

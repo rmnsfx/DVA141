@@ -21,11 +21,11 @@ static q31_t coef_q31[10];
 Filter::Filter()
 {
 	float32_t coef_f32 [10];
-	int8_t shift = 5;
+	int8_t shift = log2(DEVIDER_RATIO);
 	uint32_t scale = pow(2, shift);
 	for (int i = 0; i < 2; i++)
 	{
-		 coef_f32[i*5] = coef[i*5] * gain[i] / scale ;
+		 coef_f32[i*5] = coef[i*5] * gain[i] / scale;
 		 coef_f32[i*5 + 1] = coef[i*5 + 1] * gain[i] / scale;
 		 coef_f32[i*5 + 2] = coef[i*5 + 2] * gain[i] / scale;
 		 coef_f32[i*5 + 3] = coef[i*5 + 3] / scale; 
