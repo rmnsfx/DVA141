@@ -11,7 +11,7 @@
 
 #include "arm_math.h"
 
-#define DEVIDER_RATIO (512) //делитель значений сигнала используется для фильтра.
+#define DEVIDER_RATIO (256) //делитель значений сигнала используется для фильтра.
 
 class Filter
 {
