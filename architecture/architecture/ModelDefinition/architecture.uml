@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="1f9149f4-aa07-4e2f-b33b-5b496330a735"
   name="architecture" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -334,7 +334,7 @@
               LastKnownLocation="architecture.uml" />
           </dependency>
           <dependency
-            Id="cc10ca73-21fc-4b30-b4dc-001495b0d0da">
+            Id="8d6b307c-01f0-40e7-bcf5-9fceacb5fcf5">
             <classMoniker
               Id="a05c1887-f19c-4178-886b-07df0a0c77c8"
               LastKnownName="Axelerometr"
@@ -483,6 +483,13 @@
             <classMoniker
               Id="0bc3fe5f-abcf-4193-b02a-24eeee47b32b"
               LastKnownName="Settings"
+              LastKnownLocation="architecture.uml" />
+          </dependency>
+          <dependency
+            Id="79c04f00-ee9c-4255-87e3-558d9ac9a9e0">
+            <classMoniker
+              Id="a05c1887-f19c-4178-886b-07df0a0c77c8"
+              LastKnownName="Axelerometr"
               LastKnownLocation="architecture.uml" />
           </dependency>
         </suppliersInternal>
@@ -1620,6 +1627,302 @@
             isQuery="false" />
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bd216941-7ff3-4953-802d-5a9f6908e7c4"
+        name="Device"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="158b16f6-15be-4873-8020-b57f6a3b3394"
+            isDerived="false"
+            sourceEndRoleName="Device"
+            targetEndRoleName="Generator_output_signals"
+            isLeaf="false"
+            name="Запускает в устройстве с выходом 4-20"
+            isAbstract="false">
+            <classMoniker
+              Id="f226abb2-23d8-4e54-962e-cb4ca303d291"
+              LastKnownName="Generator_output_signals"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="93e4a34f-b7d2-4c03-a1b5-f28cf96bb759"
+                  name="Device"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bb8f7552-a776-44d8-be66-9d22b640f446"
+                  name="Generator_output_signals"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f76bed5b-ac17-4455-b9c3-6116aeaa3b61"
+            isDerived="false"
+            sourceEndRoleName="Device"
+            targetEndRoleName="Axelerometr"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a05c1887-f19c-4178-886b-07df0a0c77c8"
+              LastKnownName="Axelerometr"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c272d67e-0ee9-4efc-9998-3976bcea5d6c"
+                  name="Device"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="61b4ebb5-e811-4fb2-b594-b0f0b917962e"
+                  name="Axelerometr"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1a11e857-0e12-491d-9bd1-961421f1314f"
+            isDerived="false"
+            sourceEndRoleName="Device"
+            targetEndRoleName="Task_manager"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c826cb59-7a79-4ac9-bf54-c54a636768be"
+              LastKnownName="Task_manager"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="096db6e4-5b55-4d8a-9921-9c0418b38806"
+                  name="Device"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2a4761a8-2de8-4944-80b1-11a37923d7ce"
+                  name="Task_manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a2dd9d67-15e5-4fbb-aebe-36412b35d718"
+            isDerived="false"
+            sourceEndRoleName="Device"
+            targetEndRoleName="Dout"
+            isLeaf="false"
+            name="запускается в устройстве с выходом RS-485"
+            isAbstract="false">
+            <classMoniker
+              Id="f04fce85-849b-4655-8f48-c1c5e87e6046"
+              LastKnownName="Dout"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d4c68717-ed2e-4b83-bb99-ec2a3e2320e2"
+                  name="Device"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f857efd6-b38b-4663-8dad-a04d50bcc629"
+                  name="Dout"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1b047374-8362-427c-b184-02db2c2d0a39"
+            isDerived="false"
+            sourceEndRoleName="Device"
+            targetEndRoleName="Flash_manager"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="74d44d7d-0c86-49fa-be94-e654f9158ebe"
+              LastKnownName="Flash_manager"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="901d3f23-9de8-4303-a789-aa110f965961"
+                  name="Device"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d1ed6151-5d60-4ac9-b0bb-b244a0ead3c6"
+                  name="Flash_manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f3d6d434-8b8b-46a8-b554-3ad5d582f370"
+            isDerived="false"
+            sourceEndRoleName="Device"
+            targetEndRoleName="modbus"
+            isLeaf="false"
+            name="запускается в устройстве с выходом RS-485"
+            isAbstract="false">
+            <classMoniker
+              Id="98a62649-a331-42b6-b2be-d49695f2b187"
+              LastKnownName="modbus"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9f652f55-4dbb-45e0-b050-0e4f302756ca"
+                  name="Device"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="66ea7a69-f0aa-49f1-89e0-212ecc185dd1"
+                  name="modbus"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="977cb88a-5496-47c8-92f6-ba61b1e7bf9c"
+            isDerived="false"
+            sourceEndRoleName="Device"
+            targetEndRoleName="Hart"
+            isLeaf="false"
+            name="Запускает в устройстве с выходом 4-20"
+            isAbstract="false">
+            <classMoniker
+              Id="f1138489-2cbb-49af-8091-f7299403fbc0"
+              LastKnownName="Hart"
+              LastKnownLocation="architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="65b3741d-c385-4519-bab6-a5e581b89e4f"
+                  name="Device"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c67091c-e74e-41ff-bd3d-d849cffe00dd"
+                  name="Hart"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c826cb59-7a79-4ac9-bf54-c54a636768be"
+        name="Task_manager"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

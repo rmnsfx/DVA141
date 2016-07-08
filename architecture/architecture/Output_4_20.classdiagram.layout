@@ -17,7 +17,7 @@
       </nestedChildShapes>
     </classShape>
     <dependencyConnector edgePoints="[(8.375 : 5.07617186754942); (6 : 5.07617186754942)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
-      <dependencyMoniker Id="e51256cc-06f4-4c70-9dff-a237264d471b" />
+      <dependencyMoniker Id="6592ba66-902f-41b2-8b5b-c3129cfce3ee" />
       <relativeChildShapes />
       <nodes>
         <classShapeMoniker Id="5a34e2a6-9252-43ab-9a02-a06949678a0c" />

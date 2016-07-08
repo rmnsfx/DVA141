@@ -21,7 +21,7 @@ static q31_t coef_q31[10];
 Filter::Filter()
 {
 	float32_t coef_f32 [10];
-	int8_t shift = 4;
+	int8_t shift = 5;
 	uint32_t scale = pow(2, shift);
 	for (int i = 0; i < 2; i++)
 	{

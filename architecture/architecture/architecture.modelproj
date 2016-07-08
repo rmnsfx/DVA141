@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>data_from_adxl.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="Device.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Device.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Device.classdiagram</DependentUpon>
+    </Content>
     <Content Include="Flash_manager.classdiagram">
       <SubType>Content</SubType>
     </Content>

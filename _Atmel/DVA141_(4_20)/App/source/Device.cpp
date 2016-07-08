@@ -201,8 +201,7 @@ void Device::RunTimeStatsTask(void *pvParameters)
 		count_set = common_count - last_common_count;
 		last_common_count = common_count;
 		vTaskGetRunTimeStats(statsss);
-		vTaskDelay(1000);
-		
+		vTaskDelay(1000);		
 	}
 }
 

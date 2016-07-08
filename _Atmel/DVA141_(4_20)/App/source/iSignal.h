@@ -21,9 +21,9 @@
 
 typedef enum
 {
-	AMPLITUDE_INDEX = 0,
+	MAXIMUM_INDEX = 0,
 	RMS_INDEX = 1,	
-	PTP_INDEX = 2,
+	MINIMUM_INDEX = 2,
 	};
 
 class iSignal
@@ -43,6 +43,10 @@ class iSignal
 	
 	public:	
 	iSignal();
+	
+	/*метод переводит значение value в значение int * 1000 
+	например 0,301 в числе q31_t переведется в 301 */
+	int32_t ConvertToInt(q31_t value);
 	
 	virtual	~iSignal();
 	

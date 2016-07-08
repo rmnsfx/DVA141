@@ -95,6 +95,9 @@ void Axis::main(void)
 	float32_t rms_f32_before;
 	float32_t rms_f32;
 	float32_t rms_f32_2;
+	float32_t rms_f32_ready;
+	q31_t rms_q31_ready;
+	
 	float32_t tmp;
 	axis_data_t tmp_data;
 	while(1)
@@ -102,7 +105,7 @@ void Axis::main(void)
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		read_count = buffer.Read((data + count), COUNT_POINT_TO_CALCULATE - count);
 		count += read_count;
-		if(count == COUNT_POINT_TO_CALCULATE)
+		if (count == COUNT_POINT_TO_CALCULATE)
 		{
 			/*конвертируем данные + повышаем дискретизацию*/
 			FastConvertUpSample(data, signal, COUNT_POINT_TO_CALCULATE);
@@ -110,14 +113,22 @@ void Axis::main(void)
 			/*отфильтровать данные*/
 			filter.Filtering(signal, signal, 2*COUNT_POINT_TO_CALCULATE);
 						
-			/*умножить значения на 2 из-за upsample*/
+			/*умножить значения на 2 из-за повышения дискретизации*/
 			//signal.Scale(3, signal);
+			
 			acceleration.Calculate(signal, 2*COUNT_POINT_TO_CALCULATE);
 			
-			amp_q31 = acceleration.Amplitude();
+			amp_q31 = acceleration.Amplitude();		
+			
 			arm_q31_to_float(&amp_q31, &amp_f32, 1);
-			amp_f32 *=32;
+			amp_f32 *= 32;
 			amp_f32 =amp_f32 * 9.81;
+			
+			rms_q31_ready = acceleration.RMS();
+			arm_q31_to_float(&rms_q31_ready, &rms_f32_ready, 1);
+			rms_f32_ready *= 32;
+			rms_f32_ready = rms_f32_ready* 9.81;
+			
 			arm_q31_to_float(signal, value_acc_f32, 2*COUNT_POINT_TO_CALCULATE);
 			arm_rms_f32(value_acc_f32, 2*COUNT_POINT_TO_CALCULATE, &rms_f32_2);
 			
